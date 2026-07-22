@@ -1,0 +1,493 @@
+/* ==========================================================================
+   Queen's Blend
+   File: styles/tokens.css
+   Purpose: Design tokens and semantic theme variables
+   ========================================================================== */
+
+@layer tokens {
+  /* ==========================================================================
+     Brand Tokens (Raw Colors)
+     These should never be referenced directly by components.
+     ========================================================================== */
+
+  :root {
+    /* Brand */
+    --brand-emerald: oklch(0.41 0.09 155);
+    --brand-emerald-light: oklch(0.5 0.09 155);
+    --brand-emerald-dark: oklch(0.32 0.08 155);
+
+    --brand-gold: oklch(0.79 0.11 84);
+    --brand-gold-light: oklch(0.86 0.08 84);
+    --brand-gold-dark: oklch(0.67 0.12 84);
+
+    --brand-ivory: oklch(0.98 0.01 95);
+    --brand-charcoal: oklch(0.25 0.02 260);
+    --brand-tea-brown: oklch(0.48 0.06 55);
+
+    /* Neutral Scale */
+    --neutral-50: oklch(0.99 0.002 95);
+    --neutral-100: oklch(0.97 0.003 95);
+    --neutral-200: oklch(0.93 0.004 95);
+    --neutral-300: oklch(0.88 0.005 95);
+    --neutral-400: oklch(0.73 0.006 95);
+    --neutral-500: oklch(0.58 0.006 95);
+    --neutral-600: oklch(0.45 0.006 95);
+    --neutral-700: oklch(0.34 0.006 95);
+    --neutral-800: oklch(0.24 0.006 95);
+    --neutral-900: oklch(0.16 0.006 95);
+  }
+
+  /* ==========================================================================
+     Semantic Theme (Light)
+     ========================================================================== */
+
+  :root {
+    --background: var(--brand-ivory);
+    --foreground: var(--brand-charcoal);
+
+    --surface: #ffffff;
+    --surface-foreground: var(--foreground);
+
+    --primary: var(--brand-emerald);
+    --primary-foreground: #ffffff;
+
+    --secondary: var(--brand-gold);
+    --secondary-foreground: var(--brand-charcoal);
+
+    --accent: var(--brand-tea-brown);
+    --accent-foreground: #ffffff;
+
+    --muted: var(--neutral-100);
+    --muted-foreground: var(--neutral-600);
+
+    --border: var(--neutral-200);
+    --ring: var(--brand-gold);
+
+    --success: oklch(0.73 0.15 145);
+    --warning: oklch(0.83 0.16 82);
+    --info: oklch(0.7 0.11 240);
+    --destructive: oklch(0.63 0.22 27);
+  }
+
+  /* ==========================================================================
+     Semantic Theme (Dark)
+     ========================================================================== */
+
+  .dark {
+    --background: oklch(0.16 0.015 155);
+    --foreground: oklch(0.96 0.01 95);
+
+    --surface: oklch(0.2 0.015 155);
+    --surface-foreground: var(--foreground);
+
+    --primary: var(--brand-gold);
+    --primary-foreground: var(--brand-charcoal);
+
+    --secondary: var(--brand-emerald-light);
+    --secondary-foreground: #ffffff;
+
+    --accent: var(--brand-gold-dark);
+    --accent-foreground: #ffffff;
+
+    --muted: oklch(0.23 0.01 155);
+    --muted-foreground: oklch(0.72 0.01 95);
+
+    --border: oklch(0.3 0.01 155);
+    --ring: var(--brand-gold);
+
+    --success: oklch(0.73 0.15 145);
+    --warning: oklch(0.83 0.16 82);
+    --info: oklch(0.7 0.11 240);
+    --destructive: oklch(0.63 0.22 27);
+  }
+  /* ==========================================================================
+     Product Palette
+     Use these tokens for product-specific accents, badges, illustrations,
+     packaging details, and category indicators.
+
+     Product colors must not replace the global semantic UI colors.
+     ========================================================================== */
+
+  :root {
+    /* Darjeeling — refined amber */
+    --product-darjeeling: oklch(0.66 0.11 68);
+    --product-darjeeling-soft: oklch(0.93 0.035 72);
+    --product-darjeeling-foreground: oklch(0.3 0.045 60);
+
+    /* Assam — deep malty red-brown */
+    --product-assam: oklch(0.48 0.11 35);
+    --product-assam-soft: oklch(0.91 0.035 38);
+    --product-assam-foreground: oklch(0.28 0.06 32);
+
+    /* Nilgiri — cool mountain blue */
+    --product-nilgiri: oklch(0.59 0.09 225);
+    --product-nilgiri-soft: oklch(0.93 0.025 225);
+    --product-nilgiri-foreground: oklch(0.3 0.055 225);
+
+    /* Green tea — fresh botanical green */
+    --product-green: oklch(0.6 0.12 142);
+    --product-green-soft: oklch(0.94 0.035 142);
+    --product-green-foreground: oklch(0.29 0.06 142);
+
+    /* White tea — warm pearl */
+    --product-white: oklch(0.86 0.045 92);
+    --product-white-soft: oklch(0.97 0.018 92);
+    --product-white-foreground: oklch(0.34 0.035 82);
+
+    /* Oolong — roasted copper */
+    --product-oolong: oklch(0.57 0.1 52);
+    --product-oolong-soft: oklch(0.92 0.035 55);
+    --product-oolong-foreground: oklch(0.29 0.055 48);
+
+    /* Herbal — botanical sage */
+    --product-herbal: oklch(0.65 0.08 125);
+    --product-herbal-soft: oklch(0.94 0.03 125);
+    --product-herbal-foreground: oklch(0.3 0.045 125);
+
+    /* Masala — warm spice orange */
+    --product-masala: oklch(0.62 0.15 48);
+    --product-masala-soft: oklch(0.93 0.045 52);
+    --product-masala-foreground: oklch(0.3 0.075 42);
+
+    /* Chamomile — soft floral yellow */
+    --product-chamomile: oklch(0.82 0.13 92);
+    --product-chamomile-soft: oklch(0.96 0.035 94);
+    --product-chamomile-foreground: oklch(0.34 0.055 82);
+
+    /* Mint — cooling teal */
+    --product-mint: oklch(0.68 0.1 174);
+    --product-mint-soft: oklch(0.94 0.03 174);
+    --product-mint-foreground: oklch(0.29 0.055 174);
+
+    /* Rose — elegant muted pink */
+    --product-rose: oklch(0.67 0.12 12);
+    --product-rose-soft: oklch(0.94 0.035 12);
+    --product-rose-foreground: oklch(0.31 0.065 12);
+
+    /* Saffron — premium golden orange */
+    --product-saffron: oklch(0.75 0.15 72);
+    --product-saffron-soft: oklch(0.95 0.04 76);
+    --product-saffron-foreground: oklch(0.32 0.065 64);
+  }
+
+  /* ==========================================================================
+     Typography — Font Families
+
+     The font variables are supplied by next/font in app/layout.tsx.
+     Fallbacks ensure readable rendering before the web fonts are available.
+     ========================================================================== */
+
+  :root {
+    --font-sans:
+      var(--font-geist-sans, "Geist"), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+
+    --font-mono:
+      var(--font-geist-mono, "Geist Mono"), "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+    /*
+     * Optional editorial font.
+     * It currently inherits the sans family so components can safely consume
+     * it before a dedicated display typeface is introduced.
+     */
+    --font-display: var(--font-sans);
+  }
+
+  /* ==========================================================================
+     Typography — Fluid Type Scale
+
+     clamp(minimum, fluid viewport value, maximum)
+
+     The scale remains compact on mobile and expands progressively on larger
+     displays without requiring breakpoint-specific font-size declarations.
+     ========================================================================== */
+
+  :root {
+    --text-display-xl: clamp(3.5rem, 2.25rem + 5vw, 6.5rem);
+    --text-display: clamp(3rem, 2.1rem + 3.6vw, 5.25rem);
+
+    --text-h1: clamp(2.5rem, 1.85rem + 2.6vw, 4.25rem);
+    --text-h2: clamp(2rem, 1.55rem + 1.8vw, 3.25rem);
+    --text-h3: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+    --text-h4: clamp(1.375rem, 1.2rem + 0.65vw, 1.75rem);
+
+    --text-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+    --text-body-large: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+    --text-caption: 0.75rem;
+    --text-overline: 0.75rem;
+  }
+
+  /* ==========================================================================
+     Typography — Font Weights
+     ========================================================================== */
+
+  :root {
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+  }
+
+  /* ==========================================================================
+     Typography — Line Heights
+     ========================================================================== */
+
+  :root {
+    --leading-none: 1;
+    --leading-compact: 1.2;
+    --leading-display: 1.05;
+    --leading-heading: 1.15;
+    --leading-body: 1.65;
+    --leading-relaxed: 1.75;
+  }
+
+  /* ==========================================================================
+     Typography — Letter Spacing
+     ========================================================================== */
+
+  :root {
+    --tracking-tighter: -0.04em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.06em;
+    --tracking-overline: 0.14em;
+  }
+
+  /* ==========================================================================
+     Typography — Measure
+
+     These values control readable line length for editorial content.
+     ========================================================================== */
+
+  :root {
+    --measure-compact: 40ch;
+    --measure-body: 65ch;
+    --measure-wide: 78ch;
+  }
+  /* ==========================================================================
+     Layout
+     ========================================================================== */
+
+  :root {
+    /* Container Widths */
+    --layout-container-xs: 36rem; /* 576px */
+    --layout-container-sm: 42rem; /* 672px */
+    --layout-container-md: 48rem; /* 768px */
+    --layout-container-lg: 64rem; /* 1024px */
+    --layout-container-xl: 80rem; /* 1280px */
+    --layout-container-2xl: 90rem; /* 1440px */
+
+    /* Default content width */
+    --layout-content: 72rem;
+
+    /* Horizontal page padding */
+    --layout-padding-inline: clamp(1rem, 2vw, 2rem);
+
+    /* Vertical rhythm */
+    --section-padding-block: clamp(4rem, 8vw, 8rem);
+
+    /* Header */
+    --header-height: 5rem;
+    --announcement-height: 0rem;
+  }
+
+  /* ==========================================================================
+     Spacing Scale
+     4pt-inspired spacing system
+     ========================================================================== */
+
+  :root {
+    --space-0: 0;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+    --space-40: 10rem;
+    --space-48: 12rem;
+    --space-56: 14rem;
+    --space-64: 16rem;
+  }
+
+  /* ==========================================================================
+     Radius
+     ========================================================================== */
+
+  :root {
+    --radius-none: 0;
+
+    --radius-xs: 0.25rem;
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 1.75rem;
+
+    --radius-full: 9999px;
+  }
+
+  /* ==========================================================================
+     Borders
+     ========================================================================== */
+
+  :root {
+    --border-width-hairline: 1px;
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 4px;
+  }
+
+  /* ==========================================================================
+     Elevation (Box Shadows)
+     ========================================================================== */
+
+  :root {
+    --elevation-0: none;
+
+    --elevation-1: 0 1px 2px rgb(0 0 0 / 0.06);
+
+    --elevation-2: 0 3px 8px rgb(0 0 0 / 0.08);
+
+    --elevation-3: 0 8px 20px rgb(0 0 0 / 0.1);
+
+    --elevation-4: 0 16px 40px rgb(0 0 0 / 0.14);
+
+    --elevation-5: 0 24px 64px rgb(0 0 0 / 0.18);
+  }
+
+  /* ==========================================================================
+     Motion
+     ========================================================================== */
+
+  :root {
+    /* Duration */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+
+    /* Easing */
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+    /* Shared transitions */
+    --transition-fast: all var(--duration-fast) var(--ease-standard);
+
+    --transition-normal: all var(--duration-normal) var(--ease-standard);
+
+    --transition-slow: all var(--duration-slow) var(--ease-standard);
+  }
+
+  /* ==========================================================================
+     Z-Index
+     ========================================================================== */
+
+  :root {
+    --z-base: 0;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-overlay: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-toast: 1080;
+  }
+}
+
+/* ==========================================================================
+   Tailwind CSS v4 Theme Mapping
+   Public Design API
+   ========================================================================== */
+
+@theme inline {
+  /* --------------------------------------------------------------------------
+     Colors
+     -------------------------------------------------------------------------- */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-destructive: var(--destructive);
+
+  /* --------------------------------------------------------------------------
+     Typography
+     -------------------------------------------------------------------------- */
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  /* --------------------------------------------------------------------------
+     Radius
+     -------------------------------------------------------------------------- */
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  /* --------------------------------------------------------------------------
+     Shadows
+     -------------------------------------------------------------------------- */
+
+  --shadow-xs: var(--elevation-1);
+  --shadow-sm: var(--elevation-2);
+  --shadow-md: var(--elevation-3);
+  --shadow-lg: var(--elevation-4);
+  --shadow-xl: var(--elevation-5);
+
+  /* --------------------------------------------------------------------------
+     Layout
+     -------------------------------------------------------------------------- */
+
+  --container-xs: var(--layout-container-xs);
+  --container-sm: var(--layout-container-sm);
+  --container-md: var(--layout-container-md);
+  --container-lg: var(--layout-container-lg);
+  --container-xl: var(--layout-container-xl);
+  --container-2xl: var(--layout-container-2xl);
+
+  /* --------------------------------------------------------------------------
+     Motion
+     -------------------------------------------------------------------------- */
+
+  --ease-standard: var(--ease-standard);
+  --ease-enter: var(--ease-enter);
+  --ease-exit: var(--ease-exit);
+}

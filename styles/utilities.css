@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Queen's Blend
+   File: styles/utilities.css
+   Purpose: Project-specific utility classes
+   ========================================================================== */
+
+@layer utilities {
+  /* ==========================================================================
+     Layout
+     ========================================================================== */
+
+  .container-content {
+    width: min(100%, var(--layout-content));
+    margin-inline: auto;
+    padding-inline: var(--layout-padding-inline);
+  }
+
+  .section-padding {
+    padding-block: var(--section-padding-block);
+  }
+
+  /* ==========================================================================
+     Surface
+     ========================================================================== */
+
+  .surface {
+    background: var(--surface);
+    color: var(--surface-foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--elevation-2);
+  }
+
+  .surface-elevated {
+    background: var(--surface);
+    color: var(--surface-foreground);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--elevation-4);
+  }
+
+  /* ==========================================================================
+     Glass Effect
+     ========================================================================== */
+
+  .glass {
+    background: color-mix(in oklab, var(--surface) 70%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+  }
+
+  /* ==========================================================================
+     Accessibility
+     ========================================================================== */
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  /* ==========================================================================
+     Scrollbars
+     ========================================================================== */
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ==========================================================================
+     Text
+     ========================================================================== */
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
