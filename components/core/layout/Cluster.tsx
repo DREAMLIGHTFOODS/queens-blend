@@ -1,8 +1,8 @@
 /**
  * ============================================================================
  * Queen's Blend
- * File: components/core/layout/Stack.tsx
- * Purpose: Vertical layout primitive.
+ * File: components/core/layout/Cluster.tsx
+ * Purpose: Horizontal layout primitive with wrapping.
  * ============================================================================
  */
 
@@ -11,7 +11,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const stackVariants = cva("flex flex-col", {
+const clusterVariants = cva("flex flex-wrap", {
   variants: {
     gap: {
       none: "gap-0",
@@ -35,35 +35,27 @@ const stackVariants = cva("flex flex-col", {
       center: "justify-center",
       end: "justify-end",
       between: "justify-between",
+      around: "justify-around",
+      evenly: "justify-evenly",
     },
   },
 
   defaultVariants: {
     gap: "md",
-    align: "stretch",
+    align: "center",
     justify: "start",
   },
 });
 
-export interface StackProps
-  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof stackVariants> {
+export interface ClusterProps
+  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof clusterVariants> {
   as?: keyof HTMLElementTagNameMap;
 }
 
-export function Stack({ as = "div", className, gap, align, justify, ...props }: StackProps) {
+export function Cluster({ as = "div", className, gap, align, justify, ...props }: ClusterProps) {
   const Component = as;
 
   return (
-    <Component
-      className={cn(
-        stackVariants({
-          gap,
-          align,
-          justify,
-        }),
-        className,
-      )}
-      {...props}
-    />
+    <Component className={cn(clusterVariants({ gap, align, justify }), className)} {...props} />
   );
 }

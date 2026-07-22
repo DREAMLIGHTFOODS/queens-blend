@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { Header } from "@/components/layout/header/Header";
+import { Footer } from "@/components/layout/footer/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,7 +47,11 @@ export default function RootLayout({
         cormorant.variable,
       )}
     >
-      <body className="bg-background text-foreground min-h-screen font-sans">{children}</body>
+      <body className="flex flex-col min-h-screen bg-background text-foreground font-sans">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
