@@ -6,87 +6,149 @@
  * ============================================================================
  */
 
+import {
+  BookOpenText,
+  CheckCircle2,
+  Flame,
+  HeartPulse,
+  Scale,
+  Timer,
+  type LucideIcon,
+} from "lucide-react";
+
 import { Container } from "@/components/core/layout/Container";
 import { Section } from "@/components/core/layout/Section";
 import { Stack } from "@/components/core/layout/Stack";
+import { Surface } from "@/components/core/layout/Surface";
 
 export function TeaGuideSection() {
   const guides = [
     {
+      icon: Flame,
       title: "Brewing Tips",
       description:
         "Learn the optimal water temperature, steeping time, and quantity for each tea type to extract maximum flavor and aroma.",
     },
     {
+      icon: BookOpenText,
       title: "Flavor Profiles",
       description:
         "Discover the unique tasting notes and characteristics that define different teas and regions.",
     },
     {
+      icon: Scale,
       title: "Tea Terminology",
       description:
         "Understand the vocabulary used by tea experts to describe colors, aromas, and flavors.",
     },
     {
+      icon: Timer,
       title: "Storage & Freshness",
       description:
         "Proper storage techniques to keep your teas fresh, aromatic, and flavorful for months.",
     },
     {
+      icon: CheckCircle2,
       title: "Tea & Food Pairing",
       description: "Explore how different teas complement and enhance various cuisines and dishes.",
     },
     {
+      icon: HeartPulse,
       title: "Health Benefits",
       description:
         "Learn about the remarkable health benefits and nutritional properties of premium teas.",
     },
-  ];
+  ] satisfies Array<{ icon: LucideIcon; title: string; description: string }>;
 
   return (
     <Section>
-      <Container size="lg">
+      <Container size="xl">
         <Stack gap="xl">
           {/* Introduction */}
-          <Stack gap="md">
+          <div className="reveal-up grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <p className="text-primary mb-3 text-xs tracking-[0.2em] uppercase">Guide Library</p>
+              <h2 className="font-[family-name:var(--font-heading)] text-4xl tracking-tight md:text-5xl">
                 Your Complete Tea Guide
               </h2>
-              <div className="bg-primary mt-2 h-1 w-20 rounded-full" />
             </div>
-            <p className="text-muted-foreground max-w-3xl text-lg">
-              Whether you&apos;re a tea novice or a seasoned connoisseur, our comprehensive guide
-              will help you deepen your appreciation and enjoyment of premium teas. Learn expert
-              techniques, understand flavor profiles, and discover the best practices for brewing
-              and storage.
+            <p className="text-muted-foreground max-w-md text-sm leading-relaxed md:text-base">
+              Build better cups with clear, practical foundations that improve flavor consistency
+              from first steep to final sip.
             </p>
-          </Stack>
+          </div>
 
           {/* Guide Topics */}
           <div className="grid gap-6 md:grid-cols-2">
             {guides.map((guide, index) => (
-              <div key={index} className="border-border rounded-lg border p-6">
+              <Surface
+                key={guide.title}
+                elevation="sm"
+                className={`reveal-up rounded-2xl border p-6 stagger-${Math.min(index + 1, 6)}`}
+              >
                 <Stack gap="md">
-                  <h3 className="text-lg font-bold">{guide.title}</h3>
-                  <p className="text-muted-foreground text-sm">{guide.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary text-xs tracking-[0.2em] uppercase">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="bg-primary/10 text-primary rounded-full p-2">
+                      <guide.icon className="h-4 w-4" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold tracking-tight">{guide.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {guide.description}
+                  </p>
                 </Stack>
-              </div>
+              </Surface>
             ))}
           </div>
 
           {/* Additional Info */}
-          <div className="bg-primary/10 rounded-lg p-8">
+          <Surface
+            elevation="md"
+            className="reveal-up stagger-2 from-primary/10 to-secondary/20 rounded-2xl bg-gradient-to-r p-8 md:p-10"
+          >
             <Stack gap="md">
-              <h3 className="text-xl font-bold">Expert Tips</h3>
+              <h3 className="font-[family-name:var(--font-heading)] text-2xl tracking-tight md:text-3xl">
+                Expert Tips
+              </h3>
               <ul className="text-muted-foreground space-y-3 text-sm">
-                <li>• Always use filtered water for the best flavor extraction</li>
-                <li>• Store tea in airtight containers away from light and odors</li>
-                <li>• Premium teas can often be steeped multiple times</li>
-                <li>• Temperature matters: green teas need cooler water than black teas</li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="text-primary mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span>Always use filtered water for cleaner flavor extraction.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="text-primary mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span>Store tea in airtight containers away from light and strong odors.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="text-primary mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Many premium teas can be steeped multiple times with evolving profiles.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2
+                    className="text-primary mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Use cooler water for green teas than for black teas to avoid bitterness.
+                  </span>
+                </li>
               </ul>
             </Stack>
-          </div>
+          </Surface>
         </Stack>
       </Container>
     </Section>

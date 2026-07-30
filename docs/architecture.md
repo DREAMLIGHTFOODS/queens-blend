@@ -54,11 +54,13 @@ components/
 config/
 hooks/
 lib/
+data/
+providers/
 public/
 styles/
+theme/
 types/
 docs/
-design/
 ```
 
 ---
@@ -98,16 +100,25 @@ Contains reusable UI.
 
 ```
 components/
+├── core/
+│   └── layout/
+├── home/
+├── about/
+├── products/
+├── tea-guide/
+├── contact/
+├── shared/
 ├── ui/
 ├── layout/
-├── typography/
 ├── forms/
-├── marketing/
-├── product/
-├── common/
 ├── animations/
-└── providers/
+└── ...
 ```
+
+Current convention:
+
+- `components/core/layout` is the canonical source for reusable layout primitives (`Container`, `Section`, `Stack`, `Grid`, etc.).
+- `components/layout` is reserved for composed shell elements such as `header` and `footer`.
 
 ### Rules
 
@@ -125,13 +136,9 @@ Application configuration.
 
 ```
 config/
-├── animations.ts
-├── contact.ts
 ├── navigation.ts
-├── products.ts
 ├── seo.ts
 ├── site.ts
-├── social.ts
 └── theme.ts
 ```
 
@@ -166,10 +173,7 @@ Rules:
 Shared utilities and helpers.
 
 ```
-helpers.ts
-constants.ts
 utils.ts
-validators.ts
 ```
 
 No UI should live here.
@@ -184,8 +188,9 @@ Global styling only.
 tokens.css
 base.css
 utilities.css
-animations.css
 ```
+
+`styles/tokens.css` is the design token source of truth.
 
 Component-specific CSS files are not used.
 
@@ -197,36 +202,16 @@ Production assets.
 
 ```
 public/
-├── favicon/
+├── fonts/
 ├── icons/
 ├── images/
+├── textures/
+├── videos/
 ├── logos/
-├── og/
-└── products/
+└── ...
 ```
 
 Assets here are served directly by Next.js.
-
----
-
-# design/
-
-Source design assets.
-
-Examples:
-
-```
-design/
-├── packaging/
-├── mockups/
-├── hero/
-├── illustrations/
-├── tea-estates/
-├── logos/
-└── references/
-```
-
-These files are not served directly to users.
 
 ---
 
