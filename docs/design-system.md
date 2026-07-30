@@ -122,6 +122,18 @@ No component should reference a raw color.
 
 ---
 
+# Token Source of Truth
+
+Canonical token definitions live in:
+
+- `styles/tokens.css`
+
+Additional TypeScript token exports in `theme/` are typed references to CSS custom properties (for example `var(--primary)`) and must not introduce hardcoded duplicate values.
+
+Do not define parallel token systems in multiple directories.
+
+---
+
 # Product Palette
 
 Each tea family has a supporting accent.

@@ -69,95 +69,43 @@ Defines:
 
 ---
 
-## 4. Component Library
+## 4. Component Library (Planned)
 
 **File**
 
-component-library.md
+component-library.md (to be added)
 
-Documents every reusable component.
-
-Examples:
-
-- Container
-- Section
-- Surface
-- Stack
-- Grid
-- Button
-- Heading
-- Text
-- Hero
-- Tea Card
-- CTA
-- Footer
-
-Each component includes:
-
-- Purpose
-- Props
-- Variants
-- Usage
-- Accessibility notes
+This document will catalog reusable components, their props, variants, and accessibility notes.
 
 ---
 
-## 5. Coding Standards
+## 5. Coding Standards (Planned)
 
 **File**
 
-coding-standards.md
+coding-standards.md (to be added)
 
-Defines:
-
-- TypeScript conventions
-- React patterns
-- Next.js conventions
-- Tailwind CSS usage
-- File naming
-- Import ordering
-- Folder organization
-- Performance guidelines
+This document will define implementation conventions and quality rules.
 
 ---
 
-## 6. Deployment
+## 6. Deployment (Planned)
 
 **File**
 
-deployment.md
+deployment.md (to be added)
 
-Contains:
-
-- Environment variables
-- Build process
-- Deployment checklist
-- Performance verification
-- SEO verification
-- Accessibility verification
+This document will cover environment setup, release workflow, and production validation checks.
 
 ---
 
 # Architecture Decision Records (ADR)
 
-Located in:
+ADR files are planned under:
 
 docs/adr/
 
-Each ADR documents an important architectural decision.
-
-Example:
-
-0001-nextjs-app-router.md
-
-contains:
-
-- Decision
-- Context
-- Alternatives
-- Consequences
-
-These records explain _why_ decisions were made, helping future contributors understand the reasoning behind the architecture.
+When introduced, each ADR should record the decision, context, alternatives, and consequences.
 
 ---
 

@@ -89,4 +89,68 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  /* ==========================================================================
+     Motion Helpers
+     Subtle reveal primitives for section load and card stagger.
+     ========================================================================== */
+
+  @keyframes qb-reveal-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes qb-reveal-fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    animation: qb-reveal-up var(--duration-slow) var(--ease-enter) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-fade {
+    opacity: 0;
+    animation: qb-reveal-fade var(--duration-slow) var(--ease-enter) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .stagger-1 {
+    --reveal-delay: 60ms;
+  }
+
+  .stagger-2 {
+    --reveal-delay: 120ms;
+  }
+
+  .stagger-3 {
+    --reveal-delay: 180ms;
+  }
+
+  .stagger-4 {
+    --reveal-delay: 240ms;
+  }
+
+  .stagger-5 {
+    --reveal-delay: 300ms;
+  }
+
+  .stagger-6 {
+    --reveal-delay: 360ms;
+  }
 }
