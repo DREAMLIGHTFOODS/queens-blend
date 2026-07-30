@@ -20,18 +20,16 @@ export function CTASection() {
   };
 
   return (
-    <section className="w-full py-24 md:py-32 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+    <section className="from-primary/10 via-accent/10 to-primary/10 w-full bg-gradient-to-r py-24 md:py-32">
       <Container size="lg">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-accent p-8 md:p-16">
+        <div className="from-primary to-accent relative overflow-hidden rounded-2xl bg-gradient-to-br p-8 md:p-16">
           {/* Decorative elements */}
           <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
           {/* Content */}
           <Stack gap="lg" align="center" className="relative z-10 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Join the Tea Connoisseur Community
-            </h2>
+            <h2 className="text-3xl font-bold md:text-4xl">Join the Tea Connoisseur Community</h2>
 
             <p className="max-w-2xl text-lg text-white/90">
               Subscribe to our newsletter for exclusive tea releases, brewing tips, and special
@@ -39,21 +37,26 @@ export function CTASection() {
             </p>
 
             {/* Newsletter Form */}
-            <form className="w-full max-w-md flex flex-col sm:flex-row gap-3" onSubmit={handleSubmit}>
+            <form
+              className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 rounded-lg bg-white/20 px-4 py-3 text-white placeholder:text-white/50 backdrop-blur border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="flex-1 rounded-lg border border-white/30 bg-white/20 px-4 py-3 text-white backdrop-blur placeholder:text-white/50 focus:ring-2 focus:ring-white/50 focus:outline-none"
                 required
               />
-              <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-white/90">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-primary bg-white hover:bg-white/90"
+              >
                 Subscribe
               </Button>
             </form>
 
-            <p className="text-sm text-white/70">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
+            <p className="text-sm text-white/70">We respect your privacy. Unsubscribe anytime.</p>
           </Stack>
         </div>
       </Container>
