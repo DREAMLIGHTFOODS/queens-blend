@@ -47,7 +47,7 @@ export default function RootLayout({
         cormorant.variable,
       )}
     >
-      <body className="flex flex-col min-h-screen bg-background text-foreground font-sans">
+      <body className="bg-background text-foreground flex min-h-screen flex-col font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

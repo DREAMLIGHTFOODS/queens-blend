@@ -35,7 +35,8 @@ const pageHeaderVariants = cva("relative w-full", {
 });
 
 export interface PageHeaderProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, "title">,
+  extends
+    Omit<React.HTMLAttributes<HTMLElement>, "title">,
     VariantProps<typeof pageHeaderVariants> {
   title: React.ReactNode;
   description?: React.ReactNode;
@@ -55,11 +56,15 @@ export function PageHeader({
   return (
     <header className={cn(pageHeaderVariants({ spacing, variant }), className)} {...props}>
       <Container size={containerSize} className="flex flex-col gap-4">
-        {typeof title === "string" ? <h1 className="text-4xl md:text-5xl font-bold">{title}</h1> : title}
+        {typeof title === "string" ? (
+          <h1 className="text-4xl font-bold md:text-5xl">{title}</h1>
+        ) : (
+          title
+        )}
 
         {description &&
           (typeof description === "string" ? (
-            <p className="text-lg text-muted-foreground">{description}</p>
+            <p className="text-muted-foreground text-lg">{description}</p>
           ) : (
             description
           ))}

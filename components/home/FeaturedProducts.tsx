@@ -18,21 +18,24 @@ const featuredProducts = [
     name: "Darjeeling Premium",
     category: "Black Tea",
     color: "emerald",
-    description: "The 'Champagne of Teas' from the misty Darjeeling mountains. Floral notes with golden appearance.",
+    description:
+      "The 'Champagne of Teas' from the misty Darjeeling mountains. Floral notes with golden appearance.",
     price: "₹450",
   },
   {
     name: "Assam Bold",
     category: "Black Tea",
     color: "amber",
-    description: "Robust and malty, perfect for breakfast. Rich, full-bodied with natural sweetness.",
+    description:
+      "Robust and malty, perfect for breakfast. Rich, full-bodied with natural sweetness.",
     price: "₹380",
   },
   {
     name: "Nilgiri Blend",
     category: "Black Tea",
     color: "sapphire",
-    description: "Smooth and aromatic from the Blue Mountains. Refreshing with subtle floral notes.",
+    description:
+      "Smooth and aromatic from the Blue Mountains. Refreshing with subtle floral notes.",
     price: "₹420",
   },
   {
@@ -60,14 +63,14 @@ const featuredProducts = [
 
 export function FeaturedProducts() {
   return (
-    <section id="products" className="w-full py-24 md:py-32 bg-muted">
+    <section id="products" className="bg-muted w-full py-24 md:py-32">
       <Container size="2xl">
         <Stack gap="xl">
           {/* Section Header */}
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">Featured Collections</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="mb-2 text-3xl font-bold md:text-4xl">Featured Collections</h2>
+              <p className="text-muted-foreground text-lg">
                 Explore our curated selection of premium tea blends
               </p>
             </div>
@@ -82,10 +85,10 @@ export function FeaturedProducts() {
               <Surface
                 key={product.name}
                 elevation="sm"
-                className="overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 cursor-pointer group"
+                className="group cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 {/* Product Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-300">
+                <div className="from-primary/10 to-accent/10 flex h-48 items-center justify-center bg-gradient-to-br text-5xl transition-transform duration-300 group-hover:scale-110">
                   🍵
                 </div>
 
@@ -93,18 +96,18 @@ export function FeaturedProducts() {
                 <div className="p-6">
                   <Stack gap="md">
                     <div>
-                      <p className="text-xs uppercase tracking-wide text-primary font-semibold">
+                      <p className="text-primary text-xs font-semibold tracking-wide uppercase">
                         {product.category}
                       </p>
-                      <h3 className="text-lg font-bold mt-2">{product.name}</h3>
+                      <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
                     </div>
 
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-muted-foreground line-clamp-2 text-sm">
                       {product.description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <span className="text-lg font-bold text-primary">{product.price}</span>
+                    <div className="border-border flex items-center justify-between border-t pt-4">
+                      <span className="text-primary text-lg font-bold">{product.price}</span>
                       <Button size="sm" variant="outline">
                         View
                       </Button>
