@@ -68,7 +68,7 @@ export function TeaGuideSection() {
           <div className="reveal-up grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <p className="text-primary mb-3 text-xs tracking-[0.2em] uppercase">Guide Library</p>
-              <h2 className="font-[family-name:var(--font-heading)] text-4xl tracking-tight md:text-5xl">
+              <h2 className="font-(family-name:--font-heading) text-4xl tracking-tight md:text-5xl">
                 Your Complete Tea Guide
               </h2>
             </div>
@@ -107,10 +107,10 @@ export function TeaGuideSection() {
           {/* Additional Info */}
           <Surface
             elevation="md"
-            className="reveal-up stagger-2 from-primary/10 to-secondary/20 rounded-2xl bg-gradient-to-r p-8 md:p-10"
+            className="reveal-up stagger-2 from-primary/10 to-secondary/20 rounded-2xl bg-linear-to-r p-8 md:p-10"
           >
             <Stack gap="md">
-              <h3 className="font-[family-name:var(--font-heading)] text-2xl tracking-tight md:text-3xl">
+              <h3 className="font-(family-name:--font-heading) text-2xl tracking-tight md:text-3xl">
                 Expert Tips
               </h3>
               <ul className="text-muted-foreground space-y-3 text-sm">

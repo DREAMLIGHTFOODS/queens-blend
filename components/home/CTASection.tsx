@@ -16,21 +16,59 @@ import { Stack } from "@/components/core/layout/Stack";
 import { Button } from "@/components/ui/button";
 
 export function CTASection() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState<{
+    type: "idle" | "loading" | "success" | "error";
+    message?: string;
+  }>({ type: "idle" });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
+
+    setStatus({ type: "loading" });
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, website }),
+      });
+
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        setStatus({
+          type: "error",
+          message: data.message ?? "Unable to subscribe right now.",
+        });
+        return;
+      }
+
+      setStatus({
+        type: "success",
+        message: data.message ?? "You are subscribed.",
+      });
+      setEmail("");
+      setWebsite("");
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Unable to subscribe right now. Please try again later.",
+      });
+    }
   };
 
   return (
     <section className="relative w-full py-24 md:py-32">
       <div
-        className="bg-primary/15 absolute inset-0 [mask-image:radial-gradient(circle_at_center,black_42%,transparent_78%)]"
+        className="bg-primary/15 absolute inset-0 mask-[radial-gradient(circle_at_center,black_42%,transparent_78%)]"
         aria-hidden="true"
       />
       <Container size="lg">
-        <div className="from-primary to-accent reveal-up relative overflow-hidden rounded-3xl bg-gradient-to-br p-8 md:p-16">
+        <div className="from-primary to-accent reveal-up relative overflow-hidden rounded-3xl bg-linear-to-br p-8 md:p-16">
           {/* Decorative elements */}
           <div
             className="absolute -top-28 -right-16 h-56 w-56 rounded-full bg-white/20 blur-3xl"
@@ -47,7 +85,7 @@ export function CTASection() {
               Private Tasting Circle
             </p>
 
-            <h2 className="reveal-up stagger-1 font-[family-name:var(--font-heading)] text-4xl leading-tight tracking-tight md:text-5xl">
+            <h2 className="reveal-up stagger-1 font-(family-name:--font-heading) text-4xl leading-tight tracking-tight md:text-5xl">
               Join the Tea Connoisseur Community
             </h2>
 
@@ -60,29 +98,52 @@ export function CTASection() {
             <form
               className="reveal-up stagger-3 flex w-full max-w-xl flex-col gap-3 sm:flex-row"
               onSubmit={handleSubmit}
+              noValidate
             >
               <input
                 type="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="flex-1 rounded-full border border-white/35 bg-white/15 px-5 py-3 text-white backdrop-blur placeholder:text-white/60 focus:ring-2 focus:ring-white/60 focus:outline-none"
+                disabled={status.type === "loading"}
                 required
+                suppressHydrationWarning
+              />
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+                suppressHydrationWarning
               />
               <Button
+                type="submit"
                 size="lg"
                 variant="outline"
                 className="text-primary rounded-full bg-white px-6 hover:bg-white/90"
+                disabled={status.type === "loading"}
+                suppressHydrationWarning
               >
                 <span className="inline-flex items-center gap-2">
-                  Subscribe
+                  {status.type === "loading" ? "Subscribing..." : "Subscribe"}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </Button>
             </form>
 
-            {isSubmitted ? (
+            {status.type === "success" ? (
               <p className="rounded-full bg-white/15 px-4 py-2 text-sm text-white/95">
-                Thank you. You are now on the Queen&apos;s Blend journal list.
+                {status.message}
+              </p>
+            ) : status.type === "error" ? (
+              <p className="rounded-full bg-red-900/30 px-4 py-2 text-sm text-white">
+                {status.message}
               </p>
             ) : (
               <p className="text-sm text-white/75">We respect your privacy. Unsubscribe anytime.</p>

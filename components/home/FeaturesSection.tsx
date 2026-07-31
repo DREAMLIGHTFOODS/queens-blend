@@ -78,7 +78,7 @@ export function FeaturesSection() {
               <p className="text-primary mb-4 text-xs tracking-[0.2em] uppercase">
                 The Queen&apos;s Standard
               </p>
-              <h2 className="font-[family-name:var(--font-heading)] text-4xl leading-tight tracking-tight text-balance md:text-5xl">
+              <h2 className="font-(family-name:--font-heading) text-4xl leading-tight tracking-tight text-balance md:text-5xl">
                 Why Connoisseurs Choose Queen&apos;s Blend
               </h2>
             </div>
@@ -96,7 +96,7 @@ export function FeaturesSection() {
                 elevation="md"
                 className={`group border-border/80 reveal-up relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 stagger-${Math.min(index + 1, 6)}`}
               >
-                <div className="from-secondary/35 to-primary/10 pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-gradient-to-br blur-2xl" />
+                <div className="from-secondary/35 to-primary/10 pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-linear-to-br blur-2xl" />
                 <Stack gap="md">
                   <div className="flex items-center justify-between">
                     <span className="text-primary text-xs tracking-[0.2em] uppercase">

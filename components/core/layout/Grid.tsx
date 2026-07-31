@@ -68,8 +68,7 @@ export function Grid({
     <Component
       className={cn(
         gridVariants({ columns, gap }),
-        minItemWidth &&
-          "[grid-template-columns:repeat(auto-fit,minmax(var(--grid-min-item-width),1fr))]",
+        minItemWidth && "grid-cols-[repeat(auto-fit,minmax(var(--grid-min-item-width),1fr))]",
         className,
       )}
       style={gridStyle}

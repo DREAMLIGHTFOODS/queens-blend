@@ -50,7 +50,7 @@ export function AboutSection() {
             <Surface elevation="md" className="reveal-up rounded-2xl p-8 md:p-10">
               <Stack gap="md">
                 <p className="text-primary text-xs tracking-[0.2em] uppercase">Our Mission</p>
-                <h2 className="font-[family-name:var(--font-heading)] text-3xl leading-tight tracking-tight md:text-4xl">
+                <h2 className="font-(family-name:--font-heading) text-3xl leading-tight tracking-tight md:text-4xl">
                   Build trust through every leaf, every blend, and every conversation.
                 </h2>
                 <p className="text-muted-foreground text-base leading-relaxed">
@@ -89,7 +89,7 @@ export function AboutSection() {
           {/* Core Values */}
           <Stack gap="lg">
             <div className="reveal-up flex flex-wrap items-end justify-between gap-4">
-              <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-tight md:text-4xl">
+              <h3 className="font-(family-name:--font-heading) text-3xl tracking-tight md:text-4xl">
                 Our Core Values
               </h3>
               <p className="text-muted-foreground max-w-md text-sm leading-relaxed md:text-base">
@@ -130,13 +130,13 @@ export function AboutSection() {
           {/* Heritage */}
           <Surface
             elevation="sm"
-            className="reveal-up stagger-2 from-muted/80 to-background rounded-2xl bg-gradient-to-br p-8 md:p-10"
+            className="reveal-up stagger-2 from-muted/80 to-background rounded-2xl bg-linear-to-br p-8 md:p-10"
           >
             <Stack gap="md">
               <p className="text-primary text-xs tracking-[0.2em] uppercase">
                 Heritage And Expertise
               </p>
-              <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-tight md:text-4xl">
+              <h3 className="font-(family-name:--font-heading) text-3xl tracking-tight md:text-4xl">
                 Rooted in tea culture, refined for modern rituals.
               </h3>
               <p className="text-muted-foreground max-w-4xl text-base leading-relaxed">

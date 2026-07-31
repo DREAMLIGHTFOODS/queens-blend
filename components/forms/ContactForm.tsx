@@ -17,6 +17,7 @@ interface FormData {
   email: string;
   subject: string;
   message: string;
+  website: string;
 }
 
 interface FormStatus {
@@ -30,6 +31,7 @@ export function ContactForm() {
     email: "",
     subject: "",
     message: "",
+    website: "",
   });
 
   const [status, setStatus] = useState<FormStatus>({ type: "idle" });
@@ -47,33 +49,27 @@ export function ContactForm() {
     setStatus({ type: "loading" });
 
     try {
-      // Validate form data
-      if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
         setStatus({
           type: "error",
-          message: "All fields are required.",
+          message: data.message ?? "Unable to submit your message right now.",
         });
         return;
       }
-
-      // Validate email format
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        setStatus({
-          type: "error",
-          message: "Please enter a valid email address.",
-        });
-        return;
-      }
-
-      // Simulate API call
-      // In production, this would send data to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setStatus({
         type: "success",
-        message:
-          "Thank you for your message! We'll get back to you within 24 hours. Check your email for confirmation.",
+        message: data.message ?? "Thank you for your message. We will get back to you shortly.",
       });
 
       // Reset form
@@ -82,6 +78,7 @@ export function ContactForm() {
         email: "",
         subject: "",
         message: "",
+        website: "",
       });
 
       // Clear success message after 5 seconds
@@ -97,7 +94,7 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl">
+    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-2xl" noValidate>
       <Stack gap="md">
         {/* Status Messages */}
         {status.type === "success" && (
@@ -111,6 +108,18 @@ export function ContactForm() {
             <p className="text-sm text-red-800">{status.message}</p>
           </div>
         )}
+
+        <input
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+          suppressHydrationWarning
+        />
 
         {/* Name Field */}
         <div>
@@ -126,6 +135,8 @@ export function ContactForm() {
             placeholder="Your name"
             className="border-border text-foreground placeholder-muted-foreground focus:ring-primary w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
             disabled={status.type === "loading"}
+            required
+            suppressHydrationWarning
           />
         </div>
 
@@ -143,6 +154,8 @@ export function ContactForm() {
             placeholder="your.email@example.com"
             className="border-border text-foreground placeholder-muted-foreground focus:ring-primary w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
             disabled={status.type === "loading"}
+            required
+            suppressHydrationWarning
           />
         </div>
 
@@ -160,6 +173,8 @@ export function ContactForm() {
             placeholder="What is this about?"
             className="border-border text-foreground placeholder-muted-foreground focus:ring-primary w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
             disabled={status.type === "loading"}
+            required
+            suppressHydrationWarning
           />
         </div>
 
@@ -177,11 +192,19 @@ export function ContactForm() {
             rows={6}
             className="border-border text-foreground placeholder-muted-foreground focus:ring-primary w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-offset-2 focus:outline-none"
             disabled={status.type === "loading"}
+            required
+            suppressHydrationWarning
           />
         </div>
 
         {/* Submit Button */}
-        <Button type="submit" size="lg" disabled={status.type === "loading"} className="w-full">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={status.type === "loading"}
+          className="w-full"
+          suppressHydrationWarning
+        >
           {status.type === "loading" ? "Sending..." : "Send Message"}
         </Button>
 
