@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="relative -mt-20 min-h-[92vh] w-full overflow-hidden">
+    <section className="relative -mt-20 h-screen min-h-screen w-full overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -29,7 +29,7 @@ export function Hero() {
       {/* Atmospheric overlays */}
       <div className="reveal-fade absolute inset-0 bg-[linear-gradient(120deg,color-mix(in_oklch,var(--background)_12%,transparent),color-mix(in_oklch,var(--primary)_26%,transparent))]" />
       <div className="reveal-fade stagger-1 absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,color-mix(in_oklch,var(--secondary)_44%,transparent),transparent_48%)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/35" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/30 to-black/35" />
 
       <Container
         size="2xl"
@@ -40,7 +40,7 @@ export function Hero() {
             Estate Crafted Since 1988
           </p>
 
-          <h1 className="reveal-up stagger-1 font-[family-name:var(--font-heading)] text-5xl leading-[0.95] tracking-tight text-balance md:text-6xl lg:text-7xl">
+          <h1 className="reveal-up stagger-1 font-(family-name:--font-heading) text-5xl leading-[0.95] tracking-tight text-balance md:text-6xl lg:text-7xl">
             A Quiet Ritual of
             <span className="text-secondary block">Luxury Tea</span>
           </h1>

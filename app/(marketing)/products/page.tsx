@@ -33,11 +33,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductsPage() {
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{
+    q?: string;
+    format?: string;
+  }>;
+}) {
+  const params = await searchParams;
+
   return (
     <>
       <ProductsHero />
-      <ProductsSection />
+      <ProductsSection
+        initialQuery={typeof params?.q === "string" ? params.q : ""}
+        initialFormat={typeof params?.format === "string" ? params.format : "all"}
+      />
     </>
   );
 }

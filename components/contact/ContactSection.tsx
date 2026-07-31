@@ -57,7 +57,7 @@ export function ContactSection() {
                 <p className="text-primary mb-3 text-xs tracking-[0.2em] uppercase">
                   Contact Channels
                 </p>
-                <h2 className="font-[family-name:var(--font-heading)] text-4xl tracking-tight md:text-5xl">
+                <h2 className="font-(family-name:--font-heading) text-4xl tracking-tight md:text-5xl">
                   Reach us your way
                 </h2>
               </div>
@@ -99,7 +99,7 @@ export function ContactSection() {
           {/* Contact Form */}
           <Stack gap="md">
             <div>
-              <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-tight md:text-4xl">
+              <h3 className="font-(family-name:--font-heading) text-3xl tracking-tight md:text-4xl">
                 Send us a message
               </h3>
             </div>
@@ -114,7 +114,7 @@ export function ContactSection() {
           {/* Response Time */}
           <Surface
             elevation="sm"
-            className="reveal-up stagger-3 from-primary/10 to-secondary/20 rounded-2xl bg-gradient-to-r p-8 md:p-10"
+            className="reveal-up stagger-3 from-primary/10 to-secondary/20 rounded-2xl bg-linear-to-r p-8 md:p-10"
           >
             <Stack gap="md">
               <div className="inline-flex items-center gap-2 text-sm">
