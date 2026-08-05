@@ -94,21 +94,21 @@ export function FeaturesSection() {
               <Surface
                 key={feature.title}
                 elevation="md"
-                className={`group border-border/80 reveal-up relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 stagger-${Math.min(index + 1, 6)}`}
+                className={`bg-primary text-ring group border-border/80 reveal-up relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 stagger-${Math.min(index + 1, 6)}`}
               >
                 <div className="from-secondary/35 to-primary/10 pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-linear-to-br blur-2xl" />
                 <Stack gap="md">
                   <div className="flex items-center justify-between">
-                    <span className="text-primary text-xs tracking-[0.2em] uppercase">
+                    <span className="text-ring text-xs tracking-[0.2em] uppercase">
                       {feature.label}
                     </span>
-                    <div className="bg-primary/10 text-primary rounded-full p-2">
+                    <div className="bg-primary/10 text-ring rounded-full p-2">
                       <feature.icon className="h-4 w-4" aria-hidden="true" />
                     </div>
                   </div>
                   <div>
                     <h3 className="mb-2 text-lg font-semibold tracking-tight">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-primary-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

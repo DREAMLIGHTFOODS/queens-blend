@@ -232,6 +232,10 @@ export function ProductsSection({
               {filteredProducts.map((product, index) => {
                 const cardImages = getDiscoverableProductCardImages(product, activeFormat);
                 const isPreviewActive = activePreviewId === product.id;
+                const detailHref =
+                  activeFormat && product.availability.includes(activeFormat)
+                    ? `/products/${product.slug}?format=${encodeURIComponent(activeFormat)}`
+                    : `/products/${product.slug}`;
 
                 return (
                   <Surface
@@ -290,8 +294,8 @@ export function ProductsSection({
                           {product.availability.length} formats
                         </span>
                         <Button asChild size="sm" variant="outline" className="rounded-full">
-                          <Link href="/contact" className="inline-flex items-center gap-2">
-                            Enquire
+                          <Link href={detailHref} className="inline-flex items-center gap-2">
+                            View Details
                             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                           </Link>
                         </Button>

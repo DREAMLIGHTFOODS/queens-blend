@@ -96,7 +96,7 @@ export function CTASection() {
 
             {/* Newsletter Form */}
             <form
-              className="reveal-up stagger-3 flex w-full max-w-xl flex-col gap-3 sm:flex-row"
+              className="reveal-up stagger-3 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:flex-row"
               onSubmit={handleSubmit}
               noValidate
             >

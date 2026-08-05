@@ -111,6 +111,10 @@
             "ingredient": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/ingredient.png",
             "product": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/product.png"
           },
+          "triangular-tea-bags": {
+            "ingredient": "/images/products/darjeeling-black/formats/triangular-tea-bags/ingredient.png",
+            "product": "/images/products/darjeeling-black/formats/triangular-tea-bags/product.png"
+          },
           "tea-pods": {
             "ingredient": "/images/products/darjeeling-black/formats/tea-pods/ingredient.png",
             "product": "/images/products/darjeeling-black/formats/tea-pods/product.png"
