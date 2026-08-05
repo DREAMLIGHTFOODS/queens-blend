@@ -112,7 +112,10 @@ export function FeaturedProducts() {
 
                     <div className="border-border flex items-center justify-end border-t pt-4">
                       <Button asChild size="sm" variant="outline" className="rounded-full">
-                        <Link href="/products" className="inline-flex items-center gap-1">
+                        <Link
+                          href={`/products/${product.slug}`}
+                          className="inline-flex items-center gap-1"
+                        >
                           Explore
                           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                         </Link>

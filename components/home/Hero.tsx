@@ -6,11 +6,6 @@
  * ============================================================================
  */
 
-import Link from "next/link";
-
-import { Container } from "@/components/core/layout/Container";
-import { Button } from "@/components/ui/button";
-
 export function Hero() {
   return (
     <section className="relative -mt-20 h-screen min-h-screen w-full overflow-hidden">
@@ -27,11 +22,11 @@ export function Hero() {
       </video>
 
       {/* Atmospheric overlays */}
-      <div className="reveal-fade absolute inset-0 bg-[linear-gradient(120deg,color-mix(in_oklch,var(--background)_12%,transparent),color-mix(in_oklch,var(--primary)_26%,transparent))]" />
+      {/* <div className="reveal-fade absolute inset-0 bg-[linear-gradient(120deg,color-mix(in_oklch,var(--background)_12%,transparent),color-mix(in_oklch,var(--primary)_26%,transparent))]" />
       <div className="reveal-fade stagger-1 absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,color-mix(in_oklch,var(--secondary)_44%,transparent),transparent_48%)]" />
-      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/30 to-black/35" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/30 to-black/35" /> */}
 
-      <Container
+      {/* <Container
         size="2xl"
         className="relative z-10 flex min-h-[92vh] items-end py-16 md:items-center"
       >
@@ -83,7 +78,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
     </section>
   );
 }

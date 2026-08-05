@@ -17,7 +17,7 @@ import { Divider } from "@/components/core/layout/Divider";
 
 export function Footer() {
   return (
-    <footer className="bg-muted text-foreground w-full">
+    <footer className="w-full bg-(--brand-emerald-dark) text-(--brand-ivory)">
       <Container size="2xl" className="py-16">
         <Stack gap="lg">
           {/* Main Footer Content */}
@@ -33,7 +33,7 @@ export function Footer() {
                   className="h-36 w-36 object-contain"
                 />
               </div>
-              <p className="text-muted-foreground text-sm">{SITE.description}</p>
+              <p className="text-sm text-(--neutral-300)">{SITE.description}</p>
             </Stack>
 
             {/* Navigation Links */}
@@ -44,7 +44,7 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-(--neutral-300) transition-colors hover:text-(--brand-gold-light)"
                     >
                       {item.title}
                     </Link>
@@ -56,7 +56,7 @@ export function Footer() {
             {/* Contact Info */}
             <Stack gap="md">
               <h4 className="text-sm font-semibold">Contact</h4>
-              <div className="text-muted-foreground space-y-2 text-sm">
+              <div className="space-y-2 text-sm text-(--neutral-300)">
                 <p>Email: info@queensblend.com</p>
                 <p>Phone: +91 (XXX) XXX-XXXX</p>
                 <p>Location: India</p>
@@ -65,21 +65,21 @@ export function Footer() {
           </div>
 
           {/* Divider */}
-          <Divider className="bg-border" />
+          <Divider className="bg-(--neutral-300)" />
 
           {/* Bottom */}
-          <div className="text-muted-foreground flex flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 text-sm text-(--neutral-300) md:flex-row md:items-center md:justify-between">
             <p>{SITE.copyright}</p>
 
             {/* Social Links Placeholder */}
             <Cluster gap="md" justify="end">
-              <Link href="#" className="hover:text-foreground transition-colors">
+              <Link href="#" className="transition-colors hover:text-(--brand-gold-light)">
                 Twitter
               </Link>
-              <Link href="#" className="hover:text-foreground transition-colors">
+              <Link href="#" className="transition-colors hover:text-(--brand-gold-light)">
                 Instagram
               </Link>
-              <Link href="#" className="hover:text-foreground transition-colors">
+              <Link href="#" className="transition-colors hover:text-(--brand-gold-light)">
                 LinkedIn
               </Link>
             </Cluster>

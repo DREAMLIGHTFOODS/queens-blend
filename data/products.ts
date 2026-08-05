@@ -28,6 +28,7 @@ export type CatalogProduct = {
   description: string;
   tastingNotes: string[];
   brewTime: string;
+  startingPriceInr?: number;
   accentClass: string;
   searchAliases: string[];
   searchKeywords: string[];
@@ -58,6 +59,7 @@ export type ProductCatalog = {
 export type Product = {
   id: string;
   name: string;
+  slug: string;
   categoryKey: ProductCategoryKey;
   categoryLabel: string;
   accentClass: string;
@@ -91,6 +93,30 @@ export type DiscoverableTeaProduct = {
   cardIngredientImage: string;
   cardProductImage: string;
   formatCardImages: Record<string, ProductCardImagePair>;
+};
+
+export type TeaProductDetail = {
+  id: string;
+  name: string;
+  slug: string;
+  teaType: string;
+  categoryKey: ProductCategoryKey;
+  categoryLabel: string;
+  accentClass: string;
+  description: string;
+  tastingNotes: string[];
+  brewTime: string;
+  featured: boolean;
+  availability: string[];
+  availabilityFormats: CatalogFormat[];
+  selectedFormatId: string | null;
+  selectedFormatName: string | null;
+  startingPriceInr?: number;
+  heroVideo: string | null;
+  heroImage: string;
+  ingredientImage: string;
+  productImage: string;
+  gallery: string[];
 };
 
 export const PRODUCT_CATALOG = productCatalog as ProductCatalog;
@@ -197,6 +223,10 @@ const FORMAT_QUERY_SYNONYMS: Record<string, string[]> = {
 };
 
 const FORMAT_BY_ID = new Map(PRODUCT_CATALOG.formats.map((format) => [format.id, format]));
+
+const TEA_CATALOG_PRODUCTS = PRODUCT_CATALOG.products.filter(
+  (product) => product.productType === "tea",
+);
 
 function normalizeText(input: string): string {
   return input
@@ -340,6 +370,76 @@ export function getDiscoverableProductCardImages(
 
 export const CATALOG_FORMATS = PRODUCT_CATALOG.formats;
 
+export const TEA_PRODUCT_SLUGS = TEA_CATALOG_PRODUCTS.map((product) => product.slug);
+
+export function getTeaProductBySlug(
+  slug: string,
+  preferredFormatId?: string,
+): TeaProductDetail | undefined {
+  const catalogProduct = TEA_CATALOG_PRODUCTS.find((product) => product.slug === slug);
+  if (!catalogProduct) {
+    return undefined;
+  }
+
+  const selectedFormatId =
+    preferredFormatId &&
+    catalogProduct.availability.includes(preferredFormatId) &&
+    FORMAT_BY_ID.has(preferredFormatId)
+      ? preferredFormatId
+      : null;
+
+  const selectedFormat = selectedFormatId ? FORMAT_BY_ID.get(selectedFormatId) : undefined;
+
+  const resolvedImages = resolveProductCardImages(catalogProduct, selectedFormatId ?? undefined);
+  const categoryKey = FAMILY_TO_CATEGORY_KEY[catalogProduct.family] ?? "limited";
+
+  return {
+    id: catalogProduct.id,
+    name: catalogProduct.name,
+    slug: catalogProduct.slug,
+    teaType: catalogProduct.teaType,
+    categoryKey,
+    categoryLabel: CATEGORY_KEY_TO_LABEL[categoryKey],
+    accentClass: catalogProduct.accentClass || CATEGORY_KEY_TO_ACCENT[categoryKey],
+    description: catalogProduct.description,
+    tastingNotes: catalogProduct.tastingNotes,
+    brewTime: catalogProduct.brewTime,
+    featured: catalogProduct.featured,
+    availability: catalogProduct.availability,
+    availabilityFormats: catalogProduct.availability
+      .map((formatId) => FORMAT_BY_ID.get(formatId))
+      .filter((format): format is CatalogFormat => Boolean(format)),
+    selectedFormatId,
+    selectedFormatName: selectedFormat?.name ?? null,
+    startingPriceInr: catalogProduct.startingPriceInr,
+    heroVideo: catalogProduct.media.heroVideo,
+    heroImage: catalogProduct.media.heroImage ?? resolvedImages.product,
+    ingredientImage: resolvedImages.ingredient,
+    productImage: resolvedImages.product,
+    gallery: catalogProduct.media.gallery,
+  };
+}
+
+export function getRelatedTeaProducts(
+  slug: string,
+  categoryKey: ProductCategoryKey,
+  limit = 3,
+): DiscoverableTeaProduct[] {
+  const sameCategory = TEA_PRODUCTS.filter(
+    (product) => product.slug !== slug && product.categoryKey === categoryKey,
+  ).slice(0, limit);
+
+  if (sameCategory.length >= limit) {
+    return sameCategory;
+  }
+
+  const filler = TEA_PRODUCTS.filter(
+    (product) => product.slug !== slug && product.categoryKey !== categoryKey,
+  ).slice(0, Math.max(limit - sameCategory.length, 0));
+
+  return [...sameCategory, ...filler];
+}
+
 export const TEA_PRODUCTS: DiscoverableTeaProduct[] = PRODUCT_CATALOG.products
   .filter((product) => product.productType === "tea")
   .map((product) => {
@@ -375,6 +475,7 @@ export const PRODUCTS: Product[] = PRODUCT_CATALOG.products
     return {
       id: product.id,
       name: product.name,
+      slug: product.slug,
       categoryKey,
       categoryLabel: CATEGORY_KEY_TO_LABEL[categoryKey],
       accentClass: product.accentClass || CATEGORY_KEY_TO_ACCENT[categoryKey],
