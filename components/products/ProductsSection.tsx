@@ -11,7 +11,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   ArrowRight,
   Flower2,
@@ -33,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import {
   CATALOG_FORMATS,
   PRODUCT_CATEGORIES,
+  TEA_COLLECTIONS,
   filterTeaProducts,
   getDiscoverableProductCardImages,
   inferFormatFromQuery,
@@ -51,29 +52,38 @@ const categoryIcons: Record<ProductCategoryKey, LucideIcon> = {
 export function ProductsSection({
   initialQuery = "",
   initialFormat = "all",
+  initialCollection = "all",
 }: {
   initialQuery?: string;
   initialFormat?: string;
+  initialCollection?: string;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [query, setQuery] = useState(initialQuery);
   const [selectedFormat, setSelectedFormat] = useState(initialFormat);
+  const [selectedCollection] = useState(initialCollection);
   const [activePreviewId, setActivePreviewId] = useState<string | null>(null);
 
   const inferredFormat = useMemo(() => inferFormatFromQuery(query), [query]);
   const activeFormat = selectedFormat !== "all" ? selectedFormat : inferredFormat;
+  const activeCollection = selectedCollection !== "all" ? selectedCollection : undefined;
 
   const filteredProducts = useMemo(
-    () => filterTeaProducts({ query, formatId: activeFormat }),
-    [query, activeFormat],
+    () => filterTeaProducts({ query, formatId: activeFormat, collectionId: activeCollection }),
+    [query, activeFormat, activeCollection],
   );
 
   const activeFormatLabel = activeFormat
     ? CATALOG_FORMATS.find((format) => format.id === activeFormat)?.name
     : undefined;
 
-  const updateUrl = (nextQuery: string, nextFormat: string) => {
+  const activeCollectionLabel = activeCollection
+    ? TEA_COLLECTIONS.find((collection) => collection.id === activeCollection)?.name
+    : undefined;
+
+  const updateUrl = (nextQuery: string, nextFormat: string, nextCollection: string) => {
     const params =
       typeof window !== "undefined"
         ? new URLSearchParams(window.location.search)
@@ -91,24 +101,30 @@ export function ProductsSection({
       params.delete("format");
     }
 
+    if (nextCollection && nextCollection !== "all") {
+      params.set("collection", nextCollection);
+    } else {
+      params.delete("collection");
+    }
+
     const queryString = params.toString();
-    router.replace(queryString ? `/products?${queryString}` : "/products", { scroll: false });
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   };
 
   const handleQueryChange = (nextQuery: string) => {
     setQuery(nextQuery);
-    updateUrl(nextQuery, selectedFormat);
+    updateUrl(nextQuery, selectedFormat, selectedCollection);
   };
 
   const handleFormatChange = (nextFormat: string) => {
     setSelectedFormat(nextFormat);
-    updateUrl(query, nextFormat);
+    updateUrl(query, nextFormat, selectedCollection);
   };
 
   const clearSearch = () => {
     setQuery("");
     setSelectedFormat("all");
-    updateUrl("", "all");
+    updateUrl("", "all", selectedCollection);
   };
 
   return (
@@ -215,6 +231,11 @@ export function ProductsSection({
               {activeFormatLabel ? (
                 <span className="bg-primary/10 text-primary rounded-full px-3 py-1 font-medium">
                   Format intent: {activeFormatLabel}
+                </span>
+              ) : null}
+              {activeCollectionLabel ? (
+                <span className="bg-secondary/20 text-foreground rounded-full px-3 py-1 font-medium">
+                  Collection: {activeCollectionLabel}
                 </span>
               ) : null}
             </div>

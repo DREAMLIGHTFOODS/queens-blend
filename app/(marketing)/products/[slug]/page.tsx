@@ -19,6 +19,7 @@ type ProductDetailPageProps = {
   }>;
   searchParams?: Promise<{
     format?: string;
+    pack?: string;
   }>;
 };
 
@@ -33,7 +34,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const query = await searchParams;
   const preferredFormatId = typeof query?.format === "string" ? query.format : undefined;
-  const product = getTeaProductBySlug(slug, preferredFormatId);
+  const preferredPackSize = typeof query?.pack === "string" ? query.pack : undefined;
+  const product = getTeaProductBySlug(slug, preferredFormatId, preferredPackSize);
 
   if (!product) {
     return {
@@ -81,7 +83,8 @@ export default async function ProductSlugPage({ params, searchParams }: ProductD
   const { slug } = await params;
   const query = await searchParams;
   const preferredFormatId = typeof query?.format === "string" ? query.format : undefined;
-  const product = getTeaProductBySlug(slug, preferredFormatId);
+  const preferredPackSize = typeof query?.pack === "string" ? query.pack : undefined;
+  const product = getTeaProductBySlug(slug, preferredFormatId, preferredPackSize);
 
   if (!product) {
     notFound();
