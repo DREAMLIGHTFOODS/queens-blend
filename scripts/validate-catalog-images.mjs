@@ -11,6 +11,7 @@ const publicDir = path.join(rootDir, "public");
 
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 const formatIds = new Set(catalog.formats.map((format) => format.id));
+const formatsById = new Map(catalog.formats.map((format) => [format.id, format]));
 
 const errors = [];
 
@@ -22,12 +23,22 @@ function expectedDefaultProductUrl(slug) {
   return `/images/products/${slug}/default/product.png`;
 }
 
-function expectedFormatIngredientUrl(slug, formatId) {
-  return `/images/products/${slug}/formats/${formatId}/ingredient.png`;
+function normalizePackSizeToken(value) {
+  return String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
-function expectedFormatProductUrl(slug, formatId) {
-  return `/images/products/${slug}/formats/${formatId}/product.png`;
+function expectedPackIngredientUrl(slug, formatId, packSize) {
+  const packToken = normalizePackSizeToken(packSize);
+  return `/images/products/${slug}/formats/${formatId}/packs/${packToken}/ingredient.png`;
+}
+
+function expectedPackProductUrl(slug, formatId, packSize) {
+  const packToken = normalizePackSizeToken(packSize);
+  return `/images/products/${slug}/formats/${formatId}/packs/${packToken}/product.png`;
 }
 
 function toPublicFilePath(publicUrlPath) {
@@ -74,49 +85,83 @@ for (const product of catalog.products) {
   assertPublicAssetExists(product.id, "media.cardIngredientImage", media.cardIngredientImage);
   assertPublicAssetExists(product.id, "media.cardProductImage", media.cardProductImage);
 
-  if (!media.formatCardImages) {
-    continue;
-  }
+  const formatPackCardImages = media.formatPackCardImages ?? {};
 
-  for (const [formatId, pair] of Object.entries(media.formatCardImages)) {
+  for (const [formatId, packMap] of Object.entries(formatPackCardImages)) {
     if (!formatIds.has(formatId)) {
       errors.push(
-        `[${product.id}] media.formatCardImages.${formatId} references unknown format id.`,
+        `[${product.id}] media.formatPackCardImages.${formatId} references unknown format id.`,
       );
       continue;
     }
 
     if (!product.availability.includes(formatId)) {
       errors.push(
-        `[${product.id}] media.formatCardImages.${formatId} exists but product availability does not include ${formatId}.`,
+        `[${product.id}] media.formatPackCardImages.${formatId} exists but product availability does not include ${formatId}.`,
       );
     }
 
-    const expectedFormatIngredient = expectedFormatIngredientUrl(slug, formatId);
-    const expectedFormatProduct = expectedFormatProductUrl(slug, formatId);
-
-    if (pair?.ingredient !== expectedFormatIngredient) {
-      errors.push(
-        `[${product.id}] media.formatCardImages.${formatId}.ingredient must be ${expectedFormatIngredient}, got ${String(pair?.ingredient)}.`,
-      );
+    if (!packMap || typeof packMap !== "object") {
+      errors.push(`[${product.id}] media.formatPackCardImages.${formatId} must be an object.`);
+      continue;
     }
 
-    if (pair?.product !== expectedFormatProduct) {
-      errors.push(
-        `[${product.id}] media.formatCardImages.${formatId}.product must be ${expectedFormatProduct}, got ${String(pair?.product)}.`,
+    for (const [packSize, pair] of Object.entries(packMap)) {
+      if (!pair || typeof pair !== "object") {
+        errors.push(
+          `[${product.id}] media.formatPackCardImages.${formatId}.${packSize} must be an object with ingredient/product paths.`,
+        );
+        continue;
+      }
+
+      assertPublicAssetExists(
+        product.id,
+        `media.formatPackCardImages.${formatId}.${packSize}.ingredient`,
+        pair.ingredient,
+      );
+      assertPublicAssetExists(
+        product.id,
+        `media.formatPackCardImages.${formatId}.${packSize}.product`,
+        pair.product,
       );
     }
+  }
 
-    assertPublicAssetExists(
-      product.id,
-      `media.formatCardImages.${formatId}.ingredient`,
-      pair?.ingredient,
-    );
-    assertPublicAssetExists(
-      product.id,
-      `media.formatCardImages.${formatId}.product`,
-      pair?.product,
-    );
+  for (const formatId of product.availability) {
+    const format = formatsById.get(formatId);
+    if (!format) {
+      errors.push(`[${product.id}] availability includes unknown format id: ${formatId}.`);
+      continue;
+    }
+
+    const packMap = formatPackCardImages[formatId];
+    if (!packMap || typeof packMap !== "object") {
+      errors.push(`[${product.id}] missing media.formatPackCardImages.${formatId}.`);
+      continue;
+    }
+
+    for (const packSize of format.packSizes) {
+      const pair = packMap[packSize];
+      if (!pair) {
+        errors.push(`[${product.id}] missing media.formatPackCardImages.${formatId}.${packSize}.`);
+        continue;
+      }
+
+      const expectedFormatIngredient = expectedPackIngredientUrl(slug, formatId, packSize);
+      const expectedFormatProduct = expectedPackProductUrl(slug, formatId, packSize);
+
+      if (pair.ingredient !== expectedFormatIngredient) {
+        errors.push(
+          `[${product.id}] media.formatPackCardImages.${formatId}.${packSize}.ingredient must be ${expectedFormatIngredient}, got ${String(pair.ingredient)}.`,
+        );
+      }
+
+      if (pair.product !== expectedFormatProduct) {
+        errors.push(
+          `[${product.id}] media.formatPackCardImages.${formatId}.${packSize}.product must be ${expectedFormatProduct}, got ${String(pair.product)}.`,
+        );
+      }
+    }
   }
 }
 

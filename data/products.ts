@@ -38,15 +38,20 @@ export type CatalogProduct = {
     gallery: string[];
     cardIngredientImage?: string;
     cardProductImage?: string;
-    formatCardImages?: Record<
+    formatPackCardImages?: Record<
       string,
-      {
-        ingredient: string;
-        product: string;
-      }
+      | Record<
+          string,
+          {
+            ingredient: string;
+            product: string;
+          }
+        >
+      | undefined
     >;
   };
   availability: string[];
+  categories?: TeaCollectionId[];
 };
 
 export type ProductCatalog = {
@@ -90,9 +95,19 @@ export type DiscoverableTeaProduct = {
   availability: string[];
   searchAliases: string[];
   searchKeywords: string[];
+  collections: TeaCollectionId[];
   cardIngredientImage: string;
   cardProductImage: string;
-  formatCardImages: Record<string, ProductCardImagePair>;
+  formatPackCardImages: Record<string, Record<string, ProductCardImagePair>>;
+};
+
+export type TeaCollectionId =
+  "serenity" | "infusions" | "heritage" | "mystique" | "full-bodied" | "cold-brew" | "gift-pack";
+
+export type TeaCollection = {
+  id: TeaCollectionId;
+  name: string;
+  description: string;
 };
 
 export type TeaProductDetail = {
@@ -111,6 +126,8 @@ export type TeaProductDetail = {
   availabilityFormats: CatalogFormat[];
   selectedFormatId: string | null;
   selectedFormatName: string | null;
+  selectedPackSize: string | null;
+  selectedPackSizeParam: string | null;
   startingPriceInr?: number;
   heroVideo: string | null;
   heroImage: string;
@@ -224,6 +241,46 @@ const FORMAT_QUERY_SYNONYMS: Record<string, string[]> = {
 
 const FORMAT_BY_ID = new Map(PRODUCT_CATALOG.formats.map((format) => [format.id, format]));
 
+export const TEA_COLLECTIONS: TeaCollection[] = [
+  {
+    id: "serenity",
+    name: "Serenity",
+    description: "Calm and smooth cups for soothing rituals.",
+  },
+  {
+    id: "infusions",
+    name: "Infusions",
+    description: "Botanical-led and aromatic infusion styles.",
+  },
+  {
+    id: "heritage",
+    name: "Heritage",
+    description: "Classic origin-forward teas and traditional brews.",
+  },
+  {
+    id: "mystique",
+    name: "Mystique",
+    description: "Distinctive and expressive blends with character.",
+  },
+  {
+    id: "full-bodied",
+    name: "Full-Bodied",
+    description: "Robust and intense teas for rich flavor seekers.",
+  },
+  {
+    id: "cold-brew",
+    name: "Cold Brew",
+    description: "Refresh-ready selections suited for chilled brewing.",
+  },
+  {
+    id: "gift-pack",
+    name: "Gift Pack",
+    description: "Curated picks for gifting and celebration.",
+  },
+];
+
+const TEA_COLLECTION_ID_SET = new Set<TeaCollectionId>(TEA_COLLECTIONS.map((item) => item.id));
+
 const TEA_CATALOG_PRODUCTS = PRODUCT_CATALOG.products.filter(
   (product) => product.productType === "tea",
 );
@@ -246,6 +303,7 @@ function getDefaultCardImages(product: CatalogProduct): ProductCardImagePair {
 export function resolveProductCardImages(
   product: Pick<CatalogProduct, "availability" | "media">,
   preferredFormatId?: string,
+  preferredPackSize?: string,
 ): ProductCardImagePair {
   const defaultImages = {
     ingredient: product.media.cardIngredientImage ?? DEFAULT_CARD_INGREDIENT_IMAGE,
@@ -260,15 +318,21 @@ export function resolveProductCardImages(
     return defaultImages;
   }
 
-  const formatSpecific = product.media.formatCardImages?.[preferredFormatId];
-  if (!formatSpecific) {
-    return defaultImages;
+  const packSpecific = resolveFormatPackPair(
+    preferredFormatId,
+    product.media.formatPackCardImages,
+    preferredPackSize,
+  );
+  const fallbackImages = {
+    ingredient: packSpecific?.ingredient || defaultImages.ingredient,
+    product: packSpecific?.product || defaultImages.product,
+  };
+
+  if (!preferredPackSize || packSpecific) {
+    return fallbackImages;
   }
 
-  return {
-    ingredient: formatSpecific.ingredient || defaultImages.ingredient,
-    product: formatSpecific.product || defaultImages.product,
-  };
+  return fallbackImages;
 }
 
 export function inferFormatFromQuery(query: string): string | undefined {
@@ -302,16 +366,152 @@ function getFormatSearchTerms(formatId: string): string[] {
   return [format.id, format.name, ...format.variants, ...(FORMAT_QUERY_SYNONYMS[format.id] ?? [])];
 }
 
+function normalizePackSizeToken(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function resolveFormatPackPair(
+  formatId: string,
+  formatPackCardImages:
+    Record<string, Record<string, ProductCardImagePair> | undefined> | undefined,
+  preferredPackSize?: string,
+): ProductCardImagePair | undefined {
+  const packMap = formatPackCardImages?.[formatId];
+  if (!packMap) {
+    return undefined;
+  }
+
+  if (preferredPackSize) {
+    const normalizedPreferredPackSize = normalizePackSizeToken(preferredPackSize);
+    const directPackMatch =
+      packMap[preferredPackSize] ||
+      packMap[normalizedPreferredPackSize] ||
+      Object.entries(packMap).find(
+        ([packKey]) => normalizePackSizeToken(packKey) === normalizedPreferredPackSize,
+      )?.[1];
+
+    if (directPackMatch) {
+      return directPackMatch;
+    }
+  }
+
+  const format = FORMAT_BY_ID.get(formatId);
+  if (format?.packSizes.length) {
+    for (const packSize of format.packSizes) {
+      const normalizedPackSize = normalizePackSizeToken(packSize);
+      const matched =
+        packMap[packSize] ||
+        packMap[normalizedPackSize] ||
+        Object.entries(packMap).find(
+          ([packKey]) => normalizePackSizeToken(packKey) === normalizedPackSize,
+        )?.[1];
+
+      if (matched) {
+        return matched;
+      }
+    }
+  }
+
+  return Object.values(packMap)[0];
+}
+
+export function toPackSizeParam(packSize: string): string {
+  return normalizePackSizeToken(packSize);
+}
+
+function resolvePackSizeSelection(packSizes: string[], preferredPackSize?: string): string | null {
+  if (!preferredPackSize || packSizes.length === 0) {
+    return null;
+  }
+
+  const normalizedPreferred = normalizePackSizeToken(preferredPackSize);
+
+  const matchedPackSize = packSizes.find(
+    (packSize) => normalizePackSizeToken(packSize) === normalizedPreferred,
+  );
+
+  return matchedPackSize ?? null;
+}
+
+export function isTeaCollectionId(value: string): value is TeaCollectionId {
+  return TEA_COLLECTION_ID_SET.has(value as TeaCollectionId);
+}
+
+function sanitizeTeaCollections(value: unknown): TeaCollectionId[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.filter((item): item is TeaCollectionId =>
+    typeof item === "string" ? isTeaCollectionId(item) : false,
+  );
+}
+
+function normalizeFormatPackCardImages(
+  value: CatalogProduct["media"]["formatPackCardImages"],
+): Record<string, Record<string, ProductCardImagePair>> {
+  if (!value || typeof value !== "object") {
+    return {};
+  }
+
+  const normalized: Record<string, Record<string, ProductCardImagePair>> = {};
+
+  for (const [formatId, packMap] of Object.entries(value)) {
+    if (!packMap || typeof packMap !== "object") {
+      continue;
+    }
+
+    const normalizedPackMap: Record<string, ProductCardImagePair> = {};
+
+    for (const [packSize, pair] of Object.entries(packMap)) {
+      if (!pair || typeof pair !== "object") {
+        continue;
+      }
+
+      if (typeof pair.ingredient !== "string" || typeof pair.product !== "string") {
+        continue;
+      }
+
+      normalizedPackMap[packSize] = {
+        ingredient: pair.ingredient,
+        product: pair.product,
+      };
+    }
+
+    normalized[formatId] = normalizedPackMap;
+  }
+
+  return normalized;
+}
+
+function matchesTeaCollection(
+  product: DiscoverableTeaProduct,
+  collectionId: TeaCollectionId,
+): boolean {
+  return product.collections.includes(collectionId);
+}
+
 export function filterTeaProducts(params: {
   query: string;
   formatId?: string;
+  collectionId?: string;
   products?: DiscoverableTeaProduct[];
 }): DiscoverableTeaProduct[] {
-  const { query, formatId, products = TEA_PRODUCTS } = params;
+  const { query, formatId, collectionId, products = TEA_PRODUCTS } = params;
   const normalizedQuery = normalizeText(query);
   const queryTokens = normalizedQuery ? normalizedQuery.split(" ") : [];
+  const activeCollectionId =
+    typeof collectionId === "string" && isTeaCollectionId(collectionId) ? collectionId : undefined;
 
   return products.filter((product) => {
+    if (activeCollectionId && !matchesTeaCollection(product, activeCollectionId)) {
+      return false;
+    }
+
     if (formatId && !product.availability.includes(formatId)) {
       return false;
     }
@@ -354,17 +554,17 @@ export function getDiscoverableProductCardImages(
     };
   }
 
-  const formatSpecific = product.formatCardImages[preferredFormatId];
-  if (!formatSpecific) {
+  const packSpecific = resolveFormatPackPair(preferredFormatId, product.formatPackCardImages);
+  if (packSpecific) {
     return {
-      ingredient: product.cardIngredientImage,
-      product: product.cardProductImage,
+      ingredient: packSpecific.ingredient || product.cardIngredientImage,
+      product: packSpecific.product || product.cardProductImage,
     };
   }
 
   return {
-    ingredient: formatSpecific.ingredient || product.cardIngredientImage,
-    product: formatSpecific.product || product.cardProductImage,
+    ingredient: product.cardIngredientImage,
+    product: product.cardProductImage,
   };
 }
 
@@ -375,6 +575,7 @@ export const TEA_PRODUCT_SLUGS = TEA_CATALOG_PRODUCTS.map((product) => product.s
 export function getTeaProductBySlug(
   slug: string,
   preferredFormatId?: string,
+  preferredPackSize?: string,
 ): TeaProductDetail | undefined {
   const catalogProduct = TEA_CATALOG_PRODUCTS.find((product) => product.slug === slug);
   if (!catalogProduct) {
@@ -389,8 +590,15 @@ export function getTeaProductBySlug(
       : null;
 
   const selectedFormat = selectedFormatId ? FORMAT_BY_ID.get(selectedFormatId) : undefined;
+  const selectedPackSize = selectedFormat
+    ? resolvePackSizeSelection(selectedFormat.packSizes, preferredPackSize)
+    : null;
 
-  const resolvedImages = resolveProductCardImages(catalogProduct, selectedFormatId ?? undefined);
+  const resolvedImages = resolveProductCardImages(
+    catalogProduct,
+    selectedFormatId ?? undefined,
+    selectedPackSize ?? undefined,
+  );
   const categoryKey = FAMILY_TO_CATEGORY_KEY[catalogProduct.family] ?? "limited";
 
   return {
@@ -411,6 +619,8 @@ export function getTeaProductBySlug(
       .filter((format): format is CatalogFormat => Boolean(format)),
     selectedFormatId,
     selectedFormatName: selectedFormat?.name ?? null,
+    selectedPackSize,
+    selectedPackSizeParam: selectedPackSize ? toPackSizeParam(selectedPackSize) : null,
     startingPriceInr: catalogProduct.startingPriceInr,
     heroVideo: catalogProduct.media.heroVideo,
     heroImage: catalogProduct.media.heroImage ?? resolvedImages.product,
@@ -445,6 +655,7 @@ export const TEA_PRODUCTS: DiscoverableTeaProduct[] = PRODUCT_CATALOG.products
   .map((product) => {
     const categoryKey = FAMILY_TO_CATEGORY_KEY[product.family] ?? "limited";
     const defaultImages = getDefaultCardImages(product);
+    const collections = sanitizeTeaCollections(product.categories);
 
     return {
       id: product.id,
@@ -460,9 +671,10 @@ export const TEA_PRODUCTS: DiscoverableTeaProduct[] = PRODUCT_CATALOG.products
       availability: product.availability,
       searchAliases: product.searchAliases,
       searchKeywords: product.searchKeywords,
+      collections,
       cardIngredientImage: defaultImages.ingredient,
       cardProductImage: defaultImages.product,
-      formatCardImages: product.media.formatCardImages ?? {},
+      formatPackCardImages: normalizeFormatPackCardImages(product.media.formatPackCardImages),
     };
   });
 

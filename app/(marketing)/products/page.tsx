@@ -39,6 +39,7 @@ export default async function ProductsPage({
   searchParams?: Promise<{
     q?: string;
     format?: string;
+    collection?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -49,6 +50,7 @@ export default async function ProductsPage({
       <ProductsSection
         initialQuery={typeof params?.q === "string" ? params.q : ""}
         initialFormat={typeof params?.format === "string" ? params.format : "all"}
+        initialCollection={typeof params?.collection === "string" ? params.collection : "all"}
       />
     </>
   );

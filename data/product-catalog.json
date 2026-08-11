@@ -5,70 +5,107 @@
     {
       "id": "single-chamber-tea-bags",
       "name": "Single Chamber Tea Bags",
-      "packSizes": ["25 tea bags", "100 tea bags"],
+      "packSizes": [
+        "25 tea bags",
+        "100 tea bags"
+      ],
       "variants": [],
       "formatType": "tea-bag"
     },
     {
       "id": "tea-pods",
       "name": "Tea Pods",
-      "packSizes": ["80 pods", "144 pods", "216 pods"],
+      "packSizes": [
+        "80 pods",
+        "144 pods",
+        "216 pods"
+      ],
       "variants": [],
       "formatType": "pod"
     },
     {
       "id": "double-chamber-tea-bags",
       "name": "Double Chamber Tea Bags",
-      "packSizes": ["25 tea bags", "100 tea bags"],
+      "packSizes": [
+        "25 tea bags",
+        "100 tea bags"
+      ],
       "variants": [],
       "formatType": "tea-bag"
     },
     {
       "id": "triangular-tea-bags",
       "name": "Triangular Tea Bags",
-      "packSizes": ["16 tea bags", "32 tea bags"],
+      "packSizes": [
+        "16 tea bags",
+        "32 tea bags"
+      ],
       "variants": [],
       "formatType": "tea-bag"
     },
     {
       "id": "metal-tin-caddy-square",
       "name": "Metal Tin Caddy Square",
-      "packSizes": ["100g", "250g"],
+      "packSizes": [
+        "100g",
+        "250g"
+      ],
       "variants": [],
       "formatType": "loose-leaf"
     },
     {
       "id": "metal-tin-caddy-round",
       "name": "Metal Tin Caddy Round",
-      "packSizes": ["100g", "250g"],
+      "packSizes": [
+        "100g",
+        "250g"
+      ],
       "variants": [],
       "formatType": "loose-leaf"
     },
     {
       "id": "premix-tea",
       "name": "Premix Tea",
-      "packSizes": ["14g", "22g", "27g"],
-      "variants": ["sweetened", "unsweetened"],
+      "packSizes": [
+        "14g",
+        "22g",
+        "27g"
+      ],
+      "variants": [
+        "sweetened",
+        "unsweetened"
+      ],
       "formatType": "premix"
     },
     {
       "id": "printed-box",
       "name": "Printed Box",
-      "packSizes": ["200g", "500g", "1kg"],
+      "packSizes": [
+        "200g",
+        "500g",
+        "1kg"
+      ],
       "variants": [],
       "formatType": "bulk"
     },
     {
       "id": "printed-pouch",
       "name": "Printed Pouch",
-      "packSizes": ["250g", "500g", "1kg"],
+      "packSizes": [
+        "250g",
+        "500g",
+        "1kg"
+      ],
       "variants": [],
       "formatType": "bulk"
     },
     {
       "id": "gift-box-collection",
       "name": "Gift Box Collection",
-      "packSizes": ["festive", "corporate"],
+      "packSizes": [
+        "festive",
+        "corporate"
+      ],
       "variants": [],
       "formatType": "gift"
     },
@@ -90,34 +127,93 @@
       "teaType": "Single Origin",
       "featured": true,
       "description": "Refined high-grown black tea with floral character and brisk finish.",
-      "tastingNotes": ["muscatel", "floral", "bright"],
+      "tastingNotes": [
+        "muscatel",
+        "floral",
+        "bright"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 450,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-darjeeling-soft),var(--surface)_45%)] text-[var(--product-darjeeling-foreground)]",
-      "searchAliases": ["darjeeling", "darjeeling tea"],
-      "searchKeywords": ["black tea", "single origin", "estate"],
+      "searchAliases": [
+        "darjeeling",
+        "darjeeling tea"
+      ],
+      "searchKeywords": [
+        "black tea",
+        "single origin",
+        "estate"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/darjeeling-black/default/ingredient.png",
         "cardProductImage": "/images/products/darjeeling-black/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
           "single-chamber-tea-bags": {
-            "ingredient": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/product.png"
-          },
-          "double-chamber-tea-bags": {
-            "ingredient": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/product.png"
-          },
-          "triangular-tea-bags": {
-            "ingredient": "/images/products/darjeeling-black/formats/triangular-tea-bags/ingredient.png",
-            "product": "/images/products/darjeeling-black/formats/triangular-tea-bags/product.png"
+            "25 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
           },
           "tea-pods": {
-            "ingredient": "/images/products/darjeeling-black/formats/tea-pods/ingredient.png",
-            "product": "/images/products/darjeeling-black/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/darjeeling-black/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/darjeeling-black/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/darjeeling-black/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/darjeeling-black/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/darjeeling-black/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/darjeeling-black/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/darjeeling-black/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/darjeeling-black/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/darjeeling-black/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
           }
         }
       },
@@ -128,6 +224,10 @@
         "triangular-tea-bags",
         "metal-tin-caddy-square",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "heritage",
+        "cold-brew"
       ]
     },
     {
@@ -139,30 +239,80 @@
       "teaType": "Single Origin",
       "featured": true,
       "description": "Light-bodied green tea with gentle vegetal sweetness.",
-      "tastingNotes": ["fresh leaf", "sweet grass", "light"],
+      "tastingNotes": [
+        "fresh leaf",
+        "sweet grass",
+        "light"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 390,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-green-soft),var(--surface)_45%)] text-[var(--product-green-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["green tea", "antioxidants", "single origin"],
+      "searchKeywords": [
+        "green tea",
+        "antioxidants",
+        "single origin"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/darjeeling-green/default/ingredient.png",
         "cardProductImage": "/images/products/darjeeling-green/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
           "single-chamber-tea-bags": {
-            "ingredient": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/product.png"
-          },
-          "double-chamber-tea-bags": {
-            "ingredient": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/product.png"
+            "25 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
           },
           "tea-pods": {
-            "ingredient": "/images/products/darjeeling-green/formats/tea-pods/ingredient.png",
-            "product": "/images/products/darjeeling-green/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/darjeeling-green/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/darjeeling-green/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/darjeeling-green/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/darjeeling-green/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/darjeeling-green/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/darjeeling-green/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/darjeeling-green/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
           }
         }
       },
@@ -172,6 +322,10 @@
         "double-chamber-tea-bags",
         "triangular-tea-bags",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "serenity",
+        "heritage"
       ]
     },
     {
@@ -183,30 +337,82 @@
       "teaType": "Single Origin",
       "featured": true,
       "description": "Bold, malty black tea ideal for breakfast cups.",
-      "tastingNotes": ["malt", "cocoa", "full body"],
+      "tastingNotes": [
+        "malt",
+        "cocoa",
+        "full body"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 380,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
-      "searchAliases": ["assam black"],
-      "searchKeywords": ["black tea", "strong tea", "milk tea"],
+      "searchAliases": [
+        "assam black"
+      ],
+      "searchKeywords": [
+        "black tea",
+        "strong tea",
+        "milk tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/assam/default/ingredient.png",
         "cardProductImage": "/images/products/assam/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
           "single-chamber-tea-bags": {
-            "ingredient": "/images/products/assam/formats/single-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/assam/formats/single-chamber-tea-bags/product.png"
-          },
-          "double-chamber-tea-bags": {
-            "ingredient": "/images/products/assam/formats/double-chamber-tea-bags/ingredient.png",
-            "product": "/images/products/assam/formats/double-chamber-tea-bags/product.png"
+            "25 tea bags": {
+              "ingredient": "/images/products/assam/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/assam/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
           },
           "tea-pods": {
-            "ingredient": "/images/products/assam/formats/tea-pods/ingredient.png",
-            "product": "/images/products/assam/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/assam/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/assam/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/assam/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/assam/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/assam/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/assam/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/assam/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/assam/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/assam/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/assam/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/assam/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/assam/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/assam/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/assam/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/assam/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
           }
         }
       },
@@ -216,6 +422,9 @@
         "double-chamber-tea-bags",
         "triangular-tea-bags",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "heritage"
       ]
     },
     {
@@ -227,23 +436,69 @@
       "teaType": "Single Origin",
       "featured": true,
       "description": "Smooth mountain-grown tea with clean floral finish.",
-      "tastingNotes": ["floral", "clean", "aromatic"],
+      "tastingNotes": [
+        "floral",
+        "clean",
+        "aromatic"
+      ],
       "brewTime": "3 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
-      "searchAliases": ["nilgiri black"],
-      "searchKeywords": ["black tea", "single origin", "southern tea"],
+      "searchAliases": [
+        "nilgiri black"
+      ],
+      "searchKeywords": [
+        "black tea",
+        "single origin",
+        "southern tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/nilgiri/default/ingredient.png",
-        "cardProductImage": "/images/products/nilgiri/default/product.png"
+        "cardProductImage": "/images/products/nilgiri/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/nilgiri/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/nilgiri/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/nilgiri/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/nilgiri/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/nilgiri/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/nilgiri/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/nilgiri/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/nilgiri/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/nilgiri/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/nilgiri/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/nilgiri/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/nilgiri/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
       "availability": [
         "single-chamber-tea-bags",
         "double-chamber-tea-bags",
         "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "heritage",
+        "cold-brew"
       ]
     },
     {
@@ -255,22 +510,91 @@
       "teaType": "Blend",
       "featured": false,
       "description": "Classic robust breakfast blend for a strong morning brew.",
-      "tastingNotes": ["bold", "malty", "brisk"],
+      "tastingNotes": [
+        "bold",
+        "malty",
+        "brisk"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 360,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
-      "searchAliases": ["english breakfast"],
-      "searchKeywords": ["breakfast blend", "black tea"],
+      "searchAliases": [
+        "english breakfast"
+      ],
+      "searchKeywords": [
+        "breakfast blend",
+        "black tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/english-breakfast-tea/default/ingredient.png",
         "cardProductImage": "/images/products/english-breakfast-tea/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
           "tea-pods": {
-            "ingredient": "/images/products/english-breakfast-tea/formats/tea-pods/ingredient.png",
-            "product": "/images/products/english-breakfast-tea/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/english-breakfast-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
           }
         }
       },
@@ -281,6 +605,9 @@
         "triangular-tea-bags",
         "metal-tin-caddy-square",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "mystique"
       ]
     },
     {
@@ -292,22 +619,73 @@
       "teaType": "Flavored",
       "featured": false,
       "description": "Black tea infused with citrus-forward bergamot character.",
-      "tastingNotes": ["bergamot", "citrus", "bright"],
+      "tastingNotes": [
+        "bergamot",
+        "citrus",
+        "bright"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 390,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
-      "searchAliases": ["earlgrey tea", "earlgrey"],
-      "searchKeywords": ["bergamot", "black tea", "flavored"],
+      "searchAliases": [
+        "earlgrey tea",
+        "earlgrey"
+      ],
+      "searchKeywords": [
+        "bergamot",
+        "black tea",
+        "flavored"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/earl-grey-tea/default/ingredient.png",
         "cardProductImage": "/images/products/earl-grey-tea/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/earl-grey-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/earl-grey-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
           "tea-pods": {
-            "ingredient": "/images/products/earl-grey-tea/formats/tea-pods/ingredient.png",
-            "product": "/images/products/earl-grey-tea/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/earl-grey-tea/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/earl-grey-tea/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/earl-grey-tea/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/earl-grey-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/earl-grey-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/earl-grey-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/earl-grey-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/earl-grey-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
           }
         }
       },
@@ -316,6 +694,10 @@
         "tea-pods",
         "double-chamber-tea-bags",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "infusions",
+        "cold-brew"
       ]
     },
     {
@@ -327,22 +709,97 @@
       "teaType": "Chai Blend",
       "featured": false,
       "description": "Traditional Indian chai blend with warming spice profile.",
-      "tastingNotes": ["cardamom", "ginger", "warm spice"],
+      "tastingNotes": [
+        "cardamom",
+        "ginger",
+        "warm spice"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 350,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
-      "searchAliases": ["chai", "masala tea"],
-      "searchKeywords": ["spiced tea", "indian chai", "milk tea"],
+      "searchAliases": [
+        "chai",
+        "masala tea"
+      ],
+      "searchKeywords": [
+        "spiced tea",
+        "indian chai",
+        "milk tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/masala-chai/default/ingredient.png",
         "cardProductImage": "/images/products/masala-chai/default/product.png",
-        "formatCardImages": {
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/masala-chai/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/masala-chai/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/masala-chai/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/masala-chai/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
           "tea-pods": {
-            "ingredient": "/images/products/masala-chai/formats/tea-pods/ingredient.png",
-            "product": "/images/products/masala-chai/formats/tea-pods/product.png"
+            "80 pods": {
+              "ingredient": "/images/products/masala-chai/formats/tea-pods/packs/80-pods/ingredient.png",
+              "product": "/images/products/masala-chai/formats/tea-pods/packs/80-pods/product.png"
+            },
+            "144 pods": {
+              "ingredient": "/images/products/masala-chai/formats/tea-pods/packs/144-pods/ingredient.png",
+              "product": "/images/products/masala-chai/formats/tea-pods/packs/144-pods/product.png"
+            },
+            "216 pods": {
+              "ingredient": "/images/products/masala-chai/formats/tea-pods/packs/216-pods/ingredient.png",
+              "product": "/images/products/masala-chai/formats/tea-pods/packs/216-pods/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/masala-chai/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/masala-chai/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/masala-chai/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/masala-chai/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/masala-chai/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/masala-chai/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/masala-chai/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/masala-chai/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          },
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/masala-chai/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/masala-chai/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/masala-chai/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/masala-chai/formats/premix-tea/packs/27g/product.png"
+            }
           }
         }
       },
@@ -353,6 +810,10 @@
         "metal-tin-caddy-square",
         "metal-tin-caddy-round",
         "premix-tea"
+      ],
+      "categories": [
+        "infusions",
+        "full-bodied"
       ]
     },
     {
@@ -364,23 +825,68 @@
       "teaType": "Herbal Blend",
       "featured": false,
       "description": "Cooling mint-forward infusion with clean finish.",
-      "tastingNotes": ["mint", "cooling", "fresh"],
+      "tastingNotes": [
+        "mint",
+        "cooling",
+        "fresh"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 360,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-mint-soft),var(--surface)_45%)] text-[var(--product-mint-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["mint tea", "herbal tea", "refreshing"],
+      "searchKeywords": [
+        "mint tea",
+        "herbal tea",
+        "refreshing"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/moroccan-mint/default/ingredient.png",
-        "cardProductImage": "/images/products/moroccan-mint/default/product.png"
+        "cardProductImage": "/images/products/moroccan-mint/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/moroccan-mint/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/moroccan-mint/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/moroccan-mint/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/moroccan-mint/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/moroccan-mint/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/moroccan-mint/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/moroccan-mint/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
       "availability": [
         "single-chamber-tea-bags",
         "double-chamber-tea-bags",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "serenity",
+        "infusions",
+        "cold-brew"
       ]
     },
     {
@@ -392,23 +898,70 @@
       "teaType": "Functional Blend",
       "featured": false,
       "description": "Citrus-led green tea crafted for light detox routines.",
-      "tastingNotes": ["lemon", "zesty", "light"],
+      "tastingNotes": [
+        "lemon",
+        "zesty",
+        "light"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 390,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-green-soft),var(--surface)_45%)] text-[var(--product-green-foreground)]",
-      "searchAliases": ["detox green tea", "lemon green tea"],
-      "searchKeywords": ["detox", "green tea", "lemon"],
+      "searchAliases": [
+        "detox green tea",
+        "lemon green tea"
+      ],
+      "searchKeywords": [
+        "detox",
+        "green tea",
+        "lemon"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/lemon-detox-green-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/lemon-detox-green-tea/default/product.png"
+        "cardProductImage": "/images/products/lemon-detox-green-tea/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/lemon-detox-green-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/lemon-detox-green-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
       "availability": [
         "single-chamber-tea-bags",
         "double-chamber-tea-bags",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "serenity",
+        "mystique"
       ]
     },
     {
@@ -420,20 +973,59 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Butterfly pea based infusion with vibrant natural color.",
-      "tastingNotes": ["earthy", "smooth", "floral"],
+      "tastingNotes": [
+        "earthy",
+        "smooth",
+        "floral"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
-      "searchAliases": ["butterfly pea tea"],
-      "searchKeywords": ["blue infusion", "herbal", "caffeine free"],
+      "searchAliases": [
+        "butterfly pea tea"
+      ],
+      "searchKeywords": [
+        "blue infusion",
+        "herbal",
+        "caffeine free"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/blue-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/blue-tea/default/product.png"
+        "cardProductImage": "/images/products/blue-tea/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/blue-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/blue-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/blue-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/blue-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/blue-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/blue-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/blue-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/blue-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["single-chamber-tea-bags", "double-chamber-tea-bags"]
+      "availability": [
+        "single-chamber-tea-bags",
+        "double-chamber-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "mystique"
+      ]
     },
     {
       "id": "green-tea-with-chamomile",
@@ -444,20 +1036,57 @@
       "teaType": "Floral Blend",
       "featured": true,
       "description": "Soft floral green tea designed for calm evening cups.",
-      "tastingNotes": ["chamomile", "light floral", "gentle"],
+      "tastingNotes": [
+        "chamomile",
+        "light floral",
+        "gentle"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 390,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-chamomile-soft),var(--surface)_45%)] text-[var(--product-chamomile-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["green tea", "chamomile", "relaxing"],
+      "searchKeywords": [
+        "green tea",
+        "chamomile",
+        "relaxing"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/green-tea-with-chamomile/default/ingredient.png",
-        "cardProductImage": "/images/products/green-tea-with-chamomile/default/product.png"
+        "cardProductImage": "/images/products/green-tea-with-chamomile/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["single-chamber-tea-bags", "double-chamber-tea-bags"]
+      "availability": [
+        "single-chamber-tea-bags",
+        "double-chamber-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "kadak-tea",
@@ -468,18 +1097,78 @@
       "teaType": "Strong Blend",
       "featured": false,
       "description": "Strong and brisk daily-drink blend for milk tea lovers.",
-      "tastingNotes": ["strong", "bold", "malty"],
+      "tastingNotes": [
+        "strong",
+        "bold",
+        "malty"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 340,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["strong tea", "kadak chai", "milk tea"],
+      "searchKeywords": [
+        "strong tea",
+        "kadak chai",
+        "milk tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/kadak-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/kadak-tea/default/product.png"
+        "cardProductImage": "/images/products/kadak-tea/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/kadak-tea/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          },
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/kadak-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/kadak-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          },
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/kadak-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/kadak-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/kadak-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
       "availability": [
         "single-chamber-tea-bags",
@@ -487,6 +1176,10 @@
         "triangular-tea-bags",
         "metal-tin-caddy-square",
         "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "heritage",
+        "full-bodied"
       ]
     },
     {
@@ -498,7 +1191,11 @@
       "teaType": "Functional Blend",
       "featured": false,
       "description": "Zesty wellness blend balancing citrus, sweetness, and spice.",
-      "tastingNotes": ["lemon", "ginger", "warm finish"],
+      "tastingNotes": [
+        "lemon",
+        "ginger",
+        "warm finish"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 400,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-green-soft),var(--surface)_45%)] text-[var(--product-green-foreground)]",
@@ -506,15 +1203,49 @@
         "green tea with lemon, hiney & ginger",
         "green tea with lemon honey ginger"
       ],
-      "searchKeywords": ["immunity", "green tea", "lemon", "ginger"],
+      "searchKeywords": [
+        "immunity",
+        "green tea",
+        "lemon",
+        "ginger"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/green-tea-with-lemon-honey-ginger/default/ingredient.png",
-        "cardProductImage": "/images/products/green-tea-with-lemon-honey-ginger/default/product.png"
+        "cardProductImage": "/images/products/green-tea-with-lemon-honey-ginger/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/green-tea-with-lemon-honey-ginger/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-lemon-honey-ginger/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/green-tea-with-lemon-honey-ginger/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-lemon-honey-ginger/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          },
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/green-tea-with-lemon-honey-ginger/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-lemon-honey-ginger/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/green-tea-with-lemon-honey-ginger/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-lemon-honey-ginger/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["single-chamber-tea-bags", "double-chamber-tea-bags"]
+      "availability": [
+        "single-chamber-tea-bags",
+        "double-chamber-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "chocolate-tea",
@@ -525,20 +1256,45 @@
       "teaType": "Flavored Blend",
       "featured": false,
       "description": "Dessert-style tea with cocoa-inspired notes.",
-      "tastingNotes": ["cocoa", "sweet aroma", "smooth"],
+      "tastingNotes": [
+        "cocoa",
+        "sweet aroma",
+        "smooth"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["flavored tea", "chocolate"],
+      "searchKeywords": [
+        "flavored tea",
+        "chocolate"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/chocolate-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/chocolate-tea/default/product.png"
+        "cardProductImage": "/images/products/chocolate-tea/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/chocolate-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/chocolate-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/chocolate-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/chocolate-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["single-chamber-tea-bags"]
+      "availability": [
+        "single-chamber-tea-bags"
+      ],
+      "categories": [
+        "infusions",
+        "cold-brew"
+      ]
     },
     {
       "id": "mango-tea",
@@ -549,20 +1305,45 @@
       "teaType": "Fruit Blend",
       "featured": false,
       "description": "Fruity aromatic tea with ripe mango top notes.",
-      "tastingNotes": ["mango", "fruity", "sweet aroma"],
+      "tastingNotes": [
+        "mango",
+        "fruity",
+        "sweet aroma"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["fruit tea", "mango"],
+      "searchKeywords": [
+        "fruit tea",
+        "mango"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/mango-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/mango-tea/default/product.png"
+        "cardProductImage": "/images/products/mango-tea/default/product.png",
+        "formatPackCardImages": {
+          "single-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/mango-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/mango-tea/formats/single-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/mango-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/mango-tea/formats/single-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["single-chamber-tea-bags"]
+      "availability": [
+        "single-chamber-tea-bags"
+      ],
+      "categories": [
+        "infusions",
+        "cold-brew"
+      ]
     },
     {
       "id": "pink-tea",
@@ -573,20 +1354,46 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Delicate floral infusion with naturally rosy cup profile.",
-      "tastingNotes": ["floral", "soft", "aromatic"],
+      "tastingNotes": [
+        "floral",
+        "soft",
+        "aromatic"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 430,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-rose-soft),var(--surface)_45%)] text-[var(--product-rose-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["pink infusion", "floral tea"],
+      "searchKeywords": [
+        "pink infusion",
+        "floral tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/pink-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/pink-tea/default/product.png"
+        "cardProductImage": "/images/products/pink-tea/default/product.png",
+        "formatPackCardImages": {
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/pink-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/pink-tea/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/pink-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/pink-tea/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["double-chamber-tea-bags"]
+      "availability": [
+        "double-chamber-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "black-turmeric-and-pepper",
@@ -597,20 +1404,46 @@
       "teaType": "Wellness Blend",
       "featured": false,
       "description": "Spice-forward functional blend built for warming wellness cups.",
-      "tastingNotes": ["peppery", "earthy", "warming"],
+      "tastingNotes": [
+        "peppery",
+        "earthy",
+        "warming"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["wellness", "turmeric", "pepper"],
+      "searchKeywords": [
+        "wellness",
+        "turmeric",
+        "pepper"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/black-turmeric-and-pepper/default/ingredient.png",
-        "cardProductImage": "/images/products/black-turmeric-and-pepper/default/product.png"
+        "cardProductImage": "/images/products/black-turmeric-and-pepper/default/product.png",
+        "formatPackCardImages": {
+          "double-chamber-tea-bags": {
+            "25 tea bags": {
+              "ingredient": "/images/products/black-turmeric-and-pepper/formats/double-chamber-tea-bags/packs/25-tea-bags/ingredient.png",
+              "product": "/images/products/black-turmeric-and-pepper/formats/double-chamber-tea-bags/packs/25-tea-bags/product.png"
+            },
+            "100 tea bags": {
+              "ingredient": "/images/products/black-turmeric-and-pepper/formats/double-chamber-tea-bags/packs/100-tea-bags/ingredient.png",
+              "product": "/images/products/black-turmeric-and-pepper/formats/double-chamber-tea-bags/packs/100-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["double-chamber-tea-bags"]
+      "availability": [
+        "double-chamber-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "darjeeling-white-tea",
@@ -621,20 +1454,46 @@
       "teaType": "Single Origin",
       "featured": true,
       "description": "Delicate white tea with soft sweetness and elegant finish.",
-      "tastingNotes": ["silky", "light floral", "sweet"],
+      "tastingNotes": [
+        "silky",
+        "light floral",
+        "sweet"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 520,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-white-soft),var(--surface)_45%)] text-[var(--product-white-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["white tea", "darjeeling", "premium"],
+      "searchKeywords": [
+        "white tea",
+        "darjeeling",
+        "premium"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/darjeeling-white-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/darjeeling-white-tea/default/product.png"
+        "cardProductImage": "/images/products/darjeeling-white-tea/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/darjeeling-white-tea/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-white-tea/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/darjeeling-white-tea/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/darjeeling-white-tea/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "heritage"
+      ]
     },
     {
       "id": "black-rose-infusion",
@@ -645,20 +1504,46 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Romantic floral infusion with gentle rose notes.",
-      "tastingNotes": ["rose", "fragrant", "soft"],
+      "tastingNotes": [
+        "rose",
+        "fragrant",
+        "soft"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 450,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-rose-soft),var(--surface)_45%)] text-[var(--product-rose-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["rose tea", "infusion", "floral"],
+      "searchKeywords": [
+        "rose tea",
+        "infusion",
+        "floral"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/black-rose-infusion/default/ingredient.png",
-        "cardProductImage": "/images/products/black-rose-infusion/default/product.png"
+        "cardProductImage": "/images/products/black-rose-infusion/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/black-rose-infusion/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/black-rose-infusion/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/black-rose-infusion/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/black-rose-infusion/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "kadak-masala-chai",
@@ -669,20 +1554,46 @@
       "teaType": "Chai Blend",
       "featured": false,
       "description": "Extra-strong spiced chai with fuller body and warmth.",
-      "tastingNotes": ["strong", "masala", "warming"],
+      "tastingNotes": [
+        "strong",
+        "masala",
+        "warming"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 360,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["kadak chai", "masala", "strong tea"],
+      "searchKeywords": [
+        "kadak chai",
+        "masala",
+        "strong tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/kadak-masala-chai/default/ingredient.png",
-        "cardProductImage": "/images/products/kadak-masala-chai/default/product.png"
+        "cardProductImage": "/images/products/kadak-masala-chai/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/kadak-masala-chai/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-masala-chai/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/kadak-masala-chai/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/kadak-masala-chai/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "full-bodied",
+        "infusions"
+      ]
     },
     {
       "id": "kashmiri-saffron-kahwa",
@@ -693,20 +1604,49 @@
       "teaType": "Kahwa Blend",
       "featured": false,
       "description": "Fragrant kahwa-style infusion with saffron accents.",
-      "tastingNotes": ["saffron", "cardamom", "aromatic"],
+      "tastingNotes": [
+        "saffron",
+        "cardamom",
+        "aromatic"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 480,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
-      "searchAliases": ["kasmiri safrron khawa", "kashmiri kahwa"],
-      "searchKeywords": ["kahwa", "saffron", "kashmiri tea"],
+      "searchAliases": [
+        "kasmiri safrron khawa",
+        "kashmiri kahwa"
+      ],
+      "searchKeywords": [
+        "kahwa",
+        "saffron",
+        "kashmiri tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/kashmiri-saffron-kahwa/default/ingredient.png",
-        "cardProductImage": "/images/products/kashmiri-saffron-kahwa/default/product.png"
+        "cardProductImage": "/images/products/kashmiri-saffron-kahwa/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/kashmiri-saffron-kahwa/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/kashmiri-saffron-kahwa/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/kashmiri-saffron-kahwa/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/kashmiri-saffron-kahwa/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "miracle-detox-green-tea",
@@ -717,20 +1657,46 @@
       "teaType": "Functional Blend",
       "featured": false,
       "description": "Wellness-focused green blend with detox profile.",
-      "tastingNotes": ["fresh", "herbal", "clean"],
+      "tastingNotes": [
+        "fresh",
+        "herbal",
+        "clean"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 410,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-green-soft),var(--surface)_45%)] text-[var(--product-green-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["detox", "green tea", "wellness"],
+      "searchKeywords": [
+        "detox",
+        "green tea",
+        "wellness"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/miracle-detox-green-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/miracle-detox-green-tea/default/product.png"
+        "cardProductImage": "/images/products/miracle-detox-green-tea/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/miracle-detox-green-tea/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/miracle-detox-green-tea/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/miracle-detox-green-tea/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/miracle-detox-green-tea/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "blue-pearl-infusion",
@@ -741,20 +1707,46 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Elegant blue infusion blend crafted for visual appeal and calm cups.",
-      "tastingNotes": ["soft floral", "earthy", "clean"],
+      "tastingNotes": [
+        "soft floral",
+        "earthy",
+        "clean"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 430,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["blue infusion", "herbal", "butterfly pea"],
+      "searchKeywords": [
+        "blue infusion",
+        "herbal",
+        "butterfly pea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/blue-pearl-infusion/default/ingredient.png",
-        "cardProductImage": "/images/products/blue-pearl-infusion/default/product.png"
+        "cardProductImage": "/images/products/blue-pearl-infusion/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/blue-pearl-infusion/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/blue-pearl-infusion/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/blue-pearl-infusion/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/blue-pearl-infusion/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "green-tea-with-chamomile-and-jasmine",
@@ -765,20 +1757,46 @@
       "teaType": "Floral Blend",
       "featured": false,
       "description": "Layered floral green tea balancing chamomile calm and jasmine aroma.",
-      "tastingNotes": ["jasmine", "chamomile", "soft green"],
+      "tastingNotes": [
+        "jasmine",
+        "chamomile",
+        "soft green"
+      ],
       "brewTime": "2-3 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-chamomile-soft),var(--surface)_45%)] text-[var(--product-chamomile-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["green tea", "jasmine", "chamomile"],
+      "searchKeywords": [
+        "green tea",
+        "jasmine",
+        "chamomile"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/green-tea-with-chamomile-and-jasmine/default/ingredient.png",
-        "cardProductImage": "/images/products/green-tea-with-chamomile-and-jasmine/default/product.png"
+        "cardProductImage": "/images/products/green-tea-with-chamomile-and-jasmine/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile-and-jasmine/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile-and-jasmine/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/green-tea-with-chamomile-and-jasmine/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/green-tea-with-chamomile-and-jasmine/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "imperial-blue-grey",
@@ -789,20 +1807,47 @@
       "teaType": "Signature Blend",
       "featured": false,
       "description": "Signature aromatic blend with premium boutique profile.",
-      "tastingNotes": ["complex", "aromatic", "smooth"],
+      "tastingNotes": [
+        "complex",
+        "aromatic",
+        "smooth"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 460,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
-      "searchAliases": ["emperial blue grey"],
-      "searchKeywords": ["signature tea", "premium blend"],
+      "searchAliases": [
+        "emperial blue grey"
+      ],
+      "searchKeywords": [
+        "signature tea",
+        "premium blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/imperial-blue-grey/default/ingredient.png",
-        "cardProductImage": "/images/products/imperial-blue-grey/default/product.png"
+        "cardProductImage": "/images/products/imperial-blue-grey/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/imperial-blue-grey/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/imperial-blue-grey/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/imperial-blue-grey/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/imperial-blue-grey/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "relax",
@@ -813,20 +1858,45 @@
       "teaType": "Wellness Blend",
       "featured": false,
       "description": "Calming herbal blend formulated for winding down.",
-      "tastingNotes": ["floral", "soft", "calming"],
+      "tastingNotes": [
+        "floral",
+        "soft",
+        "calming"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-herbal-soft),var(--surface)_45%)] text-[var(--product-herbal-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["relax tea", "sleep tea", "herbal"],
+      "searchKeywords": [
+        "relax tea",
+        "sleep tea",
+        "herbal"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/relax/default/ingredient.png",
-        "cardProductImage": "/images/products/relax/default/product.png"
+        "cardProductImage": "/images/products/relax/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/relax/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/relax/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/relax/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/relax/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity"
+      ]
     },
     {
       "id": "gut-health",
@@ -837,20 +1907,45 @@
       "teaType": "Wellness Blend",
       "featured": false,
       "description": "Functional herbal blend supporting digestive comfort.",
-      "tastingNotes": ["herbal", "warm", "clean"],
+      "tastingNotes": [
+        "herbal",
+        "warm",
+        "clean"
+      ],
       "brewTime": "4-5 min",
       "startingPriceInr": 430,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-herbal-soft),var(--surface)_45%)] text-[var(--product-herbal-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["gut health", "digestive tea", "wellness"],
+      "searchKeywords": [
+        "gut health",
+        "digestive tea",
+        "wellness"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gut-health/default/ingredient.png",
-        "cardProductImage": "/images/products/gut-health/default/product.png"
+        "cardProductImage": "/images/products/gut-health/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/gut-health/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/gut-health/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/gut-health/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/gut-health/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "serenity"
+      ]
     },
     {
       "id": "arabian-delight",
@@ -861,20 +1956,46 @@
       "teaType": "Signature Blend",
       "featured": false,
       "description": "Aromatic signature blend inspired by Middle Eastern spice profiles.",
-      "tastingNotes": ["spiced", "aromatic", "sweet finish"],
+      "tastingNotes": [
+        "spiced",
+        "aromatic",
+        "sweet finish"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 450,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["arabian tea", "spiced tea", "signature"],
+      "searchKeywords": [
+        "arabian tea",
+        "spiced tea",
+        "signature"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/arabian-delight/default/ingredient.png",
-        "cardProductImage": "/images/products/arabian-delight/default/product.png"
+        "cardProductImage": "/images/products/arabian-delight/default/product.png",
+        "formatPackCardImages": {
+          "triangular-tea-bags": {
+            "16 tea bags": {
+              "ingredient": "/images/products/arabian-delight/formats/triangular-tea-bags/packs/16-tea-bags/ingredient.png",
+              "product": "/images/products/arabian-delight/formats/triangular-tea-bags/packs/16-tea-bags/product.png"
+            },
+            "32 tea bags": {
+              "ingredient": "/images/products/arabian-delight/formats/triangular-tea-bags/packs/32-tea-bags/ingredient.png",
+              "product": "/images/products/arabian-delight/formats/triangular-tea-bags/packs/32-tea-bags/product.png"
+            }
+          }
+        }
       },
-      "availability": ["triangular-tea-bags"]
+      "availability": [
+        "triangular-tea-bags"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "purple-infusion-tea",
@@ -885,20 +2006,45 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Vibrant infusion blend designed for visual and aromatic appeal.",
-      "tastingNotes": ["floral", "light", "smooth"],
+      "tastingNotes": [
+        "floral",
+        "light",
+        "smooth"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-rose-soft),var(--surface)_45%)] text-[var(--product-rose-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["purple tea", "infusion"],
+      "searchKeywords": [
+        "purple tea",
+        "infusion"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/purple-infusion-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/purple-infusion-tea/default/product.png"
+        "cardProductImage": "/images/products/purple-infusion-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/purple-infusion-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/purple-infusion-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/purple-infusion-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/purple-infusion-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "cinnamon-tea",
@@ -909,20 +2055,44 @@
       "teaType": "Spice Blend",
       "featured": false,
       "description": "Comforting cinnamon-forward blend with warming body.",
-      "tastingNotes": ["cinnamon", "warm spice", "sweet aroma"],
+      "tastingNotes": [
+        "cinnamon",
+        "warm spice",
+        "sweet aroma"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 370,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["spiced tea", "cinnamon"],
+      "searchKeywords": [
+        "spiced tea",
+        "cinnamon"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/cinnamon-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/cinnamon-tea/default/product.png"
+        "cardProductImage": "/images/products/cinnamon-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/cinnamon-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/cinnamon-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/cinnamon-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/cinnamon-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "infusions"
+      ]
     },
     {
       "id": "birthday-special",
@@ -933,20 +2103,45 @@
       "teaType": "Occasion Blend",
       "featured": false,
       "description": "Celebratory signature blend for gifting moments.",
-      "tastingNotes": ["aromatic", "balanced", "smooth"],
+      "tastingNotes": [
+        "aromatic",
+        "balanced",
+        "smooth"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 460,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["gift tea", "occasion"],
+      "searchKeywords": [
+        "gift tea",
+        "occasion"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/birthday-special/default/ingredient.png",
-        "cardProductImage": "/images/products/birthday-special/default/product.png"
+        "cardProductImage": "/images/products/birthday-special/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/birthday-special/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/birthday-special/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/birthday-special/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/birthday-special/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "celebration-tea",
@@ -957,20 +2152,45 @@
       "teaType": "Occasion Blend",
       "featured": false,
       "description": "Premium blend for festive servings and shared tables.",
-      "tastingNotes": ["aromatic", "layered", "festive"],
+      "tastingNotes": [
+        "aromatic",
+        "layered",
+        "festive"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 460,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["festive tea", "gift tea"],
+      "searchKeywords": [
+        "festive tea",
+        "gift tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/celebration-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/celebration-tea/default/product.png"
+        "cardProductImage": "/images/products/celebration-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/celebration-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/celebration-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/celebration-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/celebration-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "wedding-special",
@@ -981,20 +2201,45 @@
       "teaType": "Occasion Blend",
       "featured": false,
       "description": "Curated blend for ceremonial and hospitality service.",
-      "tastingNotes": ["rich", "floral", "balanced"],
+      "tastingNotes": [
+        "rich",
+        "floral",
+        "balanced"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 470,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["wedding tea", "gift tea"],
+      "searchKeywords": [
+        "wedding tea",
+        "gift tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/wedding-special/default/ingredient.png",
-        "cardProductImage": "/images/products/wedding-special/default/product.png"
+        "cardProductImage": "/images/products/wedding-special/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/wedding-special/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/wedding-special/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/wedding-special/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/wedding-special/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "ginger-tea",
@@ -1005,20 +2250,60 @@
       "teaType": "Spice Blend",
       "featured": false,
       "description": "Warming ginger blend with clean spicy finish.",
-      "tastingNotes": ["ginger", "warm", "clean"],
+      "tastingNotes": [
+        "ginger",
+        "warm",
+        "clean"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 360,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["ginger tea", "spice tea"],
+      "searchKeywords": [
+        "ginger tea",
+        "spice tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ginger-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/ginger-tea/default/product.png"
+        "cardProductImage": "/images/products/ginger-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/ginger-tea/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/ginger-tea/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/ginger-tea/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/ginger-tea/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          },
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/ginger-tea/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/ginger-tea/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/ginger-tea/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/ginger-tea/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/ginger-tea/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/ginger-tea/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square", "premix-tea"]
+      "availability": [
+        "metal-tin-caddy-square",
+        "premix-tea"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "blue-lagoon",
@@ -1029,20 +2314,45 @@
       "teaType": "Infusion Blend",
       "featured": false,
       "description": "Color-rich specialty blend with floral aromatic lift.",
-      "tastingNotes": ["floral", "clean", "soft"],
+      "tastingNotes": [
+        "floral",
+        "clean",
+        "soft"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["blue tea", "specialty blend"],
+      "searchKeywords": [
+        "blue tea",
+        "specialty blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/blue-lagoon/default/ingredient.png",
-        "cardProductImage": "/images/products/blue-lagoon/default/product.png"
+        "cardProductImage": "/images/products/blue-lagoon/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/blue-lagoon/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/blue-lagoon/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/blue-lagoon/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/blue-lagoon/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "arabian-kahwa",
@@ -1053,20 +2363,46 @@
       "teaType": "Kahwa Blend",
       "featured": false,
       "description": "Fragrant kahwa-inspired infusion with spiced aromatic body.",
-      "tastingNotes": ["spiced", "cardamom", "aromatic"],
+      "tastingNotes": [
+        "spiced",
+        "cardamom",
+        "aromatic"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 450,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["kahwa", "arabian", "spiced"],
+      "searchKeywords": [
+        "kahwa",
+        "arabian",
+        "spiced"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/arabian-kahwa/default/ingredient.png",
-        "cardProductImage": "/images/products/arabian-kahwa/default/product.png"
+        "cardProductImage": "/images/products/arabian-kahwa/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/arabian-kahwa/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/arabian-kahwa/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/arabian-kahwa/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/arabian-kahwa/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "pineapple-delicacy",
@@ -1077,20 +2413,45 @@
       "teaType": "Fruit Blend",
       "featured": false,
       "description": "Tropical fruit-forward blend with sweet aromatic profile.",
-      "tastingNotes": ["pineapple", "fruity", "sweet"],
+      "tastingNotes": [
+        "pineapple",
+        "fruity",
+        "sweet"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 430,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-masala-soft),var(--surface)_45%)] text-[var(--product-masala-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["fruit tea", "pineapple"],
+      "searchKeywords": [
+        "fruit tea",
+        "pineapple"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/pineapple-delicacy/default/ingredient.png",
-        "cardProductImage": "/images/products/pineapple-delicacy/default/product.png"
+        "cardProductImage": "/images/products/pineapple-delicacy/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-square": {
+            "100g": {
+              "ingredient": "/images/products/pineapple-delicacy/formats/metal-tin-caddy-square/packs/100g/ingredient.png",
+              "product": "/images/products/pineapple-delicacy/formats/metal-tin-caddy-square/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/pineapple-delicacy/formats/metal-tin-caddy-square/packs/250g/ingredient.png",
+              "product": "/images/products/pineapple-delicacy/formats/metal-tin-caddy-square/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-square"]
+      "availability": [
+        "metal-tin-caddy-square"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "sweet-romance-infusion",
@@ -1101,20 +2462,45 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Soft floral infusion crafted for aromatic evening cups.",
-      "tastingNotes": ["floral", "sweet aroma", "smooth"],
+      "tastingNotes": [
+        "floral",
+        "sweet aroma",
+        "smooth"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-rose-soft),var(--surface)_45%)] text-[var(--product-rose-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["floral infusion", "romance tea"],
+      "searchKeywords": [
+        "floral infusion",
+        "romance tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/sweet-romance-infusion/default/ingredient.png",
-        "cardProductImage": "/images/products/sweet-romance-infusion/default/product.png"
+        "cardProductImage": "/images/products/sweet-romance-infusion/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/sweet-romance-infusion/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/sweet-romance-infusion/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/sweet-romance-infusion/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/sweet-romance-infusion/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "blue-ocean-tea",
@@ -1125,20 +2511,45 @@
       "teaType": "Infusion Blend",
       "featured": false,
       "description": "Marine-toned specialty infusion with gentle aromatic body.",
-      "tastingNotes": ["light floral", "clean", "smooth"],
+      "tastingNotes": [
+        "light floral",
+        "clean",
+        "smooth"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-nilgiri-soft),var(--surface)_45%)] text-[var(--product-nilgiri-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["blue tea", "infusion"],
+      "searchKeywords": [
+        "blue tea",
+        "infusion"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/blue-ocean-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/blue-ocean-tea/default/product.png"
+        "cardProductImage": "/images/products/blue-ocean-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/blue-ocean-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/blue-ocean-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/blue-ocean-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/blue-ocean-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "pink-blossom",
@@ -1149,20 +2560,45 @@
       "teaType": "Infusion",
       "featured": false,
       "description": "Floral blossom infusion with elegant rosy profile.",
-      "tastingNotes": ["rose", "blossom", "light"],
+      "tastingNotes": [
+        "rose",
+        "blossom",
+        "light"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 440,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-rose-soft),var(--surface)_45%)] text-[var(--product-rose-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["pink tea", "floral"],
+      "searchKeywords": [
+        "pink tea",
+        "floral"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/pink-blossom/default/ingredient.png",
-        "cardProductImage": "/images/products/pink-blossom/default/product.png"
+        "cardProductImage": "/images/products/pink-blossom/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/pink-blossom/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/pink-blossom/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/pink-blossom/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/pink-blossom/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "infusions",
+        "mystique"
+      ]
     },
     {
       "id": "decaf-tea",
@@ -1173,20 +2609,47 @@
       "teaType": "Decaf",
       "featured": false,
       "description": "Low-caffeine tea option for evening and sensitive drinkers.",
-      "tastingNotes": ["smooth", "mellow", "balanced"],
+      "tastingNotes": [
+        "smooth",
+        "mellow",
+        "balanced"
+      ],
       "brewTime": "3-4 min",
       "startingPriceInr": 420,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-assam-soft),var(--surface)_45%)] text-[var(--product-assam-foreground)]",
-      "searchAliases": ["decaff tea", "de-caf tea"],
-      "searchKeywords": ["decaf", "low caffeine"],
+      "searchAliases": [
+        "decaff tea",
+        "de-caf tea"
+      ],
+      "searchKeywords": [
+        "decaf",
+        "low caffeine"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/decaf-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/decaf-tea/default/product.png"
+        "cardProductImage": "/images/products/decaf-tea/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/decaf-tea/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/decaf-tea/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/decaf-tea/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/decaf-tea/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "serenity"
+      ]
     },
     {
       "id": "arabian-night",
@@ -1197,20 +2660,45 @@
       "teaType": "Signature Blend",
       "featured": false,
       "description": "Rich aromatic signature blend inspired by Middle Eastern profiles.",
-      "tastingNotes": ["spiced", "aromatic", "deep"],
+      "tastingNotes": [
+        "spiced",
+        "aromatic",
+        "deep"
+      ],
       "brewTime": "4 min",
       "startingPriceInr": 450,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-saffron-soft),var(--surface)_45%)] text-[var(--product-saffron-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["arabian", "signature blend"],
+      "searchKeywords": [
+        "arabian",
+        "signature blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/arabian-night/default/ingredient.png",
-        "cardProductImage": "/images/products/arabian-night/default/product.png"
+        "cardProductImage": "/images/products/arabian-night/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/arabian-night/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/arabian-night/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/arabian-night/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/arabian-night/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "summer-delight",
@@ -1221,20 +2709,45 @@
       "teaType": "Seasonal Blend",
       "featured": false,
       "description": "Bright seasonal blend crafted for refreshing warm-weather brews.",
-      "tastingNotes": ["fruity", "light", "refreshing"],
+      "tastingNotes": [
+        "fruity",
+        "light",
+        "refreshing"
+      ],
       "brewTime": "3 min",
       "startingPriceInr": 430,
       "accentClass": "bg-[color-mix(in_oklch,var(--product-green-soft),var(--surface)_45%)] text-[var(--product-green-foreground)]",
       "searchAliases": [],
-      "searchKeywords": ["summer tea", "seasonal"],
+      "searchKeywords": [
+        "summer tea",
+        "seasonal"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/summer-delight/default/ingredient.png",
-        "cardProductImage": "/images/products/summer-delight/default/product.png"
+        "cardProductImage": "/images/products/summer-delight/default/product.png",
+        "formatPackCardImages": {
+          "metal-tin-caddy-round": {
+            "100g": {
+              "ingredient": "/images/products/summer-delight/formats/metal-tin-caddy-round/packs/100g/ingredient.png",
+              "product": "/images/products/summer-delight/formats/metal-tin-caddy-round/packs/100g/product.png"
+            },
+            "250g": {
+              "ingredient": "/images/products/summer-delight/formats/metal-tin-caddy-round/packs/250g/ingredient.png",
+              "product": "/images/products/summer-delight/formats/metal-tin-caddy-round/packs/250g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["metal-tin-caddy-round"]
+      "availability": [
+        "metal-tin-caddy-round"
+      ],
+      "categories": [
+        "mystique",
+        "infusions"
+      ]
     },
     {
       "id": "black-tea-premix",
@@ -1249,16 +2762,92 @@
       "brewTime": "instant",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["black tea premix"],
-      "searchKeywords": ["premix", "instant tea"],
+      "searchAliases": [
+        "black tea premix"
+      ],
+      "searchKeywords": [
+        "premix",
+        "instant tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/black-tea-premix/default/ingredient.png",
-        "cardProductImage": "/images/products/black-tea-premix/default/product.png"
+        "cardProductImage": "/images/products/black-tea-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/black-tea-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/black-tea-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/black-tea-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/black-tea-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/black-tea-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/black-tea-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["premix-tea"]
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "heritage"
+      ]
+    },
+    {
+      "id": "masala-chai-premix",
+      "name": "Masala Chai Premix",
+      "slug": "masala-chai-premix",
+      "productType": "premix",
+      "family": "black",
+      "teaType": "Premix",
+      "featured": false,
+      "description": "Ready-to-mix masala chai premix for quick beverage service.",
+      "tastingNotes": [],
+      "brewTime": "instant",
+      "startingPriceInr": 0,
+      "accentClass": "",
+      "searchAliases": [
+        "masala chai premix"
+      ],
+      "searchKeywords": [
+        "premix",
+        "instant tea"
+      ],
+      "media": {
+        "heroVideo": null,
+        "heroImage": null,
+        "gallery": [],
+        "cardIngredientImage": "/images/products/masala-chai-premix/default/ingredient.png",
+        "cardProductImage": "/images/products/masala-chai-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/masala-chai-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/masala-chai-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/masala-chai-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/masala-chai-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/masala-chai-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/masala-chai-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
+      },
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "infusions"
+      ]
     },
     {
       "id": "cardamom-tea-premix",
@@ -1273,16 +2862,43 @@
       "brewTime": "instant",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["elaichi tea premix"],
-      "searchKeywords": ["premix", "cardamom", "instant"],
+      "searchAliases": [
+        "elaichi tea premix"
+      ],
+      "searchKeywords": [
+        "premix",
+        "cardamom",
+        "instant"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/cardamom-tea-premix/default/ingredient.png",
-        "cardProductImage": "/images/products/cardamom-tea-premix/default/product.png"
+        "cardProductImage": "/images/products/cardamom-tea-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/cardamom-tea-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["premix-tea"]
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "infusions"
+      ]
     },
     {
       "id": "saffron-tea-premix",
@@ -1298,15 +2914,89 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["premix", "saffron"],
+      "searchKeywords": [
+        "premix",
+        "saffron"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/saffron-tea-premix/default/ingredient.png",
-        "cardProductImage": "/images/products/saffron-tea-premix/default/product.png"
+        "cardProductImage": "/images/products/saffron-tea-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/saffron-tea-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/saffron-tea-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/saffron-tea-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/saffron-tea-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/saffron-tea-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/saffron-tea-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["premix-tea"]
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
+    },
+    {
+      "id": "ginger-tea-premix",
+      "name": "Ginger Tea Premix",
+      "slug": "ginger-tea-premix",
+      "productType": "premix",
+      "family": "specialty",
+      "teaType": "Premix",
+      "featured": false,
+      "description": "Instant ginger tea premix for premium vending and service.",
+      "tastingNotes": [],
+      "brewTime": "instant",
+      "startingPriceInr": 0,
+      "accentClass": "",
+      "searchAliases": [],
+      "searchKeywords": [
+        "premix",
+        "ginger"
+      ],
+      "media": {
+        "heroVideo": null,
+        "heroImage": null,
+        "gallery": [],
+        "cardIngredientImage": "/images/products/ginger-tea-premix/default/ingredient.png",
+        "cardProductImage": "/images/products/ginger-tea-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/ginger-tea-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/ginger-tea-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/ginger-tea-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/ginger-tea-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/ginger-tea-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/ginger-tea-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
+      },
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "serenity",
+        "infusions"
+      ]
     },
     {
       "id": "turmeric-latte-premix",
@@ -1321,16 +3011,43 @@
       "brewTime": "instant",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["turmaric latte"],
-      "searchKeywords": ["premix", "turmeric", "latte"],
+      "searchAliases": [
+        "turmaric latte"
+      ],
+      "searchKeywords": [
+        "premix",
+        "turmeric",
+        "latte"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/turmeric-latte-premix/default/ingredient.png",
-        "cardProductImage": "/images/products/turmeric-latte-premix/default/product.png"
+        "cardProductImage": "/images/products/turmeric-latte-premix/default/product.png",
+        "formatPackCardImages": {
+          "premix-tea": {
+            "14g": {
+              "ingredient": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/14g/ingredient.png",
+              "product": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/14g/product.png"
+            },
+            "22g": {
+              "ingredient": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/22g/ingredient.png",
+              "product": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/22g/product.png"
+            },
+            "27g": {
+              "ingredient": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/27g/ingredient.png",
+              "product": "/images/products/turmeric-latte-premix/formats/premix-tea/packs/27g/product.png"
+            }
+          }
+        }
       },
-      "availability": ["premix-tea"]
+      "availability": [
+        "premix-tea"
+      ],
+      "categories": [
+        "serenity"
+      ]
     },
     {
       "id": "ctc-blend-1",
@@ -1345,16 +3062,57 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 1"],
-      "searchKeywords": ["ctc", "bulk tea"],
+      "searchAliases": [
+        "ctc blend 1"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "bulk tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-1/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-1/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-1/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-1/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-1/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ],
+      "categories": [
+        "full-bodied"
+      ]
     },
     {
       "id": "ctc-blend-2",
@@ -1369,16 +3127,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 2"],
-      "searchKeywords": ["ctc", "premium blend"],
+      "searchAliases": [
+        "ctc blend 2"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "premium blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-2/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-2/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-2/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-2/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-2/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-3",
@@ -1393,16 +3189,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 3"],
-      "searchKeywords": ["ctc", "royal blend"],
+      "searchAliases": [
+        "ctc blend 3"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "royal blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-3/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-3/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-3/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-3/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-3/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-4",
@@ -1417,16 +3251,55 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 4"],
-      "searchKeywords": ["ctc", "bop", "bopsm"],
+      "searchAliases": [
+        "ctc blend 4"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "bop",
+        "bopsm"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-4/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-4/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-4/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-4/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-4/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-5",
@@ -1441,16 +3314,55 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 5"],
-      "searchKeywords": ["ctc", "bp", "bop"],
+      "searchAliases": [
+        "ctc blend 5"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "bp",
+        "bop"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-5/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-5/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-5/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-5/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-5/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-6",
@@ -1465,16 +3377,55 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 6"],
-      "searchKeywords": ["ctc", "pf", "pd"],
+      "searchAliases": [
+        "ctc blend 6"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "pf",
+        "pd"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-6/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-6/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-6/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-6/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-6/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-7",
@@ -1489,16 +3440,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 7"],
-      "searchKeywords": ["ctc", "home blend"],
+      "searchAliases": [
+        "ctc blend 7"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "home blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-7/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-7/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-7/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-7/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-7/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-8",
@@ -1513,16 +3502,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 8"],
-      "searchKeywords": ["ctc", "house blend"],
+      "searchAliases": [
+        "ctc blend 8"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "house blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-8/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-8/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-8/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-8/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-8/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-9",
@@ -1537,16 +3564,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 9"],
-      "searchKeywords": ["ctc", "bp blend"],
+      "searchAliases": [
+        "ctc blend 9"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "bp blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-9/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-9/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-9/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-9/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-9/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "ctc-blend-10",
@@ -1561,16 +3626,54 @@
       "brewTime": "4-5 min",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["ctc blend 10"],
-      "searchKeywords": ["ctc", "special blend"],
+      "searchAliases": [
+        "ctc blend 10"
+      ],
+      "searchKeywords": [
+        "ctc",
+        "special blend"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/ctc-blend-10/default/ingredient.png",
-        "cardProductImage": "/images/products/ctc-blend-10/default/product.png"
+        "cardProductImage": "/images/products/ctc-blend-10/default/product.png",
+        "formatPackCardImages": {
+          "printed-box": {
+            "200g": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-box/packs/200g/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-box/packs/200g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-box/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-box/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-box/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-box/packs/1kg/product.png"
+            }
+          },
+          "printed-pouch": {
+            "250g": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-pouch/packs/250g/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-pouch/packs/250g/product.png"
+            },
+            "500g": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-pouch/packs/500g/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-pouch/packs/500g/product.png"
+            },
+            "1kg": {
+              "ingredient": "/images/products/ctc-blend-10/formats/printed-pouch/packs/1kg/ingredient.png",
+              "product": "/images/products/ctc-blend-10/formats/printed-pouch/packs/1kg/product.png"
+            }
+          }
+        }
       },
-      "availability": ["printed-box", "printed-pouch"]
+      "availability": [
+        "printed-box",
+        "printed-pouch"
+      ]
     },
     {
       "id": "gift-set-square-caddy-3in1",
@@ -1586,15 +3689,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["gift box", "corporate gift"],
+      "searchKeywords": [
+        "gift box",
+        "corporate gift"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-square-caddy-3in1/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-square-caddy-3in1/default/product.png"
+        "cardProductImage": "/images/products/gift-set-square-caddy-3in1/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-square-caddy-3in1/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-square-caddy-3in1/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-square-caddy-3in1/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-square-caddy-3in1/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-square-caddy-2in1",
@@ -1610,15 +3730,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["gift set", "tea gift"],
+      "searchKeywords": [
+        "gift set",
+        "tea gift"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-square-caddy-2in1/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-square-caddy-2in1/default/product.png"
+        "cardProductImage": "/images/products/gift-set-square-caddy-2in1/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-square-caddy-2in1/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-square-caddy-2in1/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-square-caddy-2in1/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-square-caddy-2in1/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-round-caddy-3in1",
@@ -1634,15 +3771,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["gift set", "round caddy"],
+      "searchKeywords": [
+        "gift set",
+        "round caddy"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-round-caddy-3in1/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-round-caddy-3in1/default/product.png"
+        "cardProductImage": "/images/products/gift-set-round-caddy-3in1/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-round-caddy-3in1/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-round-caddy-3in1/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-round-caddy-3in1/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-round-caddy-3in1/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-round-caddy-2in1-infuser",
@@ -1658,15 +3812,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["gift set", "infuser"],
+      "searchKeywords": [
+        "gift set",
+        "infuser"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-round-caddy-2in1-infuser/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-round-caddy-2in1-infuser/default/product.png"
+        "cardProductImage": "/images/products/gift-set-round-caddy-2in1-infuser/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-round-caddy-2in1-infuser/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-round-caddy-2in1-infuser/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-round-caddy-2in1-infuser/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-round-caddy-2in1-infuser/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-world-of-tea",
@@ -1682,15 +3853,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["gift set", "assorted tea"],
+      "searchKeywords": [
+        "gift set",
+        "assorted tea"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-world-of-tea/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-world-of-tea/default/product.png"
+        "cardProductImage": "/images/products/gift-set-world-of-tea/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-world-of-tea/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-world-of-tea/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-world-of-tea/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-world-of-tea/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-glass-tubes",
@@ -1706,15 +3894,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["glass tubes", "gift set"],
+      "searchKeywords": [
+        "glass tubes",
+        "gift set"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-glass-tubes/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-glass-tubes/default/product.png"
+        "cardProductImage": "/images/products/gift-set-glass-tubes/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-glass-tubes/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-glass-tubes/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-glass-tubes/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-glass-tubes/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-woody-collection",
@@ -1730,15 +3935,33 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["luxury gift", "infuser", "spoon"],
+      "searchKeywords": [
+        "luxury gift",
+        "infuser",
+        "spoon"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-woody-collection/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-woody-collection/default/product.png"
+        "cardProductImage": "/images/products/gift-set-woody-collection/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-woody-collection/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-woody-collection/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-woody-collection/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-woody-collection/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-24-tin-caddies",
@@ -1753,16 +3976,36 @@
       "brewTime": "",
       "startingPriceInr": 0,
       "accentClass": "",
-      "searchAliases": ["24 unique loose leaf teas in tin caddies | gluten free"],
-      "searchKeywords": ["collector set", "gift box", "gluten free"],
+      "searchAliases": [
+        "24 unique loose leaf teas in tin caddies | gluten free"
+      ],
+      "searchKeywords": [
+        "collector set",
+        "gift box",
+        "gluten free"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-24-tin-caddies/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-24-tin-caddies/default/product.png"
+        "cardProductImage": "/images/products/gift-set-24-tin-caddies/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-24-tin-caddies/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-24-tin-caddies/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-24-tin-caddies/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-24-tin-caddies/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-4-premix",
@@ -1778,15 +4021,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["premix gift", "gift set"],
+      "searchKeywords": [
+        "premix gift",
+        "gift set"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-4-premix/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-4-premix/default/product.png"
+        "cardProductImage": "/images/products/gift-set-4-premix/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-4-premix/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-4-premix/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-4-premix/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-4-premix/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "gift-set-exotic-tea-bag-pack",
@@ -1802,15 +4062,32 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["tea bag gift", "assorted"],
+      "searchKeywords": [
+        "tea bag gift",
+        "assorted"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/gift-set-exotic-tea-bag-pack/default/ingredient.png",
-        "cardProductImage": "/images/products/gift-set-exotic-tea-bag-pack/default/product.png"
+        "cardProductImage": "/images/products/gift-set-exotic-tea-bag-pack/default/product.png",
+        "formatPackCardImages": {
+          "gift-box-collection": {
+            "festive": {
+              "ingredient": "/images/products/gift-set-exotic-tea-bag-pack/formats/gift-box-collection/packs/festive/ingredient.png",
+              "product": "/images/products/gift-set-exotic-tea-bag-pack/formats/gift-box-collection/packs/festive/product.png"
+            },
+            "corporate": {
+              "ingredient": "/images/products/gift-set-exotic-tea-bag-pack/formats/gift-box-collection/packs/corporate/ingredient.png",
+              "product": "/images/products/gift-set-exotic-tea-bag-pack/formats/gift-box-collection/packs/corporate/product.png"
+            }
+          }
+        }
       },
-      "availability": ["gift-box-collection"]
+      "availability": [
+        "gift-box-collection"
+      ]
     },
     {
       "id": "tea-infuser",
@@ -1826,15 +4103,23 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["infuser", "tea accessory"],
+      "searchKeywords": [
+        "infuser",
+        "tea accessory"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/tea-infuser/default/ingredient.png",
-        "cardProductImage": "/images/products/tea-infuser/default/product.png"
+        "cardProductImage": "/images/products/tea-infuser/default/product.png",
+        "formatPackCardImages": {
+          "tea-accessories": {}
+        }
       },
-      "availability": ["tea-accessories"]
+      "availability": [
+        "tea-accessories"
+      ]
     },
     {
       "id": "glass-teapot-with-infuser-450ml",
@@ -1850,15 +4135,24 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["teapot", "glass teapot", "infuser"],
+      "searchKeywords": [
+        "teapot",
+        "glass teapot",
+        "infuser"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/glass-teapot-with-infuser-450ml/default/ingredient.png",
-        "cardProductImage": "/images/products/glass-teapot-with-infuser-450ml/default/product.png"
+        "cardProductImage": "/images/products/glass-teapot-with-infuser-450ml/default/product.png",
+        "formatPackCardImages": {
+          "tea-accessories": {}
+        }
       },
-      "availability": ["tea-accessories"]
+      "availability": [
+        "tea-accessories"
+      ]
     },
     {
       "id": "double-wall-glass",
@@ -1874,15 +4168,23 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["double wall glass", "tea cup"],
+      "searchKeywords": [
+        "double wall glass",
+        "tea cup"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/double-wall-glass/default/ingredient.png",
-        "cardProductImage": "/images/products/double-wall-glass/default/product.png"
+        "cardProductImage": "/images/products/double-wall-glass/default/product.png",
+        "formatPackCardImages": {
+          "tea-accessories": {}
+        }
       },
-      "availability": ["tea-accessories"]
+      "availability": [
+        "tea-accessories"
+      ]
     },
     {
       "id": "tea-timer-cup-saucer",
@@ -1898,15 +4200,24 @@
       "startingPriceInr": 0,
       "accentClass": "",
       "searchAliases": [],
-      "searchKeywords": ["tea timer", "cup and saucer", "tea accessory"],
+      "searchKeywords": [
+        "tea timer",
+        "cup and saucer",
+        "tea accessory"
+      ],
       "media": {
         "heroVideo": null,
         "heroImage": null,
         "gallery": [],
         "cardIngredientImage": "/images/products/tea-timer-cup-saucer/default/ingredient.png",
-        "cardProductImage": "/images/products/tea-timer-cup-saucer/default/product.png"
+        "cardProductImage": "/images/products/tea-timer-cup-saucer/default/product.png",
+        "formatPackCardImages": {
+          "tea-accessories": {}
+        }
       },
-      "availability": ["tea-accessories"]
+      "availability": [
+        "tea-accessories"
+      ]
     }
   ]
 }

@@ -6,45 +6,365 @@
  * ============================================================================
  */
 
-import { Container } from "@/components/core/layout/Container";
-import { Stack } from "@/components/core/layout/Stack";
-import { BadgeCheck, ShoppingBag } from "lucide-react";
+"use client";
+
+import { useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+
+type HeroCategory = {
+  name: string;
+  video: string;
+};
+
+const HERO_CATEGORIES: HeroCategory[] = [
+  { name: "Wellbeing", video: "/videos/Queen's blend Banner Video.mp4" },
+  { name: "Immunity", video: "/videos/Queen's blend Banner Video.mp4" },
+  { name: "Cleansing", video: "/videos/Queen's blend Banner Video.mp4" },
+];
+
+const HERO_GHOST_LABEL = "Immunity";
+
+const HERO_INITIAL_CENTER_WIDTH = 320;
+const HERO_INITIAL_CENTER_HEIGHT = 460;
+const HERO_INITIAL_SIDE_WIDTH = 260;
+const HERO_INITIAL_SIDE_HEIGHT = 405;
+
+const HERO_INITIAL_CENTER_RADIUS = HERO_INITIAL_CENTER_WIDTH / 2;
+const HERO_INITIAL_SIDE_RADIUS = HERO_INITIAL_SIDE_WIDTH / 2;
+const SIDE_TO_CENTER_HEIGHT_SCALE = HERO_INITIAL_CENTER_HEIGHT / HERO_INITIAL_SIDE_HEIGHT;
 
 export function ProductsHero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const stickyRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState(1);
+  const [isLeftFocused, setIsLeftFocused] = useState(false);
+  const [isRightFocused, setIsRightFocused] = useState(false);
+  const [floatingLabel, setFloatingLabel] = useState({
+    visible: false,
+    text: "",
+    x: HERO_INITIAL_CENTER_WIDTH / 2,
+    y: HERO_INITIAL_CENTER_HEIGHT / 2,
+  });
+  const shouldReduceMotion = useReducedMotion();
+
+  const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+
+  const updateFloatingLabelFromEvent = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    categoryName: string,
+  ) => {
+    if (!stickyRef.current) {
+      return;
+    }
+
+    const stickyRect = stickyRef.current.getBoundingClientRect();
+    const x = clamp(event.clientX - stickyRect.left, 56, stickyRect.width - 56);
+    const y = clamp(event.clientY - stickyRect.top, 56, stickyRect.height - 56);
+
+    setFloatingLabel({ visible: true, text: categoryName, x, y });
+  };
+
+  const updateFloatingLabelFromElement = (element: HTMLElement, categoryName: string) => {
+    if (!stickyRef.current) {
+      return;
+    }
+
+    const stickyRect = stickyRef.current.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
+    const x = clamp(rect.left - stickyRect.left + rect.width / 2, 56, stickyRect.width - 56);
+    const y = clamp(rect.top - stickyRect.top + rect.height / 2, 56, stickyRect.height - 56);
+
+    setFloatingLabel({ visible: true, text: categoryName, x, y });
+  };
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  const centerWidthRaw = useTransform(
+    scrollYProgress,
+    [0, 0.28, 0.62, 1],
+    [HERO_INITIAL_CENTER_WIDTH, HERO_INITIAL_CENTER_WIDTH, 1040, 1420],
+  );
+  const centerHeightRaw = useTransform(
+    scrollYProgress,
+    [0, 0.28, 0.62, 1],
+    [HERO_INITIAL_CENTER_HEIGHT, 900, 900, 900],
+  );
+  const centerRadiusRaw = useTransform(
+    scrollYProgress,
+    [0, 0.28, 0.62, 1],
+    [HERO_INITIAL_CENTER_RADIUS, HERO_INITIAL_CENTER_RADIUS, 74, 28],
+  );
+  const centerYRaw = useTransform(scrollYProgress, [0, 1], [0, -110]);
+
+  const sideWidthRaw = useTransform(
+    scrollYProgress,
+    [0, 0.48, 0.86, 1],
+    [HERO_INITIAL_SIDE_WIDTH, 244, 130, 10],
+  );
+  const sideHeightRaw = useTransform(
+    scrollYProgress,
+    [0, 0.48, 0.86, 1],
+    [HERO_INITIAL_SIDE_HEIGHT, 380, 210, 16],
+  );
+  const sideRadiusRaw = useTransform(
+    scrollYProgress,
+    [0, 0.48, 0.86, 1],
+    [HERO_INITIAL_SIDE_RADIUS, 122, 65, 8],
+  );
+  const sideYRaw = useTransform(scrollYProgress, [0, 1], [0, -470]);
+
+  const cueOpacityRaw = useTransform(scrollYProgress, [0, 0.62, 0.78], [1, 1, 0]);
+  const cueYRaw = useTransform(scrollYProgress, [0, 0.78], [0, -34]);
+
+  const titleScaleRaw = useTransform(scrollYProgress, [0, 1], [1, 1.38]);
+  const titleYRaw = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const ghostOpacityRaw = useTransform(scrollYProgress, [0, 0.9, 1], [0.58, 0.58, 0.22]);
+
+  const centerWidth = useSpring(centerWidthRaw, { stiffness: 132, damping: 24, mass: 0.28 });
+  const centerHeight = useSpring(centerHeightRaw, { stiffness: 132, damping: 24, mass: 0.28 });
+  const centerRadius = useSpring(centerRadiusRaw, { stiffness: 136, damping: 24, mass: 0.26 });
+  const centerY = useSpring(centerYRaw, { stiffness: 110, damping: 24, mass: 0.3 });
+
+  const sideWidth = useSpring(sideWidthRaw, { stiffness: 96, damping: 24, mass: 0.34 });
+  const sideHeight = useSpring(sideHeightRaw, { stiffness: 96, damping: 24, mass: 0.34 });
+  const sideRadius = useSpring(sideRadiusRaw, { stiffness: 96, damping: 24, mass: 0.34 });
+  const sideY = useSpring(sideYRaw, { stiffness: 92, damping: 22, mass: 0.34 });
+
+  const cueOpacity = useSpring(cueOpacityRaw, { stiffness: 140, damping: 28, mass: 0.2 });
+  const cueY = useSpring(cueYRaw, { stiffness: 140, damping: 28, mass: 0.2 });
+
+  const titleScale = useSpring(titleScaleRaw, { stiffness: 120, damping: 24, mass: 0.3 });
+  const titleY = useSpring(titleYRaw, { stiffness: 120, damping: 24, mass: 0.3 });
+  const ghostOpacity = useSpring(ghostOpacityRaw, { stiffness: 120, damping: 24, mass: 0.3 });
+
+  const activeCategory = HERO_CATEGORIES[activeIndex];
+  const leftIndex = (activeIndex - 1 + HERO_CATEGORIES.length) % HERO_CATEGORIES.length;
+  const rightIndex = (activeIndex + 1) % HERO_CATEGORIES.length;
+  const leftCategory = HERO_CATEGORIES[leftIndex];
+  const rightCategory = HERO_CATEGORIES[rightIndex];
+
   return (
-    <section className="from-background via-muted/35 to-background relative w-full overflow-hidden bg-linear-to-b py-24 md:py-32 lg:py-36">
+    <section
+      ref={sectionRef}
+      className="relative z-10 -mt-20 h-[220svh] w-full bg-[#f4efe7] lg:h-[220vh]"
+    >
       <div
-        className="bg-secondary/25 absolute -top-32 -right-24 h-72 w-72 rounded-full blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="bg-primary/12 absolute -bottom-36 -left-20 h-80 w-80 rounded-full blur-3xl"
-        aria-hidden="true"
-      />
+        ref={stickyRef}
+        className="sticky top-0 flex h-svh items-center justify-center overflow-hidden md:h-screen lg:h-screen"
+      >
+        <motion.div
+          className="absolute bottom-1/2 left-0 z-20 hidden -translate-x-1/2 translate-y-1/2 overflow-hidden lg:flex"
+          animate={{ scaleY: isLeftFocused ? SIDE_TO_CENTER_HEIGHT_SCALE : 1 }}
+          whileHover={{ scaleY: SIDE_TO_CENTER_HEIGHT_SCALE }}
+          transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.4 }}
+          style={
+            shouldReduceMotion
+              ? {
+                  width: HERO_INITIAL_SIDE_WIDTH,
+                  height: HERO_INITIAL_SIDE_HEIGHT,
+                  borderRadius: HERO_INITIAL_SIDE_RADIUS,
+                }
+              : {
+                  width: sideWidth,
+                  height: sideHeight,
+                  borderRadius: sideRadius,
+                  y: sideY,
+                }
+          }
+        >
+          <motion.button
+            type="button"
+            onClick={() => setActiveIndex(leftIndex)}
+            onMouseEnter={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
+            onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
+            onMouseMove={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
+            onFocusCapture={(event) => {
+              setIsLeftFocused(true);
+              updateFloatingLabelFromElement(event.currentTarget, leftCategory.name);
+            }}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setIsLeftFocused(false);
+                setFloatingLabel((current) => ({ ...current, visible: false }));
+              }
+            }}
+            className="group relative h-full w-full cursor-pointer overflow-hidden"
+            style={{ borderRadius: shouldReduceMotion ? HERO_INITIAL_SIDE_RADIUS : sideRadius }}
+            aria-label={`Show ${leftCategory.name} hero`}
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
+              aria-hidden="true"
+            >
+              <source src={leftCategory.video} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 z-10 bg-black/25" aria-hidden="true" />
+          </motion.button>
+        </motion.div>
 
-      <Container size="xl" className="relative z-10">
-        <Stack gap="lg" align="center" className="text-center">
-          <div className="reveal-up bg-primary/10 text-primary inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs tracking-[0.16em] uppercase">
-            <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
-            Our Collections
-          </div>
+        <motion.p
+          className="pointer-events-none absolute top-1/2 left-1/2 z-20 max-w-[95vw] -translate-x-1/2 -translate-y-1/2 text-center font-(family-name:--font-heading) text-[clamp(6rem,20vw,18rem)] leading-none tracking-tight text-black/60"
+          style={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  scale: titleScale,
+                  opacity: ghostOpacity,
+                  y: titleY,
+                }
+          }
+          aria-hidden="true"
+        >
+          {HERO_GHOST_LABEL}
+        </motion.p>
 
-          <h1 className="reveal-up stagger-1 font-(family-name:--font-heading) text-4xl leading-tight tracking-tight text-balance md:text-6xl">
-            Explore Rare Leaves,
-            <span className="text-primary block">Curated by Origin</span>
-          </h1>
+        <motion.div
+          className="pointer-events-none absolute top-1/2 left-1/2 z-50 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+          style={
+            shouldReduceMotion
+              ? {
+                  width: HERO_INITIAL_CENTER_WIDTH,
+                  height: HERO_INITIAL_CENTER_HEIGHT,
+                  borderRadius: HERO_INITIAL_CENTER_RADIUS,
+                }
+              : {
+                  width: centerWidth,
+                  height: centerHeight,
+                  borderRadius: centerRadius,
+                  y: centerY,
+                }
+          }
+        >
+          <motion.div
+            className="relative flex h-full w-full items-center justify-center overflow-hidden shadow-2xl"
+            style={
+              shouldReduceMotion
+                ? { borderRadius: HERO_INITIAL_CENTER_RADIUS }
+                : { borderRadius: centerRadius }
+            }
+          >
+            <div className="absolute inset-0 z-10 bg-black/30" aria-hidden="true" />
 
-          <p className="reveal-up stagger-2 text-muted-foreground max-w-2xl text-base leading-relaxed md:text-lg">
-            Discover estate-grown teas selected for flavor clarity, aromatic depth, and brewing
-            consistency across every harvest.
-          </p>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
+              key={activeCategory.name}
+              aria-hidden="true"
+            >
+              <source src={activeCategory.video} type="video/mp4" />
+            </video>
 
-          <div className="reveal-up stagger-3 text-muted-foreground inline-flex items-center gap-2 text-sm">
-            <BadgeCheck className="text-primary h-4 w-4" aria-hidden="true" />
-            Traceable sourcing with seasonal quality checks
-          </div>
-        </Stack>
-      </Container>
+            <div className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2">
+              <h1 className="w-[80vw] text-center font-(family-name:--font-heading) text-[clamp(6rem,20vw,18rem)] leading-none tracking-tight text-white">
+                {activeCategory.name}
+              </h1>
+            </div>
+
+            {/* <div className="absolute bottom-10 left-1/2 z-50 -translate-x-1/2">
+              <Stack gap="xs" align="center" className="text-center text-white/90">
+                <p className="text-xs tracking-[0.16em] uppercase">Discover</p>
+                <p className="text-sm">{activeCategory.name}</p>
+              </Stack>
+            </div> */}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="absolute right-0 bottom-1/2 z-20 hidden translate-x-1/2 translate-y-1/2 overflow-hidden lg:flex"
+          animate={{ scaleY: isRightFocused ? SIDE_TO_CENTER_HEIGHT_SCALE : 1 }}
+          whileHover={{ scaleY: SIDE_TO_CENTER_HEIGHT_SCALE }}
+          transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.4 }}
+          style={
+            shouldReduceMotion
+              ? {
+                  width: HERO_INITIAL_SIDE_WIDTH,
+                  height: HERO_INITIAL_SIDE_HEIGHT,
+                  borderRadius: HERO_INITIAL_SIDE_RADIUS,
+                }
+              : {
+                  width: sideWidth,
+                  height: sideHeight,
+                  borderRadius: sideRadius,
+                  y: sideY,
+                }
+          }
+        >
+          <motion.button
+            type="button"
+            onClick={() => setActiveIndex(rightIndex)}
+            onMouseEnter={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
+            onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
+            onMouseMove={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
+            onFocusCapture={(event) => {
+              setIsRightFocused(true);
+              updateFloatingLabelFromElement(event.currentTarget, rightCategory.name);
+            }}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setIsRightFocused(false);
+                setFloatingLabel((current) => ({ ...current, visible: false }));
+              }
+            }}
+            className="group relative h-full w-full cursor-pointer overflow-hidden"
+            style={{ borderRadius: shouldReduceMotion ? HERO_INITIAL_SIDE_RADIUS : sideRadius }}
+            aria-label={`Show ${rightCategory.name} hero`}
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
+              aria-hidden="true"
+            >
+              <source src={rightCategory.video} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 z-10 bg-black/25" aria-hidden="true" />
+          </motion.button>
+        </motion.div>
+
+        <motion.div
+          className="pointer-events-none absolute top-0 left-0 z-90 flex size-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 px-3 text-center shadow-xl"
+          animate={{
+            x: floatingLabel.x,
+            y: floatingLabel.y,
+            opacity: floatingLabel.visible ? 1 : 0,
+            scale: floatingLabel.visible ? 1 : 0.85,
+          }}
+          transition={{ type: "spring", stiffness: 240, damping: 22, mass: 0.32 }}
+          aria-hidden="true"
+        >
+          <span className="font-(family-name:--font-heading) text-xl leading-tight text-white">
+            {floatingLabel.text}
+          </span>
+        </motion.div>
+
+        <motion.p
+          className="text-foreground absolute bottom-0 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center gap-2 text-sm select-none"
+          style={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  color: "white",
+                  opacity: cueOpacity,
+                  y: cueY,
+                }
+          }
+        >
+          Scroll to explore
+          <i className="block h-10 w-px bg-current" aria-hidden="true" />
+        </motion.p>
+      </div>
     </section>
   );
 }

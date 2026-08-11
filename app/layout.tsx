@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import { Header } from "@/components/layout/header/Header";
+import { NewHeader } from "@/components/layout/header/NewHeader";
 import { Footer } from "@/components/layout/footer/Footer";
 import "./globals.css";
 
@@ -48,7 +48,7 @@ export default function RootLayout({
       )}
     >
       <body className="bg-background text-foreground flex min-h-screen flex-col font-sans">
-        <Header />
+        <NewHeader />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

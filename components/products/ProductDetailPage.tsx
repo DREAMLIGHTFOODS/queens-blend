@@ -16,7 +16,11 @@ import { Section } from "@/components/core/layout/Section";
 import { Stack } from "@/components/core/layout/Stack";
 import { Surface } from "@/components/core/layout/Surface";
 import { Button } from "@/components/ui/button";
-import type { DiscoverableTeaProduct, TeaProductDetail } from "@/data/products";
+import {
+  toPackSizeParam,
+  type DiscoverableTeaProduct,
+  type TeaProductDetail,
+} from "@/data/products";
 
 type ProductDetailPageProps = {
   product: TeaProductDetail;
@@ -32,6 +36,21 @@ function formatCurrencyInr(value: number): string {
 }
 
 export function ProductDetailPage({ product, relatedProducts }: ProductDetailPageProps) {
+  const buildProductHref = (formatId?: string, packSize?: string) => {
+    const params = new URLSearchParams();
+
+    if (formatId) {
+      params.set("format", formatId);
+    }
+
+    if (formatId && packSize) {
+      params.set("pack", toPackSizeParam(packSize));
+    }
+
+    const query = params.toString();
+    return query ? `/products/${product.slug}?${query}` : `/products/${product.slug}`;
+  };
+
   return (
     <Section>
       <Container size="xl">
@@ -91,6 +110,11 @@ export function ProductDetailPage({ product, relatedProducts }: ProductDetailPag
                       Format: {product.selectedFormatName}
                     </span>
                   ) : null}
+                  {product.selectedPackSize ? (
+                    <span className="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-semibold">
+                      Pack: {product.selectedPackSize}
+                    </span>
+                  ) : null}
                   <span className="bg-muted text-muted-foreground inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium">
                     <Tags className="h-3.5 w-3.5" aria-hidden="true" />
                     {product.teaType}
@@ -136,11 +160,36 @@ export function ProductDetailPage({ product, relatedProducts }: ProductDetailPag
               <Stack gap="sm" className="mt-4">
                 {product.availabilityFormats.map((format) => (
                   <div key={format.id} className="border-border bg-muted/35 rounded-xl border p-4">
-                    <p className="font-medium">{format.name}</p>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="font-medium">{format.name}</p>
+                      <Link
+                        href={buildProductHref(format.id)}
+                        className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                          product.selectedFormatId === format.id
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-primary/10 text-primary hover:bg-primary/20"
+                        }`}
+                      >
+                        {product.selectedFormatId === format.id ? "Selected" : "View Format"}
+                      </Link>
+                    </div>
                     {format.packSizes.length > 0 ? (
-                      <p className="text-muted-foreground mt-1 text-sm">
-                        Pack sizes: {format.packSizes.join(", ")}
-                      </p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {format.packSizes.map((packSize) => (
+                          <Link
+                            key={`${format.id}-${packSize}`}
+                            href={buildProductHref(format.id, packSize)}
+                            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                              product.selectedFormatId === format.id &&
+                              product.selectedPackSizeParam === toPackSizeParam(packSize)
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-muted text-muted-foreground hover:text-foreground"
+                            }`}
+                          >
+                            {packSize}
+                          </Link>
+                        ))}
+                      </div>
                     ) : null}
                     {format.variants.length > 0 ? (
                       <p className="text-muted-foreground mt-1 text-sm">
@@ -156,7 +205,7 @@ export function ProductDetailPage({ product, relatedProducts }: ProductDetailPag
               <h2 className="text-xl font-semibold tracking-tight">Visual Story</h2>
               <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                 {product.selectedFormatName
-                  ? `Ingredient and product previews for the ${product.selectedFormatName} format.`
+                  ? `Ingredient and product previews for the ${product.selectedFormatName} format${product.selectedPackSize ? ` (${product.selectedPackSize})` : ""}.`
                   : "Ingredient and product previews for this blend."}
               </p>
               <div className="mt-4 grid grid-cols-2 gap-3">

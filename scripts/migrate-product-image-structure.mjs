@@ -17,6 +17,39 @@ if (!fs.existsSync(globalDefaultIngredient) || !fs.existsSync(globalDefaultProdu
 }
 
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+const formatsById = new Map(catalog.formats.map((format) => [format.id, format]));
+
+function normalizePackSizeToken(value) {
+  return String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function pickExistingPackPair(existingPackMap, packSize) {
+  if (!existingPackMap || typeof existingPackMap !== "object") {
+    return null;
+  }
+
+  const normalizedPackSize = normalizePackSizeToken(packSize);
+  return (
+    existingPackMap[packSize] ||
+    existingPackMap[normalizedPackSize] ||
+    Object.entries(existingPackMap).find(
+      ([key]) => normalizePackSizeToken(key) === normalizedPackSize,
+    )?.[1] ||
+    null
+  );
+}
+
+function publicUrlToAbsolutePath(publicUrlPath) {
+  if (typeof publicUrlPath !== "string" || !publicUrlPath.startsWith("/")) {
+    return null;
+  }
+
+  return path.join(rootDir, "public", ...publicUrlPath.replace(/^\/+/, "").split("/"));
+}
 
 function copyIfMissing(sourcePath, targetPath) {
   if (!fs.existsSync(sourcePath) || fs.existsSync(targetPath)) {
@@ -67,57 +100,106 @@ for (const product of catalog.products) {
   product.media.cardIngredientImage = `/images/products/${slug}/default/ingredient.png`;
   product.media.cardProductImage = `/images/products/${slug}/default/product.png`;
 
-  if (product.media.formatCardImages && typeof product.media.formatCardImages === "object") {
-    for (const [formatId, pair] of Object.entries(product.media.formatCardImages)) {
-      const nextIngredientUrl = `/images/products/${slug}/formats/${formatId}/ingredient.png`;
-      const nextProductUrl = `/images/products/${slug}/formats/${formatId}/product.png`;
+  if (
+    !product.media.formatPackCardImages ||
+    typeof product.media.formatPackCardImages !== "object"
+  ) {
+    product.media.formatPackCardImages = {};
+  }
 
-      const formatIngredientPath = path.join(
+  for (const formatId of product.availability ?? []) {
+    const format = formatsById.get(formatId);
+    if (!format) {
+      continue;
+    }
+
+    const existingPackMap = product.media.formatPackCardImages[formatId];
+    const firstExistingPair =
+      existingPackMap && typeof existingPackMap === "object"
+        ? Object.values(existingPackMap).find(
+            (pair) => pair && typeof pair === "object" && pair.ingredient && pair.product,
+          )
+        : null;
+
+    const legacyPair =
+      product.media.formatCardImages && typeof product.media.formatCardImages === "object"
+        ? product.media.formatCardImages[formatId]
+        : null;
+
+    const sourceIngredientPath = publicUrlToAbsolutePath(
+      firstExistingPair?.ingredient || legacyPair?.ingredient,
+    );
+    const sourceProductPath = publicUrlToAbsolutePath(
+      firstExistingPair?.product || legacyPair?.product,
+    );
+
+    const packMap = {};
+    for (const packSize of format.packSizes) {
+      const packToken = normalizePackSizeToken(packSize);
+      const packIngredientPath = path.join(
         productsRoot,
         slug,
         "formats",
         formatId,
+        "packs",
+        packToken,
         "ingredient.png",
       );
-      const formatProductPath = path.join(productsRoot, slug, "formats", formatId, "product.png");
+      const packProductPath = path.join(
+        productsRoot,
+        slug,
+        "formats",
+        formatId,
+        "packs",
+        packToken,
+        "product.png",
+      );
 
-      const oldIngredientPath =
-        pair && typeof pair === "object" && typeof pair.ingredient === "string"
-          ? path.join(rootDir, "public", ...pair.ingredient.replace(/^\/+/, "").split("/"))
-          : null;
-      const oldProductPath =
-        pair && typeof pair === "object" && typeof pair.product === "string"
-          ? path.join(rootDir, "public", ...pair.product.replace(/^\/+/, "").split("/"))
-          : null;
+      const packPair = pickExistingPackPair(existingPackMap, packSize);
+      const pairSourceIngredientPath = publicUrlToAbsolutePath(packPair?.ingredient);
+      const pairSourceProductPath = publicUrlToAbsolutePath(packPair?.product);
+      const finalSourceIngredientPath = pairSourceIngredientPath || sourceIngredientPath;
+      const finalSourceProductPath = pairSourceProductPath || sourceProductPath;
 
       if (
-        oldIngredientPath &&
-        fs.existsSync(oldIngredientPath) &&
-        !fs.existsSync(formatIngredientPath)
+        finalSourceIngredientPath &&
+        fs.existsSync(finalSourceIngredientPath) &&
+        !fs.existsSync(packIngredientPath)
       ) {
-        fs.mkdirSync(path.dirname(formatIngredientPath), { recursive: true });
-        fs.copyFileSync(oldIngredientPath, formatIngredientPath);
+        fs.mkdirSync(path.dirname(packIngredientPath), { recursive: true });
+        fs.copyFileSync(finalSourceIngredientPath, packIngredientPath);
       }
 
-      if (oldProductPath && fs.existsSync(oldProductPath) && !fs.existsSync(formatProductPath)) {
-        fs.mkdirSync(path.dirname(formatProductPath), { recursive: true });
-        fs.copyFileSync(oldProductPath, formatProductPath);
+      if (
+        finalSourceProductPath &&
+        fs.existsSync(finalSourceProductPath) &&
+        !fs.existsSync(packProductPath)
+      ) {
+        fs.mkdirSync(path.dirname(packProductPath), { recursive: true });
+        fs.copyFileSync(finalSourceProductPath, packProductPath);
       }
 
-      if (!fs.existsSync(formatIngredientPath)) {
-        copyIfMissing(globalDefaultIngredient, formatIngredientPath);
+      if (!fs.existsSync(packIngredientPath)) {
+        copyIfMissing(globalDefaultIngredient, packIngredientPath);
       }
 
-      if (!fs.existsSync(formatProductPath)) {
-        copyIfMissing(globalDefaultProduct, formatProductPath);
+      if (!fs.existsSync(packProductPath)) {
+        copyIfMissing(globalDefaultProduct, packProductPath);
       }
 
-      product.media.formatCardImages[formatId] = {
+      const nextIngredientUrl = `/images/products/${slug}/formats/${formatId}/packs/${packToken}/ingredient.png`;
+      const nextProductUrl = `/images/products/${slug}/formats/${formatId}/packs/${packToken}/product.png`;
+
+      packMap[packSize] = {
         ingredient: nextIngredientUrl,
         product: nextProductUrl,
       };
     }
+
+    product.media.formatPackCardImages[formatId] = packMap;
   }
+
+  delete product.media.formatCardImages;
 }
 
 fs.writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);
