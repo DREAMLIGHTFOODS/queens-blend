@@ -57,9 +57,12 @@ export function Footer() {
             <Stack gap="md">
               <h4 className="text-sm font-semibold">Contact</h4>
               <div className="space-y-2 text-sm text-(--neutral-300)">
-                <p>Email: info@queensblend.com</p>
-                <p>Phone: +91 (XXX) XXX-XXXX</p>
-                <p>Location: India</p>
+                <p>
+                  Location: The Queen&apos;s Blend, 26/3B Hindustan Park, Kolkata - 700 029, West
+                  Bengal, India
+                </p>
+                <p>Phone: +91 (33) 3151-5892</p>
+                <p>Email: info@thequeensblend.com</p>
               </div>
             </Stack>
           </div>

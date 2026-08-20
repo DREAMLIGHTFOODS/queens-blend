@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { ProductsSection } from "@/components/products/ProductsSection";
+import { CategoryProductsSection } from "@/components/products/category/CategoryProductsSection";
 import { isTeaCollectionId, TEA_COLLECTIONS } from "@/data/products";
 import { CategoryHero } from "@/components/products/category/CategoryHero";
 
@@ -32,8 +32,8 @@ export default async function CategoryProductsPage({
 
   return (
     <>
-      <CategoryHero />
-      <ProductsSection
+      <CategoryHero collectionId={collection.id} />
+      <CategoryProductsSection
         initialQuery={typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : ""}
         initialFormat={
           typeof resolvedSearchParams?.format === "string" ? resolvedSearchParams.format : "all"

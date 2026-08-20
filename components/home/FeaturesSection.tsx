@@ -102,7 +102,7 @@ export function FeaturesSection() {
                     <span className="text-ring text-xs tracking-[0.2em] uppercase">
                       {feature.label}
                     </span>
-                    <div className="bg-primary/10 text-ring rounded-full p-2">
+                    <div className="bg-ring text-primary rounded-full p-2">
                       <feature.icon className="h-4 w-4" aria-hidden="true" />
                     </div>
                   </div>
