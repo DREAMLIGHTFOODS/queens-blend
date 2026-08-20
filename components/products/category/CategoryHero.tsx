@@ -8,21 +8,24 @@
 
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { TEA_COLLECTIONS, type TeaCollectionId } from "@/data/products";
 
 type HeroCategory = {
+  id: TeaCollectionId;
   name: string;
   video: string;
 };
 
-const HERO_CATEGORIES: HeroCategory[] = [
-  { name: "Wellbeing", video: "/videos/Queen's blend Banner Video.mp4" },
-  { name: "Immunity", video: "/videos/Queen's blend Banner Video.mp4" },
-  { name: "Cleansing", video: "/videos/Queen's blend Banner Video.mp4" },
-];
+const HERO_VIDEO = "/videos/Queen's blend Banner Video.mp4";
 
-const HERO_GHOST_LABEL = "Immunity";
+const HERO_CATEGORIES: HeroCategory[] = TEA_COLLECTIONS.map((collection) => ({
+  id: collection.id,
+  name: collection.name,
+  video: `/videos/${collection.id}.mp4`,
+}));
 
 const HERO_INITIAL_CENTER_WIDTH = 320;
 const HERO_INITIAL_CENTER_HEIGHT = 460;
@@ -32,11 +35,18 @@ const HERO_INITIAL_SIDE_HEIGHT = 405;
 const HERO_INITIAL_CENTER_RADIUS = HERO_INITIAL_CENTER_WIDTH / 2;
 const HERO_INITIAL_SIDE_RADIUS = HERO_INITIAL_SIDE_WIDTH / 2;
 const SIDE_TO_CENTER_HEIGHT_SCALE = HERO_INITIAL_CENTER_HEIGHT / HERO_INITIAL_SIDE_HEIGHT;
+const ACTIVE_CATEGORY_NAME_CLASS =
+  "w-[min(80vw,1320px)] whitespace-nowrap text-center font-(family-name:--font-heading) text-[clamp(6rem,20vw,18rem)] font-normal leading-none tracking-tight antialiased";
 
-export function CategoryHero() {
+export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const sectionRef = useRef<HTMLElement | null>(null);
   const stickyRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const activeIndex = useMemo(() => {
+    const resolvedIndex = HERO_CATEGORIES.findIndex((category) => category.id === collectionId);
+    return resolvedIndex >= 0 ? resolvedIndex : 0;
+  }, [collectionId]);
   const [isLeftFocused, setIsLeftFocused] = useState(false);
   const [isRightFocused, setIsRightFocused] = useState(false);
   const [floatingLabel, setFloatingLabel] = useState({
@@ -118,10 +128,7 @@ export function CategoryHero() {
 
   const cueOpacityRaw = useTransform(scrollYProgress, [0, 0.62, 0.78], [1, 1, 0]);
   const cueYRaw = useTransform(scrollYProgress, [0, 0.78], [0, -34]);
-
-  const titleScaleRaw = useTransform(scrollYProgress, [0, 1], [1, 1.38]);
-  const titleYRaw = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const ghostOpacityRaw = useTransform(scrollYProgress, [0, 0.9, 1], [0.58, 0.58, 0.22]);
+  const cueColor = useTransform(scrollYProgress, [0, 0.01], ["#000000", "#ffffff"]);
 
   const centerWidth = useSpring(centerWidthRaw, { stiffness: 132, damping: 24, mass: 0.28 });
   const centerHeight = useSpring(centerHeightRaw, { stiffness: 132, damping: 24, mass: 0.28 });
@@ -136,24 +143,31 @@ export function CategoryHero() {
   const cueOpacity = useSpring(cueOpacityRaw, { stiffness: 140, damping: 28, mass: 0.2 });
   const cueY = useSpring(cueYRaw, { stiffness: 140, damping: 28, mass: 0.2 });
 
-  const titleScale = useSpring(titleScaleRaw, { stiffness: 120, damping: 24, mass: 0.3 });
-  const titleY = useSpring(titleYRaw, { stiffness: 120, damping: 24, mass: 0.3 });
-  const ghostOpacity = useSpring(ghostOpacityRaw, { stiffness: 120, damping: 24, mass: 0.3 });
-
   const activeCategory = HERO_CATEGORIES[activeIndex];
   const leftIndex = (activeIndex - 1 + HERO_CATEGORIES.length) % HERO_CATEGORIES.length;
   const rightIndex = (activeIndex + 1) % HERO_CATEGORIES.length;
   const leftCategory = HERO_CATEGORIES[leftIndex];
   const rightCategory = HERO_CATEGORIES[rightIndex];
 
+  const navigateToCategory = (targetIndex: number) => {
+    const targetCategory = HERO_CATEGORIES[targetIndex];
+    if (!targetCategory) {
+      return;
+    }
+
+    const query = searchParams?.toString();
+    const href = query
+      ? `/products/category/${targetCategory.id}?${query}`
+      : `/products/category/${targetCategory.id}`;
+
+    router.push(href);
+  };
+
   return (
-    <section
-      ref={sectionRef}
-      className="relative z-10 -mt-20 h-[220svh] w-full bg-[#f4efe7] lg:h-[220vh]"
-    >
+    <section ref={sectionRef} className="relative z-10 -mt-24 h-[220svh] w-full lg:h-[220vh]">
       <div
         ref={stickyRef}
-        className="sticky top-0 flex h-svh items-center justify-center overflow-hidden md:h-screen lg:h-screen"
+        className="sticky top-0 flex h-svh items-center justify-center overflow-hidden md:h-screen md:max-h-screen lg:h-screen lg:max-h-screen"
       >
         <motion.div
           className="absolute bottom-1/2 left-0 z-20 hidden -translate-x-1/2 translate-y-1/2 overflow-hidden lg:flex"
@@ -177,7 +191,7 @@ export function CategoryHero() {
         >
           <motion.button
             type="button"
-            onClick={() => setActiveIndex(leftIndex)}
+            onClick={() => navigateToCategory(leftIndex)}
             onMouseEnter={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
             onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
             onMouseMove={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
@@ -210,23 +224,21 @@ export function CategoryHero() {
         </motion.div>
 
         <motion.p
-          className="pointer-events-none absolute top-1/2 left-1/2 z-20 max-w-[95vw] -translate-x-1/2 -translate-y-1/2 text-center font-(family-name:--font-heading) text-[clamp(6rem,20vw,18rem)] leading-none tracking-tight text-black/60"
+          className={`pointer-events-none absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 ${ACTIVE_CATEGORY_NAME_CLASS} text-black`}
           style={
             shouldReduceMotion
               ? undefined
               : {
-                  scale: titleScale,
-                  opacity: ghostOpacity,
-                  y: titleY,
+                  y: centerY,
                 }
           }
           aria-hidden="true"
         >
-          {HERO_GHOST_LABEL}
+          {activeCategory.name}
         </motion.p>
 
         <motion.div
-          className="pointer-events-none absolute top-1/2 left-1/2 z-50 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+          className="absolute top-1/2 left-1/2 z-50 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
           style={
             shouldReduceMotion
               ? {
@@ -242,41 +254,33 @@ export function CategoryHero() {
                 }
           }
         >
-          <motion.div
-            className="relative flex h-full w-full items-center justify-center overflow-hidden shadow-2xl"
+          <motion.button
+            type="button"
+            onClick={() => navigateToCategory(rightIndex)}
+            className="relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden shadow-2xl"
             style={
               shouldReduceMotion
                 ? { borderRadius: HERO_INITIAL_CENTER_RADIUS }
                 : { borderRadius: centerRadius }
             }
+            aria-label={`Show ${rightCategory.name} category`}
           >
-            <div className="absolute inset-0 z-10 bg-black/30" aria-hidden="true" />
-
             <video
               autoPlay
               muted
               loop
               playsInline
               className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
-              key={activeCategory.name}
+              key={activeCategory.id}
               aria-hidden="true"
             >
               <source src={activeCategory.video} type="video/mp4" />
             </video>
 
             <div className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2">
-              <h1 className="w-[80vw] text-center font-(family-name:--font-heading) text-[clamp(6rem,20vw,18rem)] leading-none tracking-tight text-white">
-                {activeCategory.name}
-              </h1>
+              <h1 className={`${ACTIVE_CATEGORY_NAME_CLASS} text-white`}>{activeCategory.name}</h1>
             </div>
-
-            {/* <div className="absolute bottom-10 left-1/2 z-50 -translate-x-1/2">
-              <Stack gap="xs" align="center" className="text-center text-white/90">
-                <p className="text-xs tracking-[0.16em] uppercase">Discover</p>
-                <p className="text-sm">{activeCategory.name}</p>
-              </Stack>
-            </div> */}
-          </motion.div>
+          </motion.button>
         </motion.div>
 
         <motion.div
@@ -301,7 +305,7 @@ export function CategoryHero() {
         >
           <motion.button
             type="button"
-            onClick={() => setActiveIndex(rightIndex)}
+            onClick={() => navigateToCategory(rightIndex)}
             onMouseEnter={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
             onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
             onMouseMove={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
@@ -353,9 +357,11 @@ export function CategoryHero() {
           className="text-foreground absolute bottom-0 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center gap-2 text-sm select-none"
           style={
             shouldReduceMotion
-              ? undefined
+              ? {
+                  color: cueColor,
+                }
               : {
-                  color: "white",
+                  color: cueColor,
                   opacity: cueOpacity,
                   y: cueY,
                 }

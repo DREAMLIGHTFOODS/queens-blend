@@ -103,21 +103,23 @@ export function AboutSection() {
                 <Surface
                   key={value.title}
                   elevation="sm"
-                  className={`reveal-up rounded-2xl p-6 stagger-${Math.min(index + 1, 6)}`}
+                  className={`bg-primary reveal-up rounded-2xl p-6 stagger-${Math.min(index + 1, 6)}`}
                 >
                   <Stack gap="md">
                     <div className="flex items-center justify-between">
-                      <span className="text-primary text-xs tracking-[0.2em] uppercase">
+                      <span className="text-secondary text-xs tracking-[0.2em] uppercase">
                         {value.label}
                       </span>
-                      <div className="bg-primary/10 text-primary rounded-full p-2">
+                      <div className="bg-secondary text-primary rounded-full p-2">
                         <value.icon className="h-4 w-4" aria-hidden="true" />
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="text-lg font-semibold tracking-tight">{value.title}</h4>
-                      <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                      <h4 className="text-secondary text-lg font-semibold tracking-tight">
+                        {value.title}
+                      </h4>
+                      <p className="text-surface mt-2 text-sm leading-relaxed">
                         {value.description}
                       </p>
                     </div>
