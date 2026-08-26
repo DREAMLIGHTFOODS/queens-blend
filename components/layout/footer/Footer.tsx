@@ -8,7 +8,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { NAVIGATION } from "@/config/navigation";
+import { NEW_ALL_PRODUCTS_LINK, NEW_PRODUCT_COLLECTIONS } from "@/config/new-navigation";
 import { SITE } from "@/config/site";
 import { Container } from "@/components/core/layout/Container";
 import { Stack } from "@/components/core/layout/Stack";
@@ -21,7 +23,7 @@ export function Footer() {
       <Container size="2xl" className="py-16">
         <Stack gap="lg">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
             {/* Brand */}
             <Stack gap="md">
               <div className="flex items-center justify-center">
@@ -53,16 +55,71 @@ export function Footer() {
               </ul>
             </Stack>
 
+            {/* Categories */}
+            <Stack gap="md">
+              <h4 className="pl-6 text-sm font-semibold">Categories</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link
+                    href={NEW_ALL_PRODUCTS_LINK.href}
+                    className="text-(--neutral-300) transition-colors hover:text-(--brand-gold-light)"
+                  >
+                    {NEW_ALL_PRODUCTS_LINK.title}
+                  </Link>
+                </li>
+                {NEW_PRODUCT_COLLECTIONS.map((category) => (
+                  <li key={category.href}>
+                    <Link
+                      href={category.href}
+                      className="text-(--neutral-300) transition-colors hover:text-(--brand-gold-light)"
+                    >
+                      {category.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Stack>
+
             {/* Contact Info */}
             <Stack gap="md">
               <h4 className="text-sm font-semibold">Contact</h4>
               <div className="space-y-2 text-sm text-(--neutral-300)">
-                <p>
-                  Location: The Queen&apos;s Blend, 26/3B Hindustan Park, Kolkata - 700 029, West
-                  Bengal, India
+                <p className="flex items-start gap-3">
+                  <MapPin
+                    className="mt-0.5 h-4 w-4 shrink-0 text-(--brand-gold-light)"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p>Dreamlight Foods,</p>
+                    <p>26/3B Hindustan Park,</p>
+                    <p>Kolkata - 700 029, West Bengal,</p>
+                    <p>India</p>
+                  </div>
                 </p>
-                <p>Phone: +91 (33) 3151-5892</p>
-                <p>Email: info@thequeensblend.com</p>
+                <p>
+                  <a
+                    href="tel:+913331515892"
+                    className="flex items-center gap-3 transition-colors hover:text-(--brand-gold-light)"
+                  >
+                    <Phone
+                      className="h-4 w-4 shrink-0 text-(--brand-gold-light)"
+                      aria-hidden="true"
+                    />
+                    <span>+91 (33) 3151-5892</span>
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:info@thequeensblend.com"
+                    className="flex items-center gap-3 transition-colors hover:text-(--brand-gold-light)"
+                  >
+                    <Mail
+                      className="h-4 w-4 shrink-0 text-(--brand-gold-light)"
+                      aria-hidden="true"
+                    />
+                    <span>info@thequeensblend.com</span>
+                  </a>
+                </p>
               </div>
             </Stack>
           </div>
