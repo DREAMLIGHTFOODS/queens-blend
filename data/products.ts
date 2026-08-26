@@ -243,16 +243,6 @@ const FORMAT_BY_ID = new Map(PRODUCT_CATALOG.formats.map((format) => [format.id,
 
 export const TEA_COLLECTIONS: TeaCollection[] = [
   {
-    id: "serenity",
-    name: "Serenity",
-    description: "Calm and smooth cups for soothing rituals.",
-  },
-  {
-    id: "infusions",
-    name: "Infusions",
-    description: "Botanical-led and aromatic infusion styles.",
-  },
-  {
     id: "heritage",
     name: "Heritage",
     description: "Classic origin-forward teas and traditional brews.",
@@ -266,6 +256,16 @@ export const TEA_COLLECTIONS: TeaCollection[] = [
     id: "full-bodied",
     name: "Full-Bodied",
     description: "Robust and intense teas for rich flavor seekers.",
+  },
+  {
+    id: "serenity",
+    name: "Serenity",
+    description: "Calm and smooth cups for soothing rituals.",
+  },
+  {
+    id: "infusions",
+    name: "Infusions",
+    description: "Botanical-led and aromatic infusion styles.",
   },
   {
     id: "cold-brew",

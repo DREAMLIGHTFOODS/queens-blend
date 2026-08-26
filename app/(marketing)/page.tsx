@@ -8,6 +8,7 @@
 
 import { Hero } from "@/components/home/Hero";
 import { AboutPreviewSection } from "@/components/home/AboutPreviewSection";
+import { StatsSection } from "@/components/home/StatsSection";
 import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { CTASection } from "@/components/home/CTASection";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <AboutPreviewSection />
+      <StatsSection />
       <FeaturesSection />
       <FeaturedProducts />
       <CTASection />

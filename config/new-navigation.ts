@@ -36,16 +36,6 @@ export const NEW_ALL_PRODUCTS_LINK = {
 
 export const NEW_PRODUCT_COLLECTIONS: NewProductCollectionItem[] = [
   {
-    id: "serenity",
-    title: "Serenity",
-    href: "/products/category/serenity",
-  },
-  {
-    id: "infusions",
-    title: "Infusions",
-    href: "/products/category/infusions",
-  },
-  {
     id: "heritage",
     title: "Heritage",
     href: "/products/category/heritage",
@@ -59,6 +49,16 @@ export const NEW_PRODUCT_COLLECTIONS: NewProductCollectionItem[] = [
     id: "full-bodied",
     title: "Full-Bodied",
     href: "/products/category/full-bodied",
+  },
+  {
+    id: "serenity",
+    title: "Serenity",
+    href: "/products/category/serenity",
+  },
+  {
+    id: "infusions",
+    title: "Infusions",
+    href: "/products/category/infusions",
   },
   {
     id: "cold-brew",
