@@ -25,14 +25,14 @@ export function Footer() {
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
             {/* Brand */}
-            <Stack gap="md">
+            <Stack gap="md" className="md:col-span-2">
               <div className="flex items-center justify-center">
                 <Image
                   src="/images/logos/Queens_Blennd_Logo.png"
                   alt={SITE.name}
-                  width={144}
-                  height={144}
-                  className="h-36 w-36 object-contain"
+                  width={240}
+                  height={240}
+                  className="h-60 w-60 object-contain"
                 />
               </div>
               <p className="text-sm text-(--neutral-300)">{SITE.description}</p>
@@ -84,7 +84,7 @@ export function Footer() {
             <Stack gap="md">
               <h4 className="text-sm font-semibold">Contact</h4>
               <div className="space-y-2 text-sm text-(--neutral-300)">
-                <p className="flex items-start gap-3">
+                <div className="flex items-start gap-3">
                   <MapPin
                     className="mt-0.5 h-4 w-4 shrink-0 text-(--brand-gold-light)"
                     aria-hidden="true"
@@ -95,7 +95,7 @@ export function Footer() {
                     <p>Kolkata - 700 029, West Bengal,</p>
                     <p>India</p>
                   </div>
-                </p>
+                </div>
                 <p>
                   <a
                     href="tel:+913331515892"
