@@ -22,6 +22,34 @@ import { Section } from "@/components/core/layout/Section";
 import { Stack } from "@/components/core/layout/Stack";
 import { Surface } from "@/components/core/layout/Surface";
 
+export const teaGuideFaqItems = [
+  {
+    question: "How long should I steep black tea?",
+    answer:
+      "Most black teas perform well between 3 to 5 minutes, depending on leaf style and desired strength.",
+  },
+  {
+    question: "Why does green tea taste bitter sometimes?",
+    answer:
+      "Bitterness usually comes from very hot water or over-steeping. Use cooler water and a shorter brew time.",
+  },
+  {
+    question: "Can premium tea be re-steeped?",
+    answer:
+      "Yes. Many whole-leaf teas can be steeped multiple times, with flavor changing gradually across infusions.",
+  },
+  {
+    question: "What is the best way to store tea?",
+    answer:
+      "Store tea in an airtight container away from heat, moisture, direct sunlight, and strong odors.",
+  },
+  {
+    question: "How can cafes maintain tea consistency during service?",
+    answer:
+      "Standardize water temperature, tea dose, steep time, and serving SOPs, then train staff with repeatable brew cards.",
+  },
+];
+
 export function TeaGuideSection() {
   const guides = [
     {
@@ -60,29 +88,6 @@ export function TeaGuideSection() {
         "Learn about the remarkable health benefits and nutritional properties of premium teas.",
     },
   ] satisfies Array<{ icon: LucideIcon; title: string; description: string }>;
-
-  const faqs = [
-    {
-      question: "How long should I steep black tea?",
-      answer:
-        "For most black teas, start at 3 to 5 minutes and adjust based on leaf size and desired strength.",
-    },
-    {
-      question: "Why can green tea become bitter?",
-      answer:
-        "Green tea turns bitter when brewed too hot or too long. Use cooler water and shorter steeping time.",
-    },
-    {
-      question: "Can I re-steep loose leaf tea?",
-      answer:
-        "Yes. Many premium loose leaf teas can be brewed multiple times, with evolving flavor notes each infusion.",
-    },
-    {
-      question: "How do hospitality teams keep tea service consistent?",
-      answer:
-        "Use brew cards with fixed dose, temperature, steep time, and service SOPs for repeatable quality across staff shifts.",
-    },
-  ];
 
   return (
     <Section>
@@ -219,7 +224,7 @@ export function TeaGuideSection() {
                 Frequently Asked Questions
               </h3>
               <div className="space-y-4">
-                {faqs.map((faq, index) => (
+                {teaGuideFaqItems.map((faq, index) => (
                   <div key={faq.question} className="border-border/70 rounded-xl border p-4">
                     <p className="text-sm font-semibold tracking-tight">
                       {index + 1}. {faq.question}

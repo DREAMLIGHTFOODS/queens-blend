@@ -120,7 +120,7 @@ export function Footer() {
                   />
                   <div>
                     <p>Dreamlight Foods</p>
-                    <p>26/3B Hindusthan Park,</p>
+                    <p>26/3B Hindustan Park,</p>
                     <p>Kolkata - 700 029, West Bengal,</p>
                     <p>India</p>
                   </div>
