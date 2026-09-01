@@ -312,7 +312,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
               muted
               loop={!shouldUseReducedMotionPath}
               playsInline
-              preload="metadata"
+              preload={shouldUseReducedMotionPath ? "none" : "metadata"}
               poster="/images/og/og-image.png"
               disablePictureInPicture
               className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
