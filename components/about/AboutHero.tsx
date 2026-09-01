@@ -8,10 +8,7 @@
 
 "use client";
 
-import { Container } from "@/components/core/layout/Container";
-import { Stack } from "@/components/core/layout/Stack";
 import Image from "next/image";
-import { BadgeCheck, Leaf } from "lucide-react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
