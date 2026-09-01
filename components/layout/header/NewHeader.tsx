@@ -11,10 +11,17 @@ import { Container } from "@/components/core/layout/Container";
 import { Cluster } from "@/components/core/layout/Cluster";
 import {
   NEW_ALL_PRODUCTS_LINK,
+  NEW_ALL_BUSINESS_LINK,
+  NEW_BUSINESS_LINKS,
   NEW_NAVIGATION,
   NEW_PRODUCT_COLLECTIONS,
 } from "@/config/new-navigation";
 import { SITE } from "@/config/site";
+
+const ABOUT_INDEX = NEW_NAVIGATION.findIndex((item) => item.title === "About");
+const NAVIGATION_BEFORE_PRODUCTS =
+  ABOUT_INDEX >= 0 ? NEW_NAVIGATION.slice(0, ABOUT_INDEX + 1) : NEW_NAVIGATION;
+const NAVIGATION_AFTER_PRODUCTS = ABOUT_INDEX >= 0 ? NEW_NAVIGATION.slice(ABOUT_INDEX + 1) : [];
 
 export function NewHeader() {
   const headerRef = useRef<HTMLElement>(null);
@@ -23,16 +30,14 @@ export function NewHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const [isMobileCategoriesOpen, setIsMobileCategoriesOpen] = useState(false);
+  const [isMobileBusinessOpen, setIsMobileBusinessOpen] = useState(false);
 
   const [isDesktopProductsOpen, setIsDesktopProductsOpen] = useState(false);
   const [isDesktopCategoriesOpen, setIsDesktopCategoriesOpen] = useState(false);
-
-  const aboutIndex = NEW_NAVIGATION.findIndex((item) => item.title === "About");
-  const navigationBeforeProducts =
-    aboutIndex >= 0 ? NEW_NAVIGATION.slice(0, aboutIndex + 1) : NEW_NAVIGATION;
-  const navigationAfterProducts = aboutIndex >= 0 ? NEW_NAVIGATION.slice(aboutIndex + 1) : [];
+  const [isDesktopBusinessOpen, setIsDesktopBusinessOpen] = useState(false);
 
   const isProductsRoute = pathname === "/products" || pathname.startsWith("/products/");
+  const isBusinessRoute = pathname === "/business" || pathname.startsWith("/business/");
   const activeCollectionId = pathname.match(/^\/products\/category\/([^/]+)\/?$/)?.[1] ?? null;
 
   const isNavItemActive = (href: string) => {
@@ -47,8 +52,10 @@ export function NewHeader() {
     setIsMobileMenuOpen(false);
     setIsMobileProductsOpen(false);
     setIsMobileCategoriesOpen(false);
+    setIsMobileBusinessOpen(false);
     setIsDesktopProductsOpen(false);
     setIsDesktopCategoriesOpen(false);
+    setIsDesktopBusinessOpen(false);
   };
 
   useEffect(() => {
@@ -78,7 +85,7 @@ export function NewHeader() {
       ref={headerRef}
       className="border-border supports-backdrop-filter:bg-background/70 sticky top-0 z-50 w-full overflow-visible border-b bg-transparent backdrop-blur"
     >
-      <Container size="2xl">
+      <Container size="xl">
         <div className="flex h-24 items-center justify-between">
           <Link
             href="/"
@@ -117,7 +124,7 @@ export function NewHeader() {
 
           <nav className="hidden md:flex">
             <Cluster as="ul" gap="sm" className="list-none items-center">
-              {navigationBeforeProducts.map((item) => (
+              {NAVIGATION_BEFORE_PRODUCTS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -217,7 +224,58 @@ export function NewHeader() {
                 </div>
               </li>
 
-              {navigationAfterProducts.map((item) => (
+              <li className="relative">
+                <button
+                  type="button"
+                  className={`focus-visible:ring-ring inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
+                    isBusinessRoute
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:text-primary"
+                  }`}
+                  aria-expanded={isDesktopBusinessOpen}
+                  onClick={() => setIsDesktopBusinessOpen((prev) => !prev)}
+                  onMouseEnter={() => setIsDesktopBusinessOpen(true)}
+                >
+                  Business
+                  <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                </button>
+
+                <div
+                  className={`border-border bg-background absolute top-full right-0 mt-2 w-60 rounded-xl border p-2 shadow-xl transition-all ${
+                    isDesktopBusinessOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0"
+                  }`}
+                  onMouseLeave={() => setIsDesktopBusinessOpen(false)}
+                >
+                  <Link
+                    href={NEW_ALL_BUSINESS_LINK.href}
+                    className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
+                      pathname === NEW_ALL_BUSINESS_LINK.href
+                        ? "bg-primary/10 text-primary"
+                        : "hover:bg-muted"
+                    }`}
+                    onClick={closeAllMenus}
+                  >
+                    {NEW_ALL_BUSINESS_LINK.title}
+                  </Link>
+
+                  {NEW_BUSINESS_LINKS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
+                        pathname === item.href ? "bg-primary/10 text-primary" : "hover:bg-muted"
+                      }`}
+                      onClick={closeAllMenus}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+
+              {NAVIGATION_AFTER_PRODUCTS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -242,7 +300,7 @@ export function NewHeader() {
           aria-hidden={!isMobileMenuOpen}
         >
           <ul className="space-y-1">
-            {navigationBeforeProducts.map((item) => (
+            {NAVIGATION_BEFORE_PRODUCTS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -323,7 +381,53 @@ export function NewHeader() {
               ) : null}
             </li>
 
-            {navigationAfterProducts.map((item) => (
+            <li>
+              <button
+                type="button"
+                className={`focus-visible:ring-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
+                  isBusinessRoute ? "bg-primary/10 text-primary" : "hover:bg-muted"
+                }`}
+                onClick={() => setIsMobileBusinessOpen((prev) => !prev)}
+                aria-expanded={isMobileBusinessOpen}
+              >
+                Business
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${isMobileBusinessOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {isMobileBusinessOpen ? (
+                <div className="mt-1 ml-3 space-y-1 border-l pl-3">
+                  <Link
+                    href={NEW_ALL_BUSINESS_LINK.href}
+                    className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
+                      pathname === NEW_ALL_BUSINESS_LINK.href
+                        ? "bg-primary/10 text-primary"
+                        : "hover:bg-muted"
+                    }`}
+                    onClick={closeAllMenus}
+                  >
+                    {NEW_ALL_BUSINESS_LINK.title}
+                  </Link>
+
+                  {NEW_BUSINESS_LINKS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
+                        pathname === item.href ? "bg-primary/10 text-primary" : "hover:bg-muted"
+                      }`}
+                      onClick={closeAllMenus}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </li>
+
+            {NAVIGATION_AFTER_PRODUCTS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}

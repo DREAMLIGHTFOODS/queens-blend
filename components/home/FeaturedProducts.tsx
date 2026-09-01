@@ -25,9 +25,9 @@ export function FeaturedProducts() {
   return (
     <section
       id="products"
-      className="from-muted via-background to-muted relative w-full bg-linear-to-b py-24 md:py-32"
+      className="from-muted via-background to-muted relative w-full bg-linear-to-b py-20 md:py-28"
     >
-      <Container size="2xl">
+      <Container size="xl">
         <Stack gap="xl">
           {/* Section Header */}
           <div className="reveal-up flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

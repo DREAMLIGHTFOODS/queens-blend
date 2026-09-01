@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ProductDetailPage } from "@/components/products/ProductDetailPage";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/config/site";
 import { getRelatedTeaProducts, getTeaProductBySlug, TEA_PRODUCT_SLUGS } from "@/data/products";
 
@@ -49,10 +50,11 @@ export async function generateMetadata({
   }
 
   const description = `${product.description} Tasting notes: ${product.tastingNotes.join(", ")}. Brew time: ${product.brewTime}.`;
+  const dualIntentDescription = `${description} Available for both individual purchase and business bulk supply, including private label options.`;
 
   return {
     title: product.name,
-    description,
+    description: dualIntentDescription,
     keywords: [
       product.name,
       product.categoryLabel,
@@ -60,10 +62,20 @@ export async function generateMetadata({
       "Premium tea",
       "Tea collection",
       "Queen's Blend",
+      `${product.name} bulk supply`,
+      `${product.name} wholesale`,
+      `${product.name} supplier`,
+      `${product.name} for hotels`,
+      "tea exporter India",
+      "private label tea",
+      "bulk tea supplier",
     ],
+    alternates: {
+      canonical: `${SITE.url}/products/${product.slug}`,
+    },
     openGraph: {
       title: `${product.name} | Queen's Blend`,
-      description,
+      description: dualIntentDescription,
       url: `${SITE.url}/products/${product.slug}`,
       siteName: SITE.name,
       images: [
@@ -75,6 +87,13 @@ export async function generateMetadata({
         },
       ],
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | Queen's Blend`,
+      description: dualIntentDescription,
+      creator: "@queensblend",
+      images: [product.heroImage],
     },
   };
 }
@@ -92,5 +111,79 @@ export default async function ProductSlugPage({ params, searchParams }: ProductD
 
   const relatedProducts = getRelatedTeaProducts(product.slug, product.categoryKey, 3);
 
-  return <ProductDetailPage product={product} relatedProducts={relatedProducts} />;
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: [product.heroImage, product.productImage, product.ingredientImage].filter(Boolean),
+    description: product.description,
+    category: product.categoryLabel,
+    brand: {
+      "@type": "Brand",
+      name: SITE.name,
+    },
+    sku: product.id,
+    mpn: product.id,
+    offers: {
+      "@type": "Offer",
+      url: `${SITE.url}/products/${product.slug}`,
+      priceCurrency: SITE.currency,
+      price: product.startingPriceInr ?? 0,
+      availability:
+        product.availability.length > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+    },
+    additionalProperty: [
+      {
+        "@type": "PropertyValue",
+        name: "Bulk Supply",
+        value: "Available",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Private Label",
+        value: "Available",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Business Inquiry",
+        value: `${SITE.url}/business/contact?product=${product.slug}`,
+      },
+    ],
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${SITE.url}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `${SITE.url}/products/${product.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={productSchema} />
+      <ProductDetailPage product={product} relatedProducts={relatedProducts} />
+    </>
+  );
 }

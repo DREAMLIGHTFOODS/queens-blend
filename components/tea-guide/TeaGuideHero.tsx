@@ -8,11 +8,15 @@
 
 import { Container } from "@/components/core/layout/Container";
 import { Stack } from "@/components/core/layout/Stack";
+import Link from "next/link";
 import { BookMarked, Sparkles } from "lucide-react";
 
 export function TeaGuideHero() {
   return (
-    <section className="from-background via-muted/35 to-background relative w-full overflow-hidden bg-linear-to-b py-24 md:py-32 lg:py-36">
+    <section
+      id="tea-guide-top"
+      className="from-background via-muted/35 to-background relative w-full overflow-hidden bg-linear-to-b py-24 md:py-32 lg:py-36"
+    >
       <div
         className="bg-secondary/25 absolute -top-32 -right-24 h-72 w-72 rounded-full blur-3xl"
         aria-hidden="true"
@@ -43,6 +47,13 @@ export function TeaGuideHero() {
             <Sparkles className="text-primary h-4 w-4" aria-hidden="true" />
             Practical tips grounded in real tasting-room workflows
           </div>
+
+          <Link
+            href="#tea-guide-faq"
+            className="reveal-up stagger-3 text-primary hover:text-primary/80 text-sm font-medium underline underline-offset-4 transition-colors"
+          >
+            Jump to FAQ
+          </Link>
         </Stack>
       </Container>
     </section>

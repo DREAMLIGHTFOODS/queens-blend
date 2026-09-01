@@ -10,7 +10,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { NAVIGATION } from "@/config/navigation";
-import { NEW_ALL_PRODUCTS_LINK, NEW_PRODUCT_COLLECTIONS } from "@/config/new-navigation";
+import {
+  NEW_ALL_BUSINESS_LINK,
+  NEW_ALL_PRODUCTS_LINK,
+  NEW_BUSINESS_LINKS,
+  NEW_PRODUCT_COLLECTIONS,
+} from "@/config/new-navigation";
 import { SITE } from "@/config/site";
 import { Container } from "@/components/core/layout/Container";
 import { Stack } from "@/components/core/layout/Stack";
@@ -20,10 +25,10 @@ import { Divider } from "@/components/core/layout/Divider";
 export function Footer() {
   return (
     <footer className="w-full bg-(--brand-emerald-dark) text-(--brand-ivory)">
-      <Container size="2xl" className="py-16">
+      <Container size="xl" className="py-14 md:py-16">
         <Stack gap="lg">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-6">
             {/* Brand */}
             <Stack gap="md" className="md:col-span-2">
               <div className="flex items-center justify-center">
@@ -80,18 +85,42 @@ export function Footer() {
               </ul>
             </Stack>
 
+            <Stack gap="md">
+              <h4 className="pl-6 text-sm font-semibold">Business</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link
+                    href={NEW_ALL_BUSINESS_LINK.href}
+                    className="text-(--neutral-300) transition-colors hover:text-(--brand-gold-light)"
+                  >
+                    {NEW_ALL_BUSINESS_LINK.title}
+                  </Link>
+                </li>
+                {NEW_BUSINESS_LINKS.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-(--neutral-300) transition-colors hover:text-(--brand-gold-light)"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Stack>
+
             {/* Contact Info */}
             <Stack gap="md">
-              <h4 className="text-sm font-semibold">Contact</h4>
-              <div className="space-y-2 text-sm text-(--neutral-300)">
+              <h4 className="pl-6 text-sm font-semibold">Contact</h4>
+              <div className="space-y-2 pl-6 text-sm text-(--neutral-300)">
                 <div className="flex items-start gap-3">
                   <MapPin
                     className="mt-0.5 h-4 w-4 shrink-0 text-(--brand-gold-light)"
                     aria-hidden="true"
                   />
                   <div>
-                    <p>Dreamlight Foods,</p>
-                    <p>26/3B Hindustan Park,</p>
+                    <p>Dreamlight Foods</p>
+                    <p>26/3B Hindusthan Park,</p>
                     <p>Kolkata - 700 029, West Bengal,</p>
                     <p>India</p>
                   </div>

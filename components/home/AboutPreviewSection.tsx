@@ -15,12 +15,12 @@ import { Button } from "@/components/ui/button";
 
 export function AboutPreviewSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#f4efe7] py-24 md:py-32">
+    <section className="relative w-full overflow-hidden bg-[#f4efe7] py-20 md:py-28">
       <div
         className="bg-primary/8 absolute top-14 -left-10 h-64 w-64 rounded-full blur-3xl"
         aria-hidden="true"
       />
-      <Container size="2xl">
+      <Container size="xl">
         <Stack gap="xl">
           <div className="reveal-up grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>

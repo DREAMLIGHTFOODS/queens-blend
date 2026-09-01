@@ -7,13 +7,15 @@
  */
 
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE } from "@/config/site";
 import { TeaGuideHero } from "@/components/tea-guide/TeaGuideHero";
 import { TeaGuideSection } from "@/components/tea-guide/TeaGuideSection";
 
 export const metadata: Metadata = {
-  title: "Tea Guide",
+  title: "Tea Guide for Brewing, Tasting, and Service",
   description:
-    "Learn everything about tea - from brewing techniques and flavor profiles to storage tips and health benefits. Your complete tea education guide.",
+    "Learn tea brewing, tasting, storage, and service fundamentals. Practical guidance for home tea drinkers, cafes, restaurants, and hospitality teams.",
   keywords: [
     "Tea Guide",
     "How to Brew Tea",
@@ -21,20 +23,126 @@ export const metadata: Metadata = {
     "Tea Tips",
     "Tea Education",
     "Premium Tea Knowledge",
+    "tea training for cafes",
+    "tea service standards",
+    "tea menu planning",
+    "horeca tea guide",
   ],
+  alternates: {
+    canonical: "https://thequeensblend.com/tea-guide",
+  },
   openGraph: {
-    title: "The Complete Tea Guide",
+    title: "Tea Guide for Brewing, Tasting, and Service",
     description:
-      "Master the art of tea tasting with expert tips, brewing techniques, and flavor profiles.",
-    url: "https://queensblend.com/tea-guide",
+      "Master tea brewing and tasting with practical guidance for both personal rituals and hospitality service quality.",
+    url: "https://thequeensblend.com/tea-guide",
     siteName: "Queen's Blend",
     type: "website",
+    images: [
+      {
+        url: "https://thequeensblend.com/images/og/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Complete Tea Guide",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tea Guide for Brewing, Tasting, and Service",
+    description:
+      "Practical tea brewing and tasting guidance for home use, cafes, restaurants, and hospitality teams.",
+    creator: "@queensblend",
+    images: ["https://thequeensblend.com/images/og/og-image.png"],
   },
 };
 
 export default function TeaGuidePage() {
+  const faqItems = [
+    {
+      question: "How long should I steep black tea?",
+      answer:
+        "Most black teas perform well between 3 to 5 minutes, depending on leaf style and desired strength.",
+    },
+    {
+      question: "Why does green tea taste bitter sometimes?",
+      answer:
+        "Bitterness usually comes from very hot water or over-steeping. Use cooler water and a shorter brew time.",
+    },
+    {
+      question: "Can premium tea be re-steeped?",
+      answer:
+        "Yes. Many whole-leaf teas can be steeped multiple times, with flavor changing gradually across infusions.",
+    },
+    {
+      question: "What is the best way to store tea?",
+      answer:
+        "Store tea in an airtight container away from heat, moisture, direct sunlight, and strong odors.",
+    },
+    {
+      question: "How can cafes maintain tea consistency during service?",
+      answer:
+        "Standardize water temperature, tea dose, steep time, and serving SOPs, then train staff with repeatable brew cards.",
+    },
+  ];
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Tea Guide",
+        item: `${SITE.url}/tea-guide`,
+      },
+    ],
+  };
+
+  const teaGuideSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/tea-guide#webpage`,
+    name: "Tea Guide for Brewing, Tasting, and Service",
+    description:
+      "Practical tea education covering brewing, tasting, storage, pairing, and service quality.",
+    url: `${SITE.url}/tea-guide`,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+    },
+    about: [
+      { "@type": "Thing", name: "Tea brewing" },
+      { "@type": "Thing", name: "Tea tasting" },
+      { "@type": "Thing", name: "Tea storage" },
+      { "@type": "Thing", name: "Tea service standards" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={teaGuideSchema} />
+      <JsonLd data={faqSchema} />
       <TeaGuideHero />
       <TeaGuideSection />
     </>

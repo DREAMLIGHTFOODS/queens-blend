@@ -57,7 +57,7 @@ export function Header() {
       ref={headerRef}
       className="border-border supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b bg-transparent backdrop-blur"
     >
-      <Container size="2xl">
+      <Container size="xl">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <Link

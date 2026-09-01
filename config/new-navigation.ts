@@ -10,6 +10,11 @@ export type NewProductCollectionItem = {
   href: string;
 };
 
+export type NewBusinessLinkItem = {
+  title: string;
+  href: string;
+};
+
 export const NEW_NAVIGATION: NewNavigationItem[] = [
   {
     title: "Home",
@@ -33,6 +38,34 @@ export const NEW_ALL_PRODUCTS_LINK = {
   title: "All Products",
   href: "/products",
 } as const;
+
+export const NEW_ALL_BUSINESS_LINK = {
+  title: "All Business Solutions",
+  href: "/business",
+} as const;
+
+export const NEW_BUSINESS_LINKS: NewBusinessLinkItem[] = [
+  {
+    title: "HORECA",
+    href: "/business/horeca",
+  },
+  {
+    title: "Private Label",
+    href: "/business/private-label",
+  },
+  {
+    title: "Bulk Supply",
+    href: "/business/bulk-supply",
+  },
+  {
+    title: "Export",
+    href: "/business/export",
+  },
+  {
+    title: "Request Quote",
+    href: "/business/contact",
+  },
+];
 
 export const NEW_PRODUCT_COLLECTIONS: NewProductCollectionItem[] = [
   {

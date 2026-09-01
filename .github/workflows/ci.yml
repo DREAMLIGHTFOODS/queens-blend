@@ -9,7 +9,7 @@ on:
 
 jobs:
   quality:
-    name: Lint, Typecheck, Build
+    name: Lint, Typecheck, Build, Perf Compare
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,16 @@ jobs:
 
       - name: Run production build
         run: npm run build
+
+      - name: Run perf compare
+        run: npm run perf:compare
+
+      - name: Upload perf snapshot artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-snapshot-report
+          path: |
+            docs/reports/perf-snapshot.json
+            docs/reports/perf-baseline.json
+          if-no-files-found: warn
