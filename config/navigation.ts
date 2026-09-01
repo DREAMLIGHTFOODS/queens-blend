@@ -12,6 +12,10 @@ export const NAVIGATION = [
     href: "/products",
   },
   {
+    title: "Tea Solutions for Business",
+    href: "/business",
+  },
+  {
     title: "Tea Guide",
     href: "/tea-guide",
   },

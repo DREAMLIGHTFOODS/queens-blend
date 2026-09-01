@@ -19,7 +19,7 @@ type HeroCategory = {
   video: string;
 };
 
-const HERO_VIDEO = "/videos/Queen's blend Banner Video.mp4";
+const HERO_VIDEO_FALLBACK = "/videos/Queen's blend Banner Video.mp4";
 
 const HERO_CATEGORIES: HeroCategory[] = TEA_COLLECTIONS.map((collection) => ({
   id: collection.id,
@@ -56,6 +56,29 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
     y: HERO_INITIAL_CENTER_HEIGHT / 2,
   });
   const shouldReduceMotion = useReducedMotion();
+  const [isLowPowerDevice] = useState(() => {
+    if (typeof navigator === "undefined") {
+      return false;
+    }
+
+    const navWithConnection = navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+      deviceMemory?: number;
+    };
+
+    const saveData = Boolean(navWithConnection.connection?.saveData);
+    const slowConnection = ["slow-2g", "2g"].includes(
+      navWithConnection.connection?.effectiveType ?? "",
+    );
+    const lowCpu =
+      typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+    const lowMemory =
+      typeof navWithConnection.deviceMemory === "number" && navWithConnection.deviceMemory <= 4;
+
+    return saveData || slowConnection || lowCpu || lowMemory;
+  });
+
+  const shouldUseReducedMotionPath = shouldReduceMotion || isLowPowerDevice;
 
   const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
@@ -63,6 +86,10 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
     event: React.MouseEvent<HTMLButtonElement>,
     categoryName: string,
   ) => {
+    if (shouldUseReducedMotionPath) {
+      return;
+    }
+
     if (!stickyRef.current) {
       return;
     }
@@ -75,6 +102,10 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
   };
 
   const updateFloatingLabelFromElement = (element: HTMLElement, categoryName: string) => {
+    if (shouldUseReducedMotionPath) {
+      return;
+    }
+
     if (!stickyRef.current) {
       return;
     }
@@ -175,7 +206,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
           whileHover={{ scaleY: SIDE_TO_CENTER_HEIGHT_SCALE }}
           transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.4 }}
           style={
-            shouldReduceMotion
+            shouldUseReducedMotionPath
               ? {
                   width: HERO_INITIAL_SIDE_WIDTH,
                   height: HERO_INITIAL_SIDE_HEIGHT,
@@ -193,7 +224,11 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
             type="button"
             onClick={() => navigateToCategory(leftIndex)}
             onMouseEnter={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
-            onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
+            onMouseLeave={() =>
+              !shouldUseReducedMotionPath
+                ? setFloatingLabel((current) => ({ ...current, visible: false }))
+                : null
+            }
             onMouseMove={(event) => updateFloatingLabelFromEvent(event, leftCategory.name)}
             onFocusCapture={(event) => {
               setIsLeftFocused(true);
@@ -202,22 +237,29 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
             onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                 setIsLeftFocused(false);
-                setFloatingLabel((current) => ({ ...current, visible: false }));
+                if (!shouldUseReducedMotionPath) {
+                  setFloatingLabel((current) => ({ ...current, visible: false }));
+                }
               }
             }}
             className="group relative h-full w-full cursor-pointer overflow-hidden"
-            style={{ borderRadius: shouldReduceMotion ? HERO_INITIAL_SIDE_RADIUS : sideRadius }}
+            style={{
+              borderRadius: shouldUseReducedMotionPath ? HERO_INITIAL_SIDE_RADIUS : sideRadius,
+            }}
             aria-label={`Show ${leftCategory.name} hero`}
           >
             <video
-              autoPlay
+              autoPlay={!shouldUseReducedMotionPath}
               muted
-              loop
+              loop={!shouldUseReducedMotionPath}
               playsInline
+              preload={shouldUseReducedMotionPath ? "metadata" : "none"}
+              poster="/images/og/og-image.png"
+              disablePictureInPicture
               className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
               aria-hidden="true"
             >
-              <source src={leftCategory.video} type="video/mp4" />
+              <source src={leftCategory.video || HERO_VIDEO_FALLBACK} type="video/mp4" />
             </video>
             <div className="absolute inset-0 z-10 bg-black/25" aria-hidden="true" />
           </motion.button>
@@ -226,7 +268,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
         <motion.p
           className={`pointer-events-none absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 ${ACTIVE_CATEGORY_NAME_CLASS} text-black`}
           style={
-            shouldReduceMotion
+            shouldUseReducedMotionPath
               ? undefined
               : {
                   y: centerY,
@@ -240,7 +282,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
         <motion.div
           className="absolute top-1/2 left-1/2 z-50 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
           style={
-            shouldReduceMotion
+            shouldUseReducedMotionPath
               ? {
                   width: HERO_INITIAL_CENTER_WIDTH,
                   height: HERO_INITIAL_CENTER_HEIGHT,
@@ -259,22 +301,25 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
             onClick={() => navigateToCategory(rightIndex)}
             className="relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden shadow-2xl"
             style={
-              shouldReduceMotion
+              shouldUseReducedMotionPath
                 ? { borderRadius: HERO_INITIAL_CENTER_RADIUS }
                 : { borderRadius: centerRadius }
             }
             aria-label={`Show ${rightCategory.name} category`}
           >
             <video
-              autoPlay
+              autoPlay={!shouldUseReducedMotionPath}
               muted
-              loop
+              loop={!shouldUseReducedMotionPath}
               playsInline
+              preload={shouldUseReducedMotionPath ? "none" : "metadata"}
+              poster="/images/og/og-image.png"
+              disablePictureInPicture
               className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
               key={activeCategory.id}
               aria-hidden="true"
             >
-              <source src={activeCategory.video} type="video/mp4" />
+              <source src={activeCategory.video || HERO_VIDEO_FALLBACK} type="video/mp4" />
             </video>
 
             <div className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2">
@@ -289,7 +334,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
           whileHover={{ scaleY: SIDE_TO_CENTER_HEIGHT_SCALE }}
           transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.4 }}
           style={
-            shouldReduceMotion
+            shouldUseReducedMotionPath
               ? {
                   width: HERO_INITIAL_SIDE_WIDTH,
                   height: HERO_INITIAL_SIDE_HEIGHT,
@@ -307,7 +352,11 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
             type="button"
             onClick={() => navigateToCategory(rightIndex)}
             onMouseEnter={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
-            onMouseLeave={() => setFloatingLabel((current) => ({ ...current, visible: false }))}
+            onMouseLeave={() =>
+              !shouldUseReducedMotionPath
+                ? setFloatingLabel((current) => ({ ...current, visible: false }))
+                : null
+            }
             onMouseMove={(event) => updateFloatingLabelFromEvent(event, rightCategory.name)}
             onFocusCapture={(event) => {
               setIsRightFocused(true);
@@ -316,22 +365,29 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
             onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                 setIsRightFocused(false);
-                setFloatingLabel((current) => ({ ...current, visible: false }));
+                if (!shouldUseReducedMotionPath) {
+                  setFloatingLabel((current) => ({ ...current, visible: false }));
+                }
               }
             }}
             className="group relative h-full w-full cursor-pointer overflow-hidden"
-            style={{ borderRadius: shouldReduceMotion ? HERO_INITIAL_SIDE_RADIUS : sideRadius }}
+            style={{
+              borderRadius: shouldUseReducedMotionPath ? HERO_INITIAL_SIDE_RADIUS : sideRadius,
+            }}
             aria-label={`Show ${rightCategory.name} hero`}
           >
             <video
-              autoPlay
+              autoPlay={!shouldUseReducedMotionPath}
               muted
-              loop
+              loop={!shouldUseReducedMotionPath}
               playsInline
+              preload={shouldUseReducedMotionPath ? "metadata" : "none"}
+              poster="/images/og/og-image.png"
+              disablePictureInPicture
               className="relative z-0 size-auto min-h-screen min-w-screen object-cover"
               aria-hidden="true"
             >
-              <source src={rightCategory.video} type="video/mp4" />
+              <source src={rightCategory.video || HERO_VIDEO_FALLBACK} type="video/mp4" />
             </video>
             <div className="absolute inset-0 z-10 bg-black/25" aria-hidden="true" />
           </motion.button>
@@ -342,8 +398,8 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
           animate={{
             x: floatingLabel.x,
             y: floatingLabel.y,
-            opacity: floatingLabel.visible ? 1 : 0,
-            scale: floatingLabel.visible ? 1 : 0.85,
+            opacity: shouldUseReducedMotionPath ? 0 : floatingLabel.visible ? 1 : 0,
+            scale: shouldUseReducedMotionPath ? 0.85 : floatingLabel.visible ? 1 : 0.85,
           }}
           transition={{ type: "spring", stiffness: 240, damping: 22, mass: 0.32 }}
           aria-hidden="true"
@@ -356,7 +412,7 @@ export function CategoryHero({ collectionId }: { collectionId: TeaCollectionId }
         <motion.p
           className="text-foreground absolute bottom-0 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center justify-center gap-2 text-sm select-none"
           style={
-            shouldReduceMotion
+            shouldUseReducedMotionPath
               ? {
                   color: cueColor,
                 }

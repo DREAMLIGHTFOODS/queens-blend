@@ -15,7 +15,7 @@ import { Grid } from "@/components/core/layout/Grid";
 import { Surface } from "@/components/core/layout/Surface";
 
 const stats = [
-  { target: 10, label: "Countries" },
+  { target: 15, label: "Countries" },
   { target: 150, label: "Blends" },
   { target: 100, label: "Clients" },
   { target: 20, label: "Years of Experience" },
@@ -88,7 +88,7 @@ export function StatsSection() {
         className="bg-ring/15 pointer-events-none absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
         aria-hidden="true"
       />
-      <Container size="2xl">
+      <Container size="xl">
         <div className="relative">
           <p className="text-ring mx-auto mb-8 w-fit text-center text-xs tracking-[0.24em] uppercase">
             Our Reach

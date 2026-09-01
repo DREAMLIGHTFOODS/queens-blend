@@ -8,7 +8,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock3, Sparkles, Tags } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Clock3, Sparkles, Store, Tags } from "lucide-react";
 
 import { Container } from "@/components/core/layout/Container";
 import { Grid } from "@/components/core/layout/Grid";
@@ -50,6 +50,8 @@ export function ProductDetailPage({ product, relatedProducts }: ProductDetailPag
     const query = params.toString();
     return query ? `/products/${product.slug}?${query}` : `/products/${product.slug}`;
   };
+
+  const businessQuoteHref = `/business/contact?product=${encodeURIComponent(product.slug)}`;
 
   return (
     <Section>
@@ -230,6 +232,85 @@ export function ProductDetailPage({ product, relatedProducts }: ProductDetailPag
               </div>
             </Surface>
           </Grid>
+
+          <Surface elevation="sm" className="reveal-up rounded-2xl border p-6 md:p-8">
+            <Grid columns={2} gap="lg" minItemWidth="300px">
+              <div>
+                <p className="text-primary mb-2 text-xs tracking-[0.16em] uppercase">
+                  Tea for Business
+                </p>
+                <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                  Need {product.name} for your business?
+                </h2>
+                <p className="text-muted-foreground mt-3 text-sm leading-relaxed md:text-base">
+                  We provide bulk supply, format flexibility, and private label support for hotels,
+                  cafes, restaurants, offices, and retail brands.
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium">
+                    <BriefcaseBusiness className="h-3.5 w-3.5" aria-hidden="true" />
+                    Bulk Supply
+                  </span>
+                  <span className="bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium">
+                    <Store className="h-3.5 w-3.5" aria-hidden="true" />
+                    Private Label
+                  </span>
+                  <span className="bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium">
+                    {product.availabilityFormats.length} formats available
+                  </span>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Hotels", "Cafes", "Restaurants", "Corporate", "Retail", "Distributors"].map(
+                    (segment) => (
+                      <span
+                        key={segment}
+                        className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+                      >
+                        {segment}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold tracking-tight">
+                  Business-ready format options
+                </h3>
+                <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  This tea is available across multiple pack formats for business programs and bulk
+                  orders.
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {product.availabilityFormats.slice(0, 8).map((format) => (
+                    <span
+                      key={`business-${format.id}`}
+                      className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+                    >
+                      {format.name}
+                    </span>
+                  ))}
+                  {product.availabilityFormats.length > 8 ? (
+                    <span className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+                      +{product.availabilityFormats.length - 8} more
+                    </span>
+                  ) : null}
+                </div>
+
+                <div className="mt-6">
+                  <Button asChild className="w-full rounded-full sm:w-fit">
+                    <Link href={businessQuoteHref} className="inline-flex items-center gap-2">
+                      Request Business Quote
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+          </Surface>
 
           {relatedProducts.length > 0 ? (
             <div>

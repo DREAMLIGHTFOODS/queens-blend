@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-09-01T11:18:22.648Z",
+  "baseUrl": "http://127.0.0.1:3107",
+  "build": {
+    "nextDirExists": true
+  },
+  "bundle": {
+    "jsFiles": 19,
+    "totalJsKb": 1317.42,
+    "totalGzipKb": 354.45,
+    "largestFiles": [
+      {
+        "file": ".next/static/chunks/0iec5q4ack_04.js",
+        "rawKb": 221.99,
+        "gzipKb": 69.32
+      },
+      {
+        "file": ".next/static/chunks/1mfjqidm5qp0a.js",
+        "rawKb": 142.15,
+        "gzipKb": 38.11
+      },
+      {
+        "file": ".next/static/chunks/0nuk3qglg9xze.js",
+        "rawKb": 127.21,
+        "gzipKb": 42.07
+      },
+      {
+        "file": ".next/static/chunks/0tqx3-nd-9kpw.js",
+        "rawKb": 127.21,
+        "gzipKb": 42.1
+      },
+      {
+        "file": ".next/static/chunks/0ntue4or9nrr8.js",
+        "rawKb": 124.66,
+        "gzipKb": 12.83
+      },
+      {
+        "file": ".next/static/chunks/38kh2_tevi2iz.js",
+        "rawKb": 124.66,
+        "gzipKb": 12.83
+      },
+      {
+        "file": ".next/static/chunks/0cz1d0mv5g_q7.js",
+        "rawKb": 109.96,
+        "gzipKb": 38.7
+      },
+      {
+        "file": ".next/static/chunks/0hwvzlf0ngm8h.js",
+        "rawKb": 81.15,
+        "gzipKb": 24.32
+      }
+    ]
+  },
+  "routes": [
+    {
+      "route": "/",
+      "runs": 3,
+      "avgMs": 8.6,
+      "minMs": 7,
+      "maxMs": 10.6
+    },
+    {
+      "route": "/products",
+      "runs": 3,
+      "avgMs": 29.9,
+      "minMs": 21.5,
+      "maxMs": 36.9
+    },
+    {
+      "route": "/products/category/heritage",
+      "runs": 3,
+      "avgMs": 18.8,
+      "minMs": 14.5,
+      "maxMs": 24.4
+    },
+    {
+      "route": "/tea-guide",
+      "runs": 3,
+      "avgMs": 5.8,
+      "minMs": 4.5,
+      "maxMs": 7.2
+    }
+  ],
+  "thresholds": {
+    "maxTotalJsKb": null,
+    "maxRouteAvgMs": null,
+    "maxTotalJsGrowthKb": null,
+    "maxTotalJsGrowthPct": null,
+    "maxRouteAvgRegressionMs": null,
+    "maxRouteAvgRegressionPct": null
+  },
+  "baseline": null
+}

@@ -15,6 +15,7 @@ import {
   Timer,
   type LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 import { Container } from "@/components/core/layout/Container";
 import { Section } from "@/components/core/layout/Section";
@@ -59,6 +60,29 @@ export function TeaGuideSection() {
         "Learn about the remarkable health benefits and nutritional properties of premium teas.",
     },
   ] satisfies Array<{ icon: LucideIcon; title: string; description: string }>;
+
+  const faqs = [
+    {
+      question: "How long should I steep black tea?",
+      answer:
+        "For most black teas, start at 3 to 5 minutes and adjust based on leaf size and desired strength.",
+    },
+    {
+      question: "Why can green tea become bitter?",
+      answer:
+        "Green tea turns bitter when brewed too hot or too long. Use cooler water and shorter steeping time.",
+    },
+    {
+      question: "Can I re-steep loose leaf tea?",
+      answer:
+        "Yes. Many premium loose leaf teas can be brewed multiple times, with evolving flavor notes each infusion.",
+    },
+    {
+      question: "How do hospitality teams keep tea service consistent?",
+      answer:
+        "Use brew cards with fixed dose, temperature, steep time, and service SOPs for repeatable quality across staff shifts.",
+    },
+  ];
 
   return (
     <Section>
@@ -147,6 +171,70 @@ export function TeaGuideSection() {
                   </span>
                 </li>
               </ul>
+            </Stack>
+          </Surface>
+
+          <Surface elevation="sm" className="reveal-up rounded-2xl border p-6 md:p-8">
+            <Stack gap="md">
+              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                Put this guide into practice
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                Apply these principles while exploring our tea lineup. Compare flavor families in
+                the{" "}
+                <Link href="/products" className="text-primary hover:underline">
+                  {" "}
+                  products catalog
+                </Link>
+                , then review a focused set inside each
+                <Link href="/products/category/heritage" className="text-primary hover:underline">
+                  {" "}
+                  tea collection
+                </Link>
+                .
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                If you are building tea service for hospitality or retail, continue to
+                <Link href="/business/horeca" className="text-primary hover:underline">
+                  {" "}
+                  HORECA solutions
+                </Link>
+                or request a tailored quote through
+                <Link href="/business/contact" className="text-primary hover:underline">
+                  {" "}
+                  business contact
+                </Link>
+                .
+              </p>
+            </Stack>
+          </Surface>
+
+          <Surface
+            id="tea-guide-faq"
+            elevation="sm"
+            className="reveal-up scroll-mt-28 rounded-2xl border p-6 md:p-8"
+          >
+            <Stack gap="md">
+              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                Frequently Asked Questions
+              </h3>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={faq.question} className="border-border/70 rounded-xl border p-4">
+                    <p className="text-sm font-semibold tracking-tight">
+                      {index + 1}. {faq.question}
+                    </p>
+                    <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-right text-sm">
+                <Link href="#tea-guide-top" className="text-primary hover:underline">
+                  Back to top
+                </Link>
+              </p>
             </Stack>
           </Surface>
         </Stack>

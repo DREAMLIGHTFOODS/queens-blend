@@ -65,12 +65,12 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="bg-background relative w-full overflow-hidden py-24 md:py-32">
+    <section className="bg-background relative w-full overflow-hidden py-20 md:py-28">
       <div
         className="bg-secondary/20 absolute top-20 left-0 h-72 w-72 rounded-full blur-3xl"
         aria-hidden="true"
       />
-      <Container size="2xl">
+      <Container size="xl">
         <Stack gap="xl">
           {/* Section Header */}
           <div className="reveal-up grid gap-6 md:grid-cols-[1fr_auto] md:items-end">

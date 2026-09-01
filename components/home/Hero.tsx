@@ -15,6 +15,9 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/images/og/og-image.png"
+        disablePictureInPicture
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden="true"
       >

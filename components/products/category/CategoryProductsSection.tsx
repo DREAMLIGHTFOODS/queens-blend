@@ -10,19 +10,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  ArrowRight,
-  Flower2,
-  Flame,
-  Leaf,
-  Search,
-  Shield,
-  Sparkles,
-  X,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 
 import { Container } from "@/components/core/layout/Container";
 import { Section } from "@/components/core/layout/Section";
@@ -32,22 +22,99 @@ import { Surface } from "@/components/core/layout/Surface";
 import { Button } from "@/components/ui/button";
 import {
   CATALOG_FORMATS,
-  PRODUCT_CATEGORIES,
   TEA_COLLECTIONS,
+  type DiscoverableTeaProduct,
   filterTeaProducts,
   getDiscoverableProductCardImages,
   inferFormatFromQuery,
-  type ProductCategoryKey,
 } from "@/data/products";
 
-const categoryIcons: Record<ProductCategoryKey, LucideIcon> = {
-  green: Leaf,
-  black: Flame,
-  oolong: Sparkles,
-  white: Flower2,
-  herbal: Shield,
-  limited: Sparkles,
+type ProductCardProps = {
+  product: DiscoverableTeaProduct;
+  activeFormat?: string;
+  isPreviewActive: boolean;
+  staggerIndex: number;
+  onTogglePreview: (productId: string) => void;
 };
+
+const ProductCard = memo(function ProductCard({
+  product,
+  activeFormat,
+  isPreviewActive,
+  staggerIndex,
+  onTogglePreview,
+}: ProductCardProps) {
+  const cardImages = useMemo(
+    () => getDiscoverableProductCardImages(product, activeFormat),
+    [product, activeFormat],
+  );
+  const detailHref =
+    activeFormat && product.availability.includes(activeFormat)
+      ? `/products/${product.slug}?format=${encodeURIComponent(activeFormat)}`
+      : `/products/${product.slug}`;
+
+  return (
+    <Surface
+      elevation="sm"
+      className={`group border-border/70 reveal-up hover:border-primary/35 rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 stagger-${staggerIndex}`}
+    >
+      <Stack gap="md">
+        <div className="text-muted-foreground text-xs tracking-[0.16em] uppercase">
+          {product.categoryLabel}
+        </div>
+
+        <button
+          type="button"
+          className="border-border/70 relative block aspect-4/3 w-full overflow-hidden rounded-xl border text-left"
+          onClick={() => onTogglePreview(product.id)}
+          aria-label={`Toggle ${product.name} ingredient and product image`}
+        >
+          <Image
+            src={cardImages.ingredient}
+            alt={`${product.name} ingredient preview`}
+            fill
+            className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 group-hover:opacity-0 ${isPreviewActive ? "opacity-0" : "opacity-100"}`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          <Image
+            src={cardImages.product}
+            alt={`${product.name} product preview`}
+            fill
+            className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-100 group-hover:opacity-100 ${isPreviewActive ? "opacity-100" : "opacity-0"}`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+        </button>
+
+        <div>
+          <h3 className="text-xl font-semibold tracking-tight">{product.name}</h3>
+          <p className="text-muted-foreground mt-1 text-sm">{product.description}</p>
+        </div>
+
+        <div className="text-muted-foreground space-y-1 text-sm">
+          <p>
+            <span className="font-medium">Tasting notes:</span> {product.tastingNotes}
+          </p>
+          <p>
+            <span className="font-medium">Brew time:</span> {product.brewTime}
+          </p>
+        </div>
+
+        <div className="border-border flex items-center justify-between border-t pt-4">
+          <span className="text-muted-foreground text-xs">
+            {product.availability.length} formats
+          </span>
+          <Button asChild size="sm" variant="outline" className="rounded-full">
+            <Link href={detailHref} className="inline-flex items-center gap-2">
+              View Details
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </Link>
+          </Button>
+        </div>
+      </Stack>
+    </Surface>
+  );
+});
 
 export function CategoryProductsSection({
   initialQuery = "",
@@ -60,11 +127,15 @@ export function CategoryProductsSection({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const querySyncTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [query, setQuery] = useState(initialQuery);
   const [selectedFormat, setSelectedFormat] = useState(initialFormat);
   const [selectedCollection] = useState(initialCollection);
   const [activePreviewId, setActivePreviewId] = useState<string | null>(null);
+  const handlePreviewToggle = useCallback((productId: string) => {
+    setActivePreviewId((current) => (current === productId ? null : productId));
+  }, []);
 
   const inferredFormat = useMemo(() => inferFormatFromQuery(query), [query]);
   const activeFormat = selectedFormat !== "all" ? selectedFormat : inferredFormat;
@@ -108,12 +179,36 @@ export function CategoryProductsSection({
     }
 
     const queryString = params.toString();
-    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+    const nextUrl = queryString ? `${pathname}?${queryString}` : pathname;
+    if (typeof window !== "undefined") {
+      const currentUrl = `${window.location.pathname}${window.location.search}`;
+      if (nextUrl === currentUrl) {
+        return;
+      }
+    }
+
+    router.replace(nextUrl, { scroll: false });
+  };
+
+  const scheduleQueryUrlUpdate = (
+    nextQuery: string,
+    nextFormat: string,
+    nextCollection: string,
+    delay = 220,
+  ) => {
+    if (querySyncTimeoutRef.current) {
+      clearTimeout(querySyncTimeoutRef.current);
+    }
+
+    querySyncTimeoutRef.current = setTimeout(() => {
+      updateUrl(nextQuery, nextFormat, nextCollection);
+      querySyncTimeoutRef.current = null;
+    }, delay);
   };
 
   const handleQueryChange = (nextQuery: string) => {
     setQuery(nextQuery);
-    updateUrl(nextQuery, selectedFormat, selectedCollection);
+    scheduleQueryUrlUpdate(nextQuery, selectedFormat, selectedCollection);
   };
 
   const handleFormatChange = (nextFormat: string) => {
@@ -122,10 +217,22 @@ export function CategoryProductsSection({
   };
 
   const clearSearch = () => {
+    if (querySyncTimeoutRef.current) {
+      clearTimeout(querySyncTimeoutRef.current);
+      querySyncTimeoutRef.current = null;
+    }
     setQuery("");
     setSelectedFormat("all");
     updateUrl("", "all", selectedCollection);
   };
+
+  useEffect(() => {
+    return () => {
+      if (querySyncTimeoutRef.current) {
+        clearTimeout(querySyncTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <Section>
@@ -251,78 +358,15 @@ export function CategoryProductsSection({
           ) : (
             <Grid columns={3} gap="lg" minItemWidth="290px">
               {filteredProducts.map((product, index) => {
-                const cardImages = getDiscoverableProductCardImages(product, activeFormat);
-                const isPreviewActive = activePreviewId === product.id;
-                const detailHref =
-                  activeFormat && product.availability.includes(activeFormat)
-                    ? `/products/${product.slug}?format=${encodeURIComponent(activeFormat)}`
-                    : `/products/${product.slug}`;
-
                 return (
-                  <Surface
+                  <ProductCard
                     key={product.id}
-                    elevation="sm"
-                    className={`group border-border/70 reveal-up hover:border-primary/35 rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 stagger-${Math.min(index + 1, 6)}`}
-                  >
-                    <Stack gap="md">
-                      <div className="text-muted-foreground text-xs tracking-[0.16em] uppercase">
-                        {product.categoryLabel}
-                      </div>
-
-                      <button
-                        type="button"
-                        className="border-border/70 relative block aspect-4/3 w-full overflow-hidden rounded-xl border text-left"
-                        onClick={() =>
-                          setActivePreviewId((current) =>
-                            current === product.id ? null : product.id,
-                          )
-                        }
-                        aria-label={`Toggle ${product.name} ingredient and product image`}
-                      >
-                        <Image
-                          src={cardImages.ingredient}
-                          alt={`${product.name} ingredient preview`}
-                          fill
-                          className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 group-hover:opacity-0 ${isPreviewActive ? "opacity-0" : "opacity-100"}`}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <Image
-                          src={cardImages.product}
-                          alt={`${product.name} product preview`}
-                          fill
-                          className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-100 group-hover:opacity-100 ${isPreviewActive ? "opacity-100" : "opacity-0"}`}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
-                      </button>
-
-                      <div>
-                        <h3 className="text-xl font-semibold tracking-tight">{product.name}</h3>
-                        <p className="text-muted-foreground mt-1 text-sm">{product.description}</p>
-                      </div>
-
-                      <div className="text-muted-foreground space-y-1 text-sm">
-                        <p>
-                          <span className="font-medium">Tasting notes:</span> {product.tastingNotes}
-                        </p>
-                        <p>
-                          <span className="font-medium">Brew time:</span> {product.brewTime}
-                        </p>
-                      </div>
-
-                      <div className="border-border flex items-center justify-between border-t pt-4">
-                        <span className="text-muted-foreground text-xs">
-                          {product.availability.length} formats
-                        </span>
-                        <Button asChild size="sm" variant="outline" className="rounded-full">
-                          <Link href={detailHref} className="inline-flex items-center gap-2">
-                            View Details
-                            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </Stack>
-                  </Surface>
+                    product={product}
+                    activeFormat={activeFormat}
+                    isPreviewActive={activePreviewId === product.id}
+                    staggerIndex={Math.min(index + 1, 6)}
+                    onTogglePreview={handlePreviewToggle}
+                  />
                 );
               })}
             </Grid>

@@ -62,7 +62,7 @@ export function CTASection() {
   };
 
   return (
-    <section className="relative w-full py-24 md:py-32">
+    <section className="relative w-full py-20 md:py-28">
       <div
         className="bg-primary/15 absolute inset-0 mask-[radial-gradient(circle_at_center,black_42%,transparent_78%)]"
         aria-hidden="true"
