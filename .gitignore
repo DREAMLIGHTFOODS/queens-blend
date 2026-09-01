@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# generated performance reports
+/docs/reports/perf-snapshot.json
+
 # production
 /build
 

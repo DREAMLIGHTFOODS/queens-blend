@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/config/site";
 import { TeaGuideHero } from "@/components/tea-guide/TeaGuideHero";
-import { TeaGuideSection } from "@/components/tea-guide/TeaGuideSection";
+import { TeaGuideSection, teaGuideFaqItems } from "@/components/tea-guide/TeaGuideSection";
 
 export const metadata: Metadata = {
   title: "Tea Guide for Brewing, Tasting, and Service",
@@ -58,34 +58,6 @@ export const metadata: Metadata = {
 };
 
 export default function TeaGuidePage() {
-  const faqItems = [
-    {
-      question: "How long should I steep black tea?",
-      answer:
-        "Most black teas perform well between 3 to 5 minutes, depending on leaf style and desired strength.",
-    },
-    {
-      question: "Why does green tea taste bitter sometimes?",
-      answer:
-        "Bitterness usually comes from very hot water or over-steeping. Use cooler water and a shorter brew time.",
-    },
-    {
-      question: "Can premium tea be re-steeped?",
-      answer:
-        "Yes. Many whole-leaf teas can be steeped multiple times, with flavor changing gradually across infusions.",
-    },
-    {
-      question: "What is the best way to store tea?",
-      answer:
-        "Store tea in an airtight container away from heat, moisture, direct sunlight, and strong odors.",
-    },
-    {
-      question: "How can cafes maintain tea consistency during service?",
-      answer:
-        "Standardize water temperature, tea dose, steep time, and serving SOPs, then train staff with repeatable brew cards.",
-    },
-  ];
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -128,7 +100,7 @@ export default function TeaGuidePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: teaGuideFaqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

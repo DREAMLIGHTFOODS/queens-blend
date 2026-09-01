@@ -137,7 +137,10 @@ async function readBundleSnapshot() {
     totalBytes += stat.size;
     totalGzipBytes += gzBytes;
     details.push({
-      file: filePath.replace(PROJECT_ROOT + "\\", "").replace(/\\/g, "/"),
+      file: filePath
+        .replace(PROJECT_ROOT + "/", "")
+        .replace(PROJECT_ROOT + "\\", "")
+        .replace(/\\/g, "/"),
       rawKb: toKb(stat.size),
       gzipKb: toKb(gzBytes),
     });

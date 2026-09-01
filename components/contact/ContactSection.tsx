@@ -116,11 +116,11 @@ export function ContactSection() {
                 className="reveal-up stagger-3 border-border/80 relative overflow-hidden rounded-2xl border p-0"
               >
                 <div className="from-secondary/10 to-primary/5 pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-r opacity-80" />
-                <div className="relative h-full min-h-105">
+                <div className="relative h-full min-h-[26.25rem]">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d921.4034815258897!2d88.36480776951718!3d22.518663937573024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277006bb0c4fd%3A0xa04853c297749dd4!2sTHE%20QUEEN'S%20BLEND!5e0!3m2!1sen!2sin!4v1787916431859!5m2!1sen!2sin"
                     title="Queen's Blend location on Google Maps"
-                    className="h-full min-h-105 w-full border-0"
+                    className="h-full min-h-[26.25rem] w-full border-0"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"

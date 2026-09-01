@@ -35,7 +35,7 @@ jobs:
         run: npm run build
 
       - name: Run perf compare
-        run: npm run perf:compare
+        run: node scripts/perf-snapshot.mjs --compare-baseline --baseline=docs/reports/perf-baseline.json --max-total-js-growth-kb=20 --max-route-avg-regression-ms=80
 
       - name: Upload perf snapshot artifact
         if: always()
