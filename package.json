@@ -14,6 +14,7 @@
     "perf:baseline:update": "node scripts/perf-snapshot.mjs --build --update-baseline --require-clean-git --baseline=docs/reports/perf-baseline.json",
     "perf:compare": "node scripts/perf-snapshot.mjs --compare-baseline --baseline=docs/reports/perf-baseline.json --max-total-js-growth-kb=20 --max-route-avg-regression-ms=80",
     "validate:catalog-images": "node scripts/validate-catalog-images.mjs",
+    "validate:media-budgets": "node scripts/validate-media-budgets.mjs",
     "migrate:catalog-image-structure": "node scripts/migrate-product-image-structure.mjs",
     "optimize:videos": "node scripts/optimize-videos.mjs"
   },
