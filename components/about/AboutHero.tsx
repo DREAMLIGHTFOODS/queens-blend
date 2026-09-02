@@ -37,15 +37,16 @@ export function AboutHero() {
         speed={900}
         className="absolute inset-0 z-0 h-full w-full"
       >
-        {ABOUT_HERO_BANNERS.map((banner) => (
+        {ABOUT_HERO_BANNERS.map((banner, index) => (
           <SwiperSlide key={banner}>
             <div className="relative h-screen w-full">
               <Image
                 src={banner}
                 alt="Queen's Blend About banner"
                 fill
-                priority
-                sizes="100vw"
+                priority={index === 0}
+                quality={60}
+                sizes="(max-width: 768px) 100vw, 1920px"
                 className="object-cover"
               />
             </div>

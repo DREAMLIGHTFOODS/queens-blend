@@ -43,7 +43,9 @@ export function FeaturedProducts() {
               </p>
             </div>
             <Button asChild variant="outline" className="self-start rounded-full px-6 md:self-auto">
-              <Link href="/products">View All</Link>
+              <Link href="/products" prefetch={false}>
+                View All
+              </Link>
             </Button>
           </div>
 
@@ -74,16 +76,20 @@ export function FeaturedProducts() {
                       src={product.cardIngredientImage}
                       alt={`${product.name} ingredient preview`}
                       fill
-                      className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 group-hover:opacity-0 ${activePreviewId === product.id ? "opacity-0" : "opacity-100"}`}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={58}
+                      className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 ${activePreviewId === product.id ? "opacity-0" : "opacity-100"}`}
+                      sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 360px"
                     />
-                    <Image
-                      src={product.cardProductImage}
-                      alt={`${product.name} product preview`}
-                      fill
-                      className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-100 group-hover:scale-100 group-hover:opacity-100 ${activePreviewId === product.id ? "opacity-100" : "opacity-0"}`}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+                    {activePreviewId === product.id ? (
+                      <Image
+                        src={product.cardProductImage}
+                        alt={`${product.name} product preview`}
+                        fill
+                        quality={58}
+                        className="object-cover opacity-100 transition-all duration-500 ease-out group-focus-within:opacity-100"
+                        sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 360px"
+                      />
+                    ) : null}
                     <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
                   </button>
                 </div>
@@ -114,6 +120,7 @@ export function FeaturedProducts() {
                       <Button asChild size="sm" variant="outline" className="rounded-full">
                         <Link
                           href={`/products/${product.slug}`}
+                          prefetch={false}
                           className="inline-flex items-center gap-1"
                         >
                           Explore

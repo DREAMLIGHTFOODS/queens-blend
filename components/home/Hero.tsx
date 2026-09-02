@@ -38,7 +38,8 @@ export function Hero() {
         alt=""
         aria-hidden="true"
         fill
-        sizes="100vw"
+        quality={55}
+        sizes="(max-width: 768px) 100vw, 1920px"
         priority
         className={`pointer-events-none object-cover transition-opacity duration-500 ${
           isPlaying ? "opacity-0" : "opacity-100"
