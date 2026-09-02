@@ -55,6 +55,8 @@ type ProductCardProps = {
   activeFormat?: string;
   isPreviewActive: boolean;
   staggerIndex: number;
+  onPreviewStart: (productId: string) => void;
+  onPreviewEnd: (productId: string) => void;
   onTogglePreview: (productId: string) => void;
 };
 
@@ -63,6 +65,8 @@ const ProductCard = memo(function ProductCard({
   activeFormat,
   isPreviewActive,
   staggerIndex,
+  onPreviewStart,
+  onPreviewEnd,
   onTogglePreview,
 }: ProductCardProps) {
   const cardImages = useMemo(
@@ -87,6 +91,10 @@ const ProductCard = memo(function ProductCard({
         <button
           type="button"
           className="border-border/70 relative block aspect-4/3 w-full overflow-hidden rounded-xl border text-left"
+          onMouseEnter={() => onPreviewStart(product.id)}
+          onMouseLeave={() => onPreviewEnd(product.id)}
+          onFocus={() => onPreviewStart(product.id)}
+          onBlur={() => onPreviewEnd(product.id)}
           onClick={() => onTogglePreview(product.id)}
           aria-label={`Toggle ${product.name} ingredient and product image`}
         >
@@ -158,6 +166,12 @@ export function ProductsSection({
   const [selectedFormat, setSelectedFormat] = useState(initialFormat);
   const [selectedCollection] = useState(initialCollection);
   const [activePreviewId, setActivePreviewId] = useState<string | null>(null);
+  const handlePreviewStart = useCallback((productId: string) => {
+    setActivePreviewId(productId);
+  }, []);
+  const handlePreviewEnd = useCallback((productId: string) => {
+    setActivePreviewId((current) => (current === productId ? null : current));
+  }, []);
   const handlePreviewToggle = useCallback((productId: string) => {
     setActivePreviewId((current) => (current === productId ? null : productId));
   }, []);
@@ -390,6 +404,8 @@ export function ProductsSection({
                     activeFormat={activeFormat}
                     isPreviewActive={activePreviewId === product.id}
                     staggerIndex={Math.min(index + 1, 6)}
+                    onPreviewStart={handlePreviewStart}
+                    onPreviewEnd={handlePreviewEnd}
                     onTogglePreview={handlePreviewToggle}
                   />
                 );

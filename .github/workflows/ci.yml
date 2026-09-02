@@ -31,6 +31,9 @@ jobs:
       - name: Run typecheck
         run: npm run typecheck
 
+      - name: Validate media budgets
+        run: npm run validate:media-budgets
+
       - name: Run production build
         run: npm run build
 

@@ -67,6 +67,14 @@ export function FeaturedProducts() {
                   <button
                     type="button"
                     className="border-border/70 relative block aspect-4/3 w-full overflow-hidden rounded-xl border text-left"
+                    onMouseEnter={() => setActivePreviewId(product.id)}
+                    onMouseLeave={() =>
+                      setActivePreviewId((current) => (current === product.id ? null : current))
+                    }
+                    onFocus={() => setActivePreviewId(product.id)}
+                    onBlur={() =>
+                      setActivePreviewId((current) => (current === product.id ? null : current))
+                    }
                     onClick={() =>
                       setActivePreviewId((current) => (current === product.id ? null : product.id))
                     }
