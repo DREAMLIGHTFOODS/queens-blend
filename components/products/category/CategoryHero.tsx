@@ -19,7 +19,7 @@ type HeroCategory = {
   video: string;
 };
 
-const HERO_VIDEO_FALLBACK = "/videos/Queen's blend Banner Video.mp4";
+const HERO_VIDEO_FALLBACK = "/videos/hero-banner.mp4";
 
 const HERO_CATEGORIES: HeroCategory[] = TEA_COLLECTIONS.map((collection) => ({
   id: collection.id,
