@@ -17,9 +17,9 @@ type HeroCategory = {
 };
 
 const HERO_CATEGORIES: HeroCategory[] = [
-  { name: "Wellbeing", video: "/videos/Queen's blend Banner Video.mp4" },
-  { name: "Immunity", video: "/videos/Queen's blend Banner Video.mp4" },
-  { name: "Cleansing", video: "/videos/Queen's blend Banner Video.mp4" },
+  { name: "Wellbeing", video: "/videos/hero-banner.mp4" },
+  { name: "Immunity", video: "/videos/hero-banner.mp4" },
+  { name: "Cleansing", video: "/videos/hero-banner.mp4" },
 ];
 
 const HERO_GHOST_LABEL = "Immunity";
