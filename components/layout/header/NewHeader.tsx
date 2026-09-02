@@ -99,7 +99,6 @@ export function NewHeader() {
               width={160}
               height={160}
               className="absolute top-0 left-0 h-40 w-40 max-w-none object-contain"
-              priority
             />
           </Link>
 
@@ -128,6 +127,7 @@ export function NewHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                       isNavItemActive(item.href)
                         ? "bg-primary/10 text-primary"
@@ -174,6 +174,7 @@ export function NewHeader() {
                 >
                   <Link
                     href={NEW_ALL_PRODUCTS_LINK.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
                       pathname === NEW_ALL_PRODUCTS_LINK.href
                         ? "bg-primary/10 text-primary"
@@ -209,6 +210,7 @@ export function NewHeader() {
                         <Link
                           key={category.id}
                           href={category.href}
+                          prefetch={false}
                           className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
                             activeCollectionId === category.id
                               ? "bg-primary/10 text-primary"
@@ -250,6 +252,7 @@ export function NewHeader() {
                 >
                   <Link
                     href={NEW_ALL_BUSINESS_LINK.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
                       pathname === NEW_ALL_BUSINESS_LINK.href
                         ? "bg-primary/10 text-primary"
@@ -264,6 +267,7 @@ export function NewHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={false}
                       className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:outline-none ${
                         pathname === item.href ? "bg-primary/10 text-primary" : "hover:bg-muted"
                       }`}
@@ -279,6 +283,7 @@ export function NewHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                       isNavItemActive(item.href)
                         ? "bg-primary/10 text-primary"
@@ -304,6 +309,7 @@ export function NewHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  prefetch={false}
                   className={`focus-visible:ring-ring block rounded-lg px-3 py-3 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                     isNavItemActive(item.href) ? "bg-primary/10 text-primary" : "hover:bg-muted"
                   }`}
@@ -334,6 +340,7 @@ export function NewHeader() {
                 <div className="mt-1 ml-3 space-y-1 border-l pl-3">
                   <Link
                     href={NEW_ALL_PRODUCTS_LINK.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                       pathname === NEW_ALL_PRODUCTS_LINK.href
                         ? "bg-primary/10 text-primary"
@@ -365,6 +372,7 @@ export function NewHeader() {
                         <Link
                           key={category.id}
                           href={category.href}
+                          prefetch={false}
                           className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                             activeCollectionId === category.id
                               ? "bg-primary/10 text-primary"
@@ -401,6 +409,7 @@ export function NewHeader() {
                 <div className="mt-1 ml-3 space-y-1 border-l pl-3">
                   <Link
                     href={NEW_ALL_BUSINESS_LINK.href}
+                    prefetch={false}
                     className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                       pathname === NEW_ALL_BUSINESS_LINK.href
                         ? "bg-primary/10 text-primary"
@@ -415,6 +424,7 @@ export function NewHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={false}
                       className={`focus-visible:ring-ring block rounded-lg px-3 py-2 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                         pathname === item.href ? "bg-primary/10 text-primary" : "hover:bg-muted"
                       }`}
@@ -431,6 +441,7 @@ export function NewHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  prefetch={false}
                   className={`focus-visible:ring-ring block rounded-lg px-3 py-3 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                     isNavItemActive(item.href) ? "bg-primary/10 text-primary" : "hover:bg-muted"
                   }`}

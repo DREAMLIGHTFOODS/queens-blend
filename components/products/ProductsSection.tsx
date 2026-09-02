@@ -94,16 +94,20 @@ const ProductCard = memo(function ProductCard({
             src={cardImages.ingredient}
             alt={`${product.name} ingredient preview`}
             fill
-            className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 group-hover:opacity-0 ${isPreviewActive ? "opacity-0" : "opacity-100"}`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={58}
+            className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-0 group-hover:scale-105 ${isPreviewActive ? "opacity-0" : "opacity-100"}`}
+            sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 360px"
           />
-          <Image
-            src={cardImages.product}
-            alt={`${product.name} product preview`}
-            fill
-            className={`object-cover transition-all duration-500 ease-out group-focus-within:opacity-100 group-hover:opacity-100 ${isPreviewActive ? "opacity-100" : "opacity-0"}`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          {isPreviewActive ? (
+            <Image
+              src={cardImages.product}
+              alt={`${product.name} product preview`}
+              fill
+              quality={58}
+              className="object-cover opacity-100 transition-all duration-500 ease-out group-focus-within:opacity-100"
+              sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 360px"
+            />
+          ) : null}
           <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
         </button>
 
@@ -126,7 +130,7 @@ const ProductCard = memo(function ProductCard({
             {product.availability.length} formats
           </span>
           <Button asChild size="sm" variant="outline" className="rounded-full">
-            <Link href={detailHref} className="inline-flex items-center gap-2">
+            <Link href={detailHref} prefetch={false} className="inline-flex items-center gap-2">
               View Details
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
@@ -410,7 +414,7 @@ export function ProductsSection({
               </div>
 
               <Button asChild size="lg" className="rounded-full px-7">
-                <Link href="/contact" className="inline-flex items-center gap-2">
+                <Link href="/contact" prefetch={false} className="inline-flex items-center gap-2">
                   Get Recommendations
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
