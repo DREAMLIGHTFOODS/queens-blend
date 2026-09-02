@@ -22,8 +22,7 @@ export function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
-        poster="/images/og/og-image.png"
+        preload="metadata"
         disablePictureInPicture
         onPlaying={() => setIsPlaying(true)}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${

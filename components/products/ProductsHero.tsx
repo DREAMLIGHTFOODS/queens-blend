@@ -16,10 +16,12 @@ type HeroCategory = {
   video: string;
 };
 
+const HERO_VIDEO_PATH = "/videos/hero-banner.mp4";
+
 const HERO_CATEGORIES: HeroCategory[] = [
-  { name: "Wellbeing", video: "/videos/hero-banner.mp4" },
-  { name: "Immunity", video: "/videos/hero-banner.mp4" },
-  { name: "Cleansing", video: "/videos/hero-banner.mp4" },
+  { name: "Wellbeing", video: HERO_VIDEO_PATH },
+  { name: "Immunity", video: HERO_VIDEO_PATH },
+  { name: "Cleansing", video: HERO_VIDEO_PATH },
 ];
 
 const HERO_GHOST_LABEL = "Immunity";
